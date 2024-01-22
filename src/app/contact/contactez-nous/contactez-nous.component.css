@@ -1,0 +1,30 @@
+.bannerContact img{
+  width: 100%;
+}
+.Messageri{
+  margin-top: 40px;
+}
+.FormContact{
+  margin-left: 30%;
+  margin-top: 20px;
+}
+.FormContact input{
+width: 50%;
+height: 40px;
+
+}
+.FormContact textarea{
+  width: 50%;
+}
+.FormContact button{
+  font-weight: bold;
+}
+.envoyer-button:hover{
+color: red;
+}
+.error-message {
+  color: red;
+  margin-top: 5px;
+  font-size: 12px;
+}
+

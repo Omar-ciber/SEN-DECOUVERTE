@@ -1,0 +1,35 @@
+.bannierEX img{
+width: 100%;
+background-size: cover;
+filter: blur(1px);
+}
+.paginationExp ul{
+  display: flex;
+  justify-content: center;
+}
+.Motbienv{
+  text-align: center;
+}
+.card {
+  width: 100%;
+  background-color: #ec971f;
+  border-radius: 20px;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+}
+.card img {
+  border-radius: 5px;
+}
+.card-titlePP{
+  color: white;
+  margin-top: 20px;
+}
+.cardExplo{
+  padding: 50px;
+}
+.card-textP{
+  text-align: center;
+  margin-top: 20px;
+  color: white;
+}
+/* animation text  */
+
