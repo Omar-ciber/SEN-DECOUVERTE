@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./header-component.component.css']
 })
 export class HeaderComponentComponent {
+  
 
 }

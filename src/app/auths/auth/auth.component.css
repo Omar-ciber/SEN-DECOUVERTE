@@ -13,12 +13,39 @@ body {
   overflow-x: hidden;
 }
 /* authentifiction */
+.sectionbody{
+  background-color: #1f2029;
+}
 .authentification{
   display: flex;
   justify-content: center;
   margin-top: 100px;
 }
-
+.Connexion{
+  background-color: white;
+  border-radius: 20px;
+}
+.Connexion2{
+  margin-top: 20px;
+  background-color: white;
+  height: 30px;
+  width: 150px;
+  border-radius: 20px;
+  text-align:center;
+}
+.Soumtt{
+  background-color: white;
+  margin-top: 20px;
+  width: 150px;
+  height: 30px;
+  border-radius: 20px;
+}
+.boutonR i{
+  margin-top: 10px;
+  color: white;
+  font-weight: bold;
+  padding: 10px;
+}
 .Motpass{
   margin-top: 20px;
 }

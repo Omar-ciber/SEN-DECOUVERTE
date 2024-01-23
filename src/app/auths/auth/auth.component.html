@@ -1,10 +1,14 @@
 <!-- <p>auth works!</p> -->
+
   <div class="sectionbody">
+    <a class="boutonR" routerLink="/accueil">
+      <i [class]="arrowIconClass"></i> Retour à l'accueil
+    </a>
     <div class="authentification">
       <div class="row full-height justify-content-center">
         <div class="col-12 text-center align-self-center py-5">
           <div class="section pb-5 pt-5 pt-sm-2 text-center">
-            <h6 class="mb-0 pb-3"><span>Se connecter </span><span>S'inscrire</span></h6>
+            <h1 class="mb-0 pb-6 fs-1"><span>Se connecter </span><span>S'inscrire</span></h1>
             <input class="checkbox" type="checkbox" id="reg-log" name="reg-log" />
             <label for="reg-log"></label>
             <div class="card-3d-wrap mx-auto">
@@ -23,7 +27,7 @@
                           autocomplete="off">
                         <i class="input-icon uil uil-lock-alt"></i>
                       </div>
-                      <a href="#" class="btn mt-6">connecter</a>
+                      <a href="#" class="Connexion2 text-center">connecter</a>
                       <p class="Motpass"><a href="#0" class="link">Mot de pass oublier?</a></p>
                     </div>
                   </div>
@@ -31,7 +35,7 @@
                 <div class="card-back">
                   <div class="center-wrap">
                     <div class="section text-center">
-                      <h4 class="mb-4 pb-3">S'inscrire</h4>
+                      <h1 class="mb-4 pb-3 fs-1 bg-danger border_all">S'inscrire</h1>
                       <div class="form-group">
                         <input type="text" name="logname" class="form-style" placeholder="Nom et Prenom" id="logname"
                           autocomplete="off">
@@ -47,7 +51,7 @@
                           autocomplete="off">
                         <i class="input-icon uil uil-lock-alt"></i>
                       </div>
-                      <a href="#" class="btn mt-4">Soumettre</a>
+                      <a href="#" class="Soumtt">Soumettre</a>
                     </div>
                   </div>
                 </div>
