@@ -4,75 +4,39 @@
   <img src="https://www.boostforweb.com/wp-content/uploads/2021/10/contact.jpg" alt="">
 </div>
 <div class="Messageri text-center ">
-  <h3>N'hésitez pas à nous contacter </h3>
+  <h1>N'hésitez pas à nous contacter </h1>
 </div>
-
-  <form class="FormContact" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-    <label for="nom">Nom :</label> <br>
-    <input type="text" id="nom" formControlName="nom"><br>
-
-    <label for="prenom">Prénom :</label> <br>
-    <input type="text" id="prenom" formControlName="prenom"><br>
-
-    <label for="telephone">Numéro de téléphone :</label> <br>
-    <input type="tel" id="telephone" formControlName="telephone"><br>
-
-    <label for="email">Adresse e-mail :</label> <br>
-    <input type="email" id="email" formControlName="email"><br>
-
-    <label for="message">Message :</label> <br>
-    <textarea id="message" formControlName="message" rows="4"></textarea><br>
-
-    <button type="submit" [disabled]="!contactForm.valid" class="envoyer-button">Envoyer</button><br>
-  </form>
-  &nbsp;
+  <div class="containerContact">
+    <form class="FormContact" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <label for="nom fs-1">Nom :</label> <br>
+      <input type="text" id="nom"[placeholder]="['Nom']" formControlName="nom"><br>
+        <br>
+      <label for="prenom">Prénom :</label> <br>
+      <input type="text" id="prenom"[placeholder]="['Prénom']" formControlName="prenom"><br>
+     <br>
+      <label for="telephone">Numéro de téléphone :</label> <br>
+      <input type="tel" id="telephone"[placeholder]="['telephone']" formControlName="telephone"><br>
+    <br>
+      <label for="email">Adresse e-mail :</label> <br>
+      <input type="email" id="email"[placeholder]="['Adresse mail']" formControlName="email"><br>
+     <br>
+      <label for="message fs-1">Message :</label> <br>
+      <textarea id="message"[placeholder]="['Message']" formControlName="message" rows="4"></textarea><br>
+      <br>
+      <button class="btn btn-danger">Envoyer</button><br>
+    </form>
+    <div class="imagecontact">
+      <img src="" alt="">
+    </div>
+    &nbsp;
+  </div>
+  <h1 class="text-center">Nos coordonnées</h1>
+  <div class="piedPagecontact">
+    <img src="assets/pied-contact.png" alt="">
+  </div>
 <!-- footer contact -->
   <app-footer></app-footer>
 
 
 
-
-  <!-- <section class="contact_section layout_padding">
-    <div class="contact_bg_box">
-      <div class="img-box">
-        <img src="images/contact-bg.jpg" alt="">
-      </div>
-    </div>
-    <div class="containerContact">
-      <div class="heading_container ">
-        <h2 class="text-center">
-          Entrer En Contact
-        </h2>
-      </div>
-      <div class="">
-        <div class="row">
-          <div class="col-md-7 mx-auto">
-            <form action="#">
-              <div class="contact_form-container">
-                <div>
-                  <div>
-                    <input type="text" placeholder="Nom Prenom" />
-                  </div>
-                  <div>
-                    <input type="email" placeholder="Email " />
-                  </div>
-                  <div>
-                    <input type="text" placeholder="Numero de telephone" />
-                  </div>
-                  <div class="Mess">
-                    <input type="text" placeholder="Message" class="message_input" />
-                  </div>
-                  <div class=" btn-box text-center mb-4 ">
-                    <button type="submit">
-                      Envoyer
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
 

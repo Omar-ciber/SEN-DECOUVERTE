@@ -1,0 +1,36 @@
+
+.listeZon{
+background-color: #18283B;
+justify-content: center;
+text-align: center;
+height: 50px;
+width: 67%;
+margin-left: 20%;
+margin-top: 50px;
+}
+.listeZon h2{
+color: white;
+display: flex;
+height: 100%;
+align-items: center;
+justify-content: center;
+
+/* border: 1px solid red; */
+
+}
+/* table liste */
+.datetable{
+  padding: 200px;
+  margin-left: 100px;
+  margin-top: -190px;
+}
+.titleListe{
+  background-color: #18283B;
+
+}
+.titleListe th{
+  color: white;
+}
+.Souscategorie td {
+  color: black;
+}

@@ -1,0 +1,49 @@
+
+
+.dropdown {
+  position: relative;
+}
+.nav-button{
+  color: white;
+}
+.Admindash{
+  background-color: white;
+  display: flex;
+  width: 90%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  color: #024E69;
+  border-radius: 10px;
+  font-weight: bold;
+}
+.bi bi-speedometer2{
+  color: #024E69;
+  font-weight: bold;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+
+}
+
+.dropdown-content a {
+  padding: 12px 16px;
+  display: block;
+  text-decoration: none;
+  color: #333;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+.btn{
+  margin-top: 100px;
+  margin-right: 100px;
+}

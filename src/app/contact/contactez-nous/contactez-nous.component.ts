@@ -31,7 +31,7 @@ export class ContactezNousComponent {
         alert('Envoi de message annulé.');
       }
     } else {
-     alert('Veuillez remplir tous les champs correctement.');
+     alert('Veuillez renseigner les champs s\'il vous plait');
     }
   }
 }
