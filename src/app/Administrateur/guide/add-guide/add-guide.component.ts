@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, TemplateRef } from '@angular/core';
 
 @Component({
   selector: 'app-add-guide',
@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./add-guide.component.css']
 })
 export class AddGuideComponent {
+open(_t2: TemplateRef<any>) {
+throw new Error('Method not implemented.');
+}
 
 }

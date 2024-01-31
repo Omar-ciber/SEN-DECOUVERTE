@@ -22,17 +22,18 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-// import { EditZoneComponent } from './Administrateur/Zone/edit-zone/edit-zone.component';
+
 import { GuideComponent } from './Administrateur/guide/guide.component';
 import { AddGuideComponent } from './Administrateur/guide/add-guide/add-guide.component';
-// import { ListeGuideComponent } from './Administrateur/guide/liste-guide/liste-guide.component';
+
 import { ReservationComponent } from './Administrateur/reservation/reservation.component';
 import { MessagerieComponent } from './Administrateur/messagerie/messagerie.component';
 import { AddZoneComponent } from './Administrateur/zone/add-zone/add-zone.component';
 import { ListerZoneComponent } from './Administrateur/zone/lister-zone/lister-zone.component';
 import { DataTablesModule } from 'angular-datatables';
-// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-// import { EditZoneComponent } from './Administrateur/zone/edit-zone/edit-zone.component';
+import { NavbarComponent } from './Administrateur/navbar/navbar.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthService } from './services/login.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -55,7 +56,8 @@ import { DataTablesModule } from 'angular-datatables';
     MessagerieComponent,
     AddZoneComponent,
     ListerZoneComponent,
-
+    NavbarComponent,
+  
 
   ],
   imports: [
@@ -68,6 +70,7 @@ import { DataTablesModule } from 'angular-datatables';
     MatNativeDateModule,
     MatDatepickerModule,
     DataTablesModule,
+    NgbModule,
 
 
 

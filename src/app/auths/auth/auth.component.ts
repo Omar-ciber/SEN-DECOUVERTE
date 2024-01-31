@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AuthComponent {
 
-   arrowIconClass: string = 'fa fa-arrow-left'; 
+
+   arrowIconClass: string = 'fa fa-arrow-left';
 }
 
 

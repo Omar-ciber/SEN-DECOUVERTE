@@ -13,6 +13,9 @@ import { AdminComponent } from './Administrateur/admin/admin.component';
 import { SidebarComponent } from './Administrateur/sidebar/sidebar.component';
 import { ListerZoneComponent } from './Administrateur/zone/lister-zone/lister-zone.component';
 import { ListeGuideComponent } from './Administrateur/guide/liste-guide/liste-guide.component';
+import { NavbarComponent } from './Administrateur/navbar/navbar.component';
+import { LoginComponent } from './auths/login/login.component';
+import { AddGuideComponent } from './Administrateur/guide/add-guide/add-guide.component';
 // import { ListeZoneComponent } from './Administrateur/Zone/liste-zone/liste-zone.component';
 const routes: Routes = [
   { path:'',redirectTo:'accueil',pathMatch:'full' },
@@ -27,7 +30,11 @@ const routes: Routes = [
   { path:'admin', component:AdminComponent},
   { path:'sidebar', component:SidebarComponent},
   { path: 'lister-zone', component: ListerZoneComponent },
-  {path:'liste-guide',component:ListeGuideComponent},
+  { path: 'liste-guide', component: ListeGuideComponent },
+  { path: 'navbar', component: NavbarComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'add-guide', component: AddGuideComponent }
+  
 ];
 
 @NgModule({

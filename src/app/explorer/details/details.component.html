@@ -14,8 +14,7 @@
           <p class="fs-3 font-weight-500">Créé en 1954, le Parc national du Niokolo-Koba (PNNK) est situé à 650 km à l’est de Dakar dans la région de Tambacounda.
           Avec près d’un million d’hectares d’une nature incroyablement riche, entre forêts-galeries, grandes plaines humides,
           savane arborée, collines rocheuses, rives abruptes, bambouseraies géantes ou forêt tropicale à perte de vue, le Parc est
-          classé au patrimoine mondial de l’Unesco. En son cœur coulent plusieurs rivières dont le mythique fleuve Gambie qui
-          offre à cet environnement unique un foisonnement de vie.</p>
+          classé au patrimoine mondial de l’Unesco. </p>
         </div>
         <div class="timeline-box one-of-two">
           <img class="mb-1-6 rounded" src="https://www.senegal-original.com/uploads/sites/22/2018/06/niokolo-koba-1.jpeg" alt="...">
@@ -142,37 +141,47 @@
 </div>
 <!-- fin section  guides -->
 <!-- section reservaton -->
-<div class="Reservtion">
-  <h3 class="text-center mt-6">Faites votre servation</h3>
-  <div class="">
-    <input type="text"
-      class="relative bg-gray-50ring-0 outline-none border border-neutral-500 text-neutral-900 placeholder-violet-700 text-sm rounded-lg focus:ring-violet-500  focus:border-violet-500 block w-64 p-2.5 checked:bg-emerald-500"
-      placeholder="Adress mail...">
+<div class="reservation">
+  <div class="titlereservation">
+    <h3>Faites votre reservation</h3>
   </div>
-  <br>
-  <div class="premierchamps">
-    <div class="bg-white p-4 rounded-lg max-w-[350px]">
-      <label class="text-gray-600 ">
-        Nombre de personne
-      </label>
-      <div class="relative mt-2  text-gray-500">
-        <div class="absolute inset-y-0 left-3 my-auto h-6 flex items-center border-r pr-2">
-          <select class="text-sm  outline-none rounded-lg h-full">
-            <option>Adulte</option>
-            <option>Enfant</option>
-            <option>Enfant</option>
-          </select>
-        </div>
-        <input type="number" placeholder="+1 "
-          class="w-full pl-[4.5rem] pr-3 py-2 appearance-none bg-transparent outline-none border focus:border-slate-600 shadow-sm rounded-lg">
-      </div>
-    </div>
-
+  <div class="email-input">
+    <label for="email">Adresse e-mail :</label>
+    <input type="email" id="email" name="email" placeholder="Entrez votre adresse e-mail" required><br>
+  </div>
+  <div class="person-selector">
+  <label for="selectedPerson">Choisissez votre guide:</label>
+  <select id="selectedPerson" name="selectedPerson">
+    <option value="john-doe">... </option>
+    <option value="john-doe">Salem M mouhamed </option>
+    <option value="jane-doe">Andre D Ndione</option>
+    <option value="alice-smith">Assane Diop </option>
+    <option value="alice-smith">Amadem Fall</option>
+  </select> <br>
+</div>
+<div class="date-input">
+  <label for="startDate">Date et heure de début :</label>
+  <input type="datetime-local" id="startDate" name="startDate" required>
+</div>
+<div class="date-input">
+  <label for="endDate">Date et heure de fin :</label>
+  <input type="datetime-local" id="endDate" name="endDate" required>
+</div>
+<div class="zone-checkbox">
+  <input type="checkbox" id="zone" name="zone">
+  <label for="zone">Zone</label>
+</div>
+<div class="mesBoutons">
+  <div class="submit-button ">
+    <button type="submit">Valider</button>
+  </div>
+  <div class="annuler-bouton">
+    <button type="button" >Annuler</button>
   </div>
 </div>
-<!-- fin -->
+</div>
 
-<!-- reservation -->
+<!-- fin -->
 
 <!-- footer -->
 <app-footer></app-footer>
