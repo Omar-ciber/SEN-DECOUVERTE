@@ -6,9 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./lister-zone.component.css']
 })
 export class ListerZoneComponent implements OnInit {
-
   dtOptions: DataTables.Settings = {};
-
   ngOnInit(): void {
     this.dtOptions = {
       searching: true,
@@ -20,4 +18,5 @@ export class ListerZoneComponent implements OnInit {
       }
     };
   }
+
 }

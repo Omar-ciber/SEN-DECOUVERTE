@@ -1,12 +1,15 @@
-<app-header-component></app-header-component>
+<!-- <app-header-component></app-header-component> -->
 <!-- <p>contactez-nous works!</p> -->
-<div class="bannerContact">
+<!-- <div class="bannerContact">
   <img src="https://www.boostforweb.com/wp-content/uploads/2021/10/contact.jpg" alt="">
-</div>
+</div> -->
 <div class="Messageri text-center ">
   <h1>N'hésitez pas à nous contacter </h1>
 </div>
-  <div class="containerContact">
+  <div class="FormulaireContact">
+    <div class="ImagcotContact">
+      <img src="https://media.istockphoto.com/id/1311429902/sv/foto/onlinebetalningar-glad-svart-dam-med-smartphone-och-kreditkort-i-k%C3%B6ket.jpg?s=612x612&w=0&k=20&c=09kHfD-GeqynsI-xu-TW0njlqiAPe-h5O75td1gxI0g=" alt="">
+    </div>
     <form class="FormContact" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
       <label for="nom fs-1">Nom :</label> <br>
       <input type="text" id="nom"[placeholder]="['Nom']" formControlName="nom"><br>

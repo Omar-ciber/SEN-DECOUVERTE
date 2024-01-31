@@ -15,6 +15,7 @@ filter: blur(1px);
   background-color: #ec971f;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+
 }
 .card img {
   border-radius: 5px;
@@ -32,8 +33,16 @@ filter: blur(1px);
   color: white;
 }
 .single-explore-item{
-  /* border: 1px solid red; */
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+  max-height: 600px;
+  min-height: 600px;
+
+}
+.single-explore-img img{
+  max-width: 500px;
+  min-width: 500px;
+  max-height: 300px;
+  min-height: 300px;
 }
 /* animation text  */
 

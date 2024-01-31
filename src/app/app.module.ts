@@ -31,6 +31,7 @@ import { MessagerieComponent } from './Administrateur/messagerie/messagerie.comp
 import { AddZoneComponent } from './Administrateur/zone/add-zone/add-zone.component';
 import { ListerZoneComponent } from './Administrateur/zone/lister-zone/lister-zone.component';
 import { DataTablesModule } from 'angular-datatables';
+// import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 // import { EditZoneComponent } from './Administrateur/zone/edit-zone/edit-zone.component';
 @NgModule({
   declarations: [
@@ -66,7 +67,9 @@ import { DataTablesModule } from 'angular-datatables';
     MatInputModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    DataTablesModule
+    DataTablesModule,
+
+
 
 
   ],

@@ -12,6 +12,7 @@ import { DetailsComponent } from './explorer/details/details.component';
 import { AdminComponent } from './Administrateur/admin/admin.component';
 import { SidebarComponent } from './Administrateur/sidebar/sidebar.component';
 import { ListerZoneComponent } from './Administrateur/zone/lister-zone/lister-zone.component';
+import { ListeGuideComponent } from './Administrateur/guide/liste-guide/liste-guide.component';
 // import { ListeZoneComponent } from './Administrateur/Zone/liste-zone/liste-zone.component';
 const routes: Routes = [
   { path:'',redirectTo:'accueil',pathMatch:'full' },
@@ -25,7 +26,8 @@ const routes: Routes = [
   { path:'details', component:DetailsComponent},
   { path:'admin', component:AdminComponent},
   { path:'sidebar', component:SidebarComponent},
-  { path:'lister-zone', component:ListerZoneComponent}
+  { path: 'lister-zone', component: ListerZoneComponent },
+  {path:'liste-guide',component:ListeGuideComponent},
 ];
 
 @NgModule({

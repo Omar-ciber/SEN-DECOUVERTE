@@ -8,16 +8,16 @@
     <hr />
   </div>
   <div id="nav-content">
-    <div class="nav-button"><span class="Admindash"><i class="bi bi-speedometer2"></i>&nbsp;Dashboard Amin</span>
+    <div class="nav-button" [routerLink]="['/admin']"><span class="Admindash"><i class="bi bi-speedometer2"></i>&nbsp;Dashboard Amin</span>
     </div>
-    <div class="nav-button"><i class="fas fa-thumbtack"></i><span>Zone Touristique</span></div>
+    <div class="nav-button" [routerLink]="['/lister-zone']"><span><i class="bi bi-geo-alt-fill"></i>&nbsp;Zone Touristique</span></div>
     <div class="nav-button"><i class="fas fa-thumbtack"></i><span>Guide Touristique</span></div>
     <hr />
     <div class="nav-button"><i class="fas fa-heart"></i><span>Messagerie</span></div>
     <div class="nav-button"><i class="fas fa-chart-line"></i><span>Réservation</span></div>
     <hr />
     <div id="nav-content-highlight"></div>
-    <button type="button" class="btn btn-danger">Déconnexion</button>
+    <button type="button" class="btn btn-danger" [routerLink]="['/auth']">Déconnexion</button>
   </div>
 <div>
 </div>
