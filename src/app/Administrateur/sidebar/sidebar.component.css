@@ -20,7 +20,7 @@
 .bi bi-speedometer2{
   color: #024E69;
   font-weight: bold;
-  
+
 }
 
 
@@ -47,4 +47,7 @@
 .btn{
   margin-top: 100px;
   margin-right: 100px;
+}
+#nav-header img{
+ max-width: 100px;
 }

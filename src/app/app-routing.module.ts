@@ -18,23 +18,24 @@ import { LoginComponent } from './auths/login/login.component';
 import { AddGuideComponent } from './Administrateur/guide/add-guide/add-guide.component';
 // import { ListeZoneComponent } from './Administrateur/Zone/liste-zone/liste-zone.component';
 const routes: Routes = [
-  { path:'',redirectTo:'accueil',pathMatch:'full' },
-  { path:'accueil',component: AccueilComponent},
-  { path:'explorer',component: ExplorerComponent },
+  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+  { path: 'accueil', component: AccueilComponent },
+  { path: 'explorer', component: ExplorerComponent },
   { path: 'apropos', component: AproposComponent },
-  { path:'contactez-nous', component:ContactezNousComponent },
-  { path:'conditions', component:UtilisationComponent},
-  { path:'confidentialite', component:ConfidentialiteComponent},
-  { path: 'auth', component:AuthComponent},
-  { path:'details', component:DetailsComponent},
-  { path:'admin', component:AdminComponent},
-  { path:'sidebar', component:SidebarComponent},
+  { path: 'contactez-nous', component: ContactezNousComponent },
+  { path: 'conditions', component: UtilisationComponent },
+  { path: 'confidentialite', component: ConfidentialiteComponent },
+  { path: 'auth', component: AuthComponent },
+  { path: 'details', component: DetailsComponent },
+  { path: 'admin', component: AdminComponent },
+  { path: 'sidebar', component: SidebarComponent },
   { path: 'lister-zone', component: ListerZoneComponent },
   { path: 'liste-guide', component: ListeGuideComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'add-guide', component: AddGuideComponent }
-  
+  { path: 'add-guide', component: AddGuideComponent },
+
+
 ];
 
 @NgModule({

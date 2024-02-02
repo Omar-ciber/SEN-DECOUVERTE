@@ -1,7 +1,10 @@
-.container {
+.containerAdmin {
   margin-top: 100px;
   /* border: 1px solid red; */
   margin-left: 21%;
+}
+.row{
+  max-height: 130px;
 }
 
 .counter-box {
@@ -9,9 +12,8 @@
   display: block;
   /* background: #f6f6f6; */
   padding: 40px 20px 37px;
-  text-align: center
-
-
+  text-align: center;
+  max-height: 130px;
 }
 
 .counter-box p {
@@ -24,8 +26,10 @@
 
 .counter-box i {
   font-size: 60px;
-  margin: 0 0 15px;
-  color: #909090
+  margin-top: -50px;
+  color: #909090;
+  /* border: 1px solid red; */
+
 }
 
 .counter {
@@ -33,7 +37,8 @@
   font-size: 32px;
   font-weight: 700;
   color: #909090;
-  line-height: 28px
+  line-height: 28px;
+  margin-top: 5px;
 }
 
 .counter-box.colored p{

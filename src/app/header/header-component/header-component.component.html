@@ -1,46 +1,11 @@
-<!-- <p>header-component works!</p> -->
-  <!-- <header id="header-top" class="header-top">
-    <ul>
-      <li>
-        <div class="header-top-left">
-          <ul>
-         <li class="select-opt">
-              <select name="language" id="language">
-                <option value="default">FR</option>
-                <option value="Bangla">BN</option>
-                <option value="Arabic">AB</option>
-              </select>
-            </li>
-            <li class="select-opt">
-              <a href="#"><span class="lnr lnr-magnifier"></span></a>
-            </li>
-          </ul>
-        </div>
-      </li>
-      <li class="head-responsive-right pull-right">
-        <div class="header-top-right">
-          <ul>
-            <li class="header-top-contact">
-              +1 222 77 322 04 68
-            </li>
-            <li class="header-top-contact">
-              <a href="#">Contact</a>
-            </li>
-            <li class="header-top-contact">
-              <a href="#">register</a>
-            </li>
-          </ul>
-        </div>
-      </li>
-    </ul> -->
 
   <!-- </header> -->
       <section class="top-area">
         <div class="header-area">
           <!-- Start Navigation -->
-          <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy " data-minus-value-desktop="70"
+          <nav class="navbar navbar-default bootsnav  navbar-sticky navbar-scrollspy" data-minus-value-desktop="70"
             data-minus-value-mobile="55" data-speed="1000">
-            <div class="container">
+            <div class="containerHeader" style="display: flex;">
               <!-- Header Navigation -->
               <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-menu">
@@ -51,13 +16,13 @@
                 </div>
               </div>
               <!-- <menu></menu> -->
-              <div class="collapse navbar-collapse menu-ui-design" id="navbar-menu">
-                <ul class="nav navbar-nav navbar-right" data-in="fadeInDown" data-out="fadeOutUp">
-                  <li class=" scroll"><a routerLink="/acceuil" >Acceuil</a></li>
-                  <li class="scroll "><a routerLink="/apropos" >Apropos</a></li>
+              <div class="collapse navbar-collapse menu-ui-design d-flex" id="navbar-menu">
+                <ul class="nav navbar-nav navbar-right d-flex flex-row" data-in="fadeInDown" data-out="fadeOutUp">
+                  <li class=" scroll"><a routerLink="/acceuil">Acceuil</a></li>
+                  <li class="scroll "><a routerLink="/apropos">Apropos</a></li>
                   <li class="scroll"><a routerLink="/explorer">explorer</a></li>
                   <li class="scroll"><a routerLink="/contactez-nous" >Contactez-nous</a></li>
-                  <li class="scroll"><a  routerLink="/auth">Se connecter </a></li>
+                  <li class="scroll"><a [routerLink]="['/login']">Se connecter </a></li>
                 </ul>
               </div>
             </div>

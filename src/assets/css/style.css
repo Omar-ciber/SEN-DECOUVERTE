@@ -100,18 +100,19 @@ html,body{height: 100%;}
 .section-header{
     position: relative;
     text-align: center;
-}
-.section-header h2{
+  }
+  .containerHeader h2{
     color: #505866;
     font-size:24px;
     font-weight: 500;
     margin-bottom: 24px;
     text-transform: uppercase;
     letter-spacing: 1.3px;
-}
-.section-header h2 span{text-transform: lowercase;}
-.section-header p{
+  }
+  .containerHeader h2 span{text-transform: lowercase;}
+  .containerHeader p{
     font-size:16px;
+    border: 1px solid red;
 }
 /* section-header */
 .fix{position: relative;clear: both;}
@@ -121,7 +122,8 @@ html,body{height: 100%;}
 /*-------------------------------------
         2. Header-top
 --------------------------------------*/
-.header-top{border-bottom:1px solid #f6f8fa;}
+.header-top{border-bottom:solid red
+  solid #f6f8fa;}
 
 .header-top ul li {display: inline-block;}
 
@@ -130,11 +132,13 @@ html,body{height: 100%;}
 /*.select-opt*/
 .select-opt,.header-top-contact{
     padding: 10px 18px;
-    border-right: 1px solid #f6f8fa;
+    border-right: solid red
+    solid #f6f8fa;
 }
 .header-top-contact{
     border-right: 0;
-    border-left: 1px solid #f6f8fa;
+    border-left: solid red
+    solid #f6f8fa;
     font-size: 12px;
 }
 .select-opt select {
@@ -162,6 +166,7 @@ html,body{height: 100%;}
     color:#a7b0ba;
     font-size: 12px;
     font-weight: 300;
+
 }
 
 
@@ -171,6 +176,8 @@ html,body{height: 100%;}
 nav.navbar.bootsnav {
     background-color:#fff;
     border-bottom: transparent;
+    justify-content: center;
+    display: flex;
 }
 .wrap-sticky nav.navbar.bootsnav.sticked {background-color: #fff;box-shadow: 0 2px 5px rgba(0,0,0,.2);}
 
@@ -231,7 +238,8 @@ nav.navbar.bootsnav ul.nav > li.dropdown span {
 nav.navbar.bootsnav .navbar-toggle {
     position: relative;
     background-color: transparent;
-    border: 1px solid #ff545a;
+    border: solid red
+    solid #ff545a;
     padding: 10px;
     top: 0;
 }
@@ -293,7 +301,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     width: 50%;
     padding: 0 30px;
 }
-.single-welcome-hero-form:first-child{border-right: 1px solid #edeff1;}
+.single-welcome-hero-form:first-child{border-right: solid red
+  solid #edeff1;}
 .single-welcome-hero-form input {
     margin-left: 10px;
     height: 70px;
@@ -426,7 +435,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     font-size: 12px;
     background: transparent;
     color: #767f86;
-    border: 1px solid #d3d6d9;
+    border: solid red
+    solid #d3d6d9;
     border-radius: 3px;
 }
 
@@ -446,7 +456,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 
 .single-explore-item {
     background: #fff;
-    border: 1px solid #edeff1;
+    border: solid red
+    solid #edeff1;
     border-radius: 3px;
     margin-bottom: 25px;
     -webkit-transition: .3s linear;
@@ -548,12 +559,15 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     display: inline-block;
     padding: 0 10px;
     margin: 0 8px;
-    border-left: 1px solid #dde0e4;
-    border-right: 1px solid #dde0e4;
+    border-left: solid red
+    solid #dde0e4;
+    border-right: solid red
+    solid #dde0e4;
 }
 .explore-person {
     padding-bottom: 28px;
-    border-bottom: 1px solid #e1e5eb;
+    border-bottom: solid red
+    solid #e1e5eb;
 }
 .explore-person-img{
     width: 40px;
@@ -743,7 +757,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 .single-blog-item-txt h4 a {
     font-size:  14px;
     padding-right:  14px;
-    border-right: 1px solid #dde0e4;
+    border-right: solid red
+    solid #dde0e4;
     margin-right:  15px;
     text-transform: uppercase;
 }
@@ -795,7 +810,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     -webkit-border-radius:3px;
     -moz-border-radius:3px;
     border-radius:3px;
-    border:1px solid #fff;
+    border:solid red
+    solid #fff;
     box-shadow: 0 0px 10px rgba(21,19,19,.1);
      -webkit-transition:0.3s linear;
     -moz-transition:0.3s linear;
@@ -866,7 +882,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 .footer-menu ul.footer-menu-item li a:hover{color: #f43032;}
 .hm-footer-copyright {
     padding: 40px 0;
-    border-top: 1px solid #e1e5eb;
+    border-top: solid red
+    solid #e1e5eb;
 }
 .hm-footer-copyright p,.hm-footer-copyright p a {
     color: #a5adb3;
@@ -918,7 +935,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
     cursor: pointer;
     color: #fff;
     background:#ff545a;
-	border:1px solid #ff545a;
+	border:solid red
+  solid #ff545a;
 	border-radius:50%;
 	-webkit-transition: .5s;
 	-moz-transition:.5s;
@@ -929,7 +947,8 @@ nav.navbar.bootsnav .navbar-toggle i{color: #ff545a;}
 }
 #scroll-Top  .return-to-top:hover {
     background:#f43032;
-	border:1px solid #ff545a;
+	border:solid red
+  solid #ff545a;
 }
 
 #scroll-Top  .return-to-top i{
@@ -1041,7 +1060,8 @@ body {
   left: 16px;
   width: calc(100% - 32px);
   border: none;
-  border-top: solid 1px var(--navbar-dark-secondary);
+  border-top: solid solid red
+  var(--navbar-dark-secondary);
 }
 
 #nav-bar a {
@@ -1329,7 +1349,8 @@ label[for=nav-footer-toggle] {
 
 #nav-footer-content {
   margin: 0 16px 16px 16px;
-  border-top: solid 1px var(--navbar-light-secondary);
+  border-top: solid solid red
+  var(--navbar-light-secondary);
   padding: 16px 0;
   color: var(--navbar-light-secondary);
   font-size: 0.8rem;

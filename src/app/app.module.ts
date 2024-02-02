@@ -9,7 +9,7 @@ import { AproposComponent } from './apropos/apropos/apropos.component';
 import { ExplorerComponent } from './explorer/explorer/explorer.component';
 import { AccueilComponent } from './accueil/accueil/accueil.component';
 import { ContactezNousComponent } from './contact/contactez-nous/contactez-nous.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './Administrateur/admin/admin.component';
 import { AuthComponent } from './auths/auth/auth.component';
 import { LoginComponent } from './auths/login/login.component';
@@ -34,6 +34,8 @@ import { DataTablesModule } from 'angular-datatables';
 import { NavbarComponent } from './Administrateur/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './services/login.service';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -57,7 +59,7 @@ import { AuthService } from './services/login.service';
     AddZoneComponent,
     ListerZoneComponent,
     NavbarComponent,
-  
+
 
   ],
   imports: [
@@ -71,9 +73,8 @@ import { AuthService } from './services/login.service';
     MatDatepickerModule,
     DataTablesModule,
     NgbModule,
-
-
-
+    FormsModule,
+    HttpClientModule
 
   ],
   providers: [],

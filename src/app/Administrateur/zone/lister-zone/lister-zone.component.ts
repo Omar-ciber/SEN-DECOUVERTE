@@ -24,7 +24,7 @@ export class ListerZoneComponent implements OnInit {
     this.showPopup = !this.showPopup;
   }
 
-  handleImageChange(event: any): void {
+  getFile(event: any) {
     const file = event.target.files[0];
     if (file) {
       this.previewImage(file);
@@ -41,8 +41,6 @@ export class ListerZoneComponent implements OnInit {
   }
 
   saveAndClose(): void {
-    // Ajoutez ici la logique pour enregistrer la nouvelle zone avec l'image
-    // Vous pouvez utiliser un service pour effectuer l'enregistrement
 
     // Réinitialisez les données du formulaire
     this.newZone = {};

@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { AddZoneService } from './add-zone.service';
+import { ConnexionService } from './connexion.service';
 
-describe('AddZoneService', () => {
-  let service: AddZoneService;
+describe('ConnexionService', () => {
+  let service: ConnexionService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(AddZoneService);
+    service = TestBed.inject(ConnexionService);
   });
 
   it('should be created', () => {

@@ -81,10 +81,24 @@ justify-content: center;
 }
 
 .popup-content button {
-  background: #3498db;
+  background: #18283B;
   color: #fff;
   padding: 10px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  gap: 100px;
+  margin-top: 15px;
+
+}
+.add-zone-button{
+  background-color: #18283B;
+  color: white;
+  width: 100px;
+  height: 30px;
+  border-radius: 10px;
+  gap: 50px;
+}
+.Enregistre{
+  margin-right: 20px;
 }
