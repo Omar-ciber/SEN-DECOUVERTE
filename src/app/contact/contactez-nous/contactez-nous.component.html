@@ -1,44 +1,49 @@
+<!-- formulaire de contact -->
 <app-header-component></app-header-component>
-<!-- <div class="bannerContact">
-  <img src="https://www.boostforweb.com/wp-content/uploads/2021/10/contact.jpg" alt="">
-</div> -->
-<div class="Messageri text-center ">
-  <h1>N'hésitez pas à nous contacter </h1>
+<div class="bannercontact">
+  <img src="" alt="">
 </div>
-  <div class="FormulaireContact">
-    <div class="ImagcotContact">
-      <img src="https://media.istockphoto.com/id/1311429902/sv/foto/onlinebetalningar-glad-svart-dam-med-smartphone-och-kreditkort-i-k%C3%B6ket.jpg?s=612x612&w=0&k=20&c=09kHfD-GeqynsI-xu-TW0njlqiAPe-h5O75td1gxI0g=" alt="">
+<div class="card mb-3 container mt-5  ">
+  <form class="row g-0 formulaire">
+    <div class="col-md-5 image">
+      <img src="https://img.freepik.com/photos-gratuite/femme-parlant-au-telephone-gros-plan_23-2148336843.jpg?size=626&ext=jpg&ga=GA1.2.1437972313.1694467442&semt=ais" class="img-fluid" alt="...">
     </div>
-    <form class="FormContact" [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-      <label for="nom fs-1">Nom :</label> <br>
-      <input type="text" id="nom"[placeholder]="['Nom']" formControlName="nom"><br>
-        <br>
-      <label for="prenom">Prénom :</label> <br>
-      <input type="text" id="prenom"[placeholder]="['Prénom']" formControlName="prenom"><br>
-     <br>
-      <label for="telephone">Numéro de téléphone :</label> <br>
-      <input type="tel" id="telephone"[placeholder]="['telephone']" formControlName="telephone"><br>
-    <br>
-      <label for="email">Adresse e-mail :</label> <br>
-      <input type="email" id="email"[placeholder]="['Adresse mail']" formControlName="email"><br>
-     <br>
-      <label for="message fs-1">Message :</label> <br>
-      <textarea id="message"[placeholder]="['Message']" formControlName="message" rows="4"></textarea><br>
-      <br>
-      <button class="btn btn-danger">Envoyer</button><br>
-    </form>
-    <div class="imagecontact">
-      <img src="" alt="">
+    <div class="col-md-7 ">
+      <div class="card-body">
+        <h2 class="card-titleContact">Contatez - nous</h2>
+        <div class="mb-3 nomprenom">
+          <input type="text" placeholder="Nom" class="mb-3 me-3">
+          <input type="text" placeholder="Prénom" class="mb-3 ">
+        </div>
+        <div class="mb-3 nomprenom">
+          <input type="email" id="exampleInputEmail1" placeholder="E-mail" class="mb-3 me-3"
+            aria-describedby="emailHelp">
+          <input type="tel" placeholder="Téléphone" class="mb-3 " id="exampleInputPassword1">
+        </div>
+        <div class="gmessage">
+          <textarea name="" id="" cols="43" rows="3" placeholder="Message" class="message"></textarea>
+        </div>
+        <div class="bton">
+          <button type="submit" class="bg-danger w-5 btn">Envoyer</button>
+        </div>
+      </div>
     </div>
-    &nbsp;
-  </div>
-  <h1 class="text-center">Nos coordonnées</h1>
-  <div class="piedPagecontact">
-    <img src="assets/pied-contact.png" alt="">
-  </div>
-<!-- footer contact -->
-  <app-footer></app-footer>
+            <div class="contact">
+              <div class="tel">
+                <i class="bi bi-telephone"></i>
+                <p>+221 77 322 04 68</p>
+                <p>+221 77 131 81 03</p>
+              </div>
+              <div class="email">
+                <i class="bi bi-envelope-fill"></i>
+                <p>sendecouvert@gmail.com</p>
+              </div>
+              <div class="localisation">
+                <i class="bi bi-geo-alt-fill"></i>
+                <p>Dakar, Sénégal</p>
+              </div>
+            </div>
+            </form>
+            </div>
 
-
-
-
+            <app-footer></app-footer>

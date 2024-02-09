@@ -1,5 +1,5 @@
 
-<div id="nav-bar">
+<div id="nav-bar" class="fixed navTest">
   <input id="nav-toggle" type="checkbox" />
   <div id="nav-header"><a id="nav-title" href="https://codepen.io" target="_blank">
     <img src="assets/logofooter.png" alt="">
@@ -10,15 +10,16 @@
   <div id="nav-content">
     <div class="nav-button" [routerLink]="['/admin']"><span class="Admindash"><i class="bi bi-speedometer2"></i>&nbsp;Dashboard Amin</span>
     </div>
-    <div class="nav-button"  [routerLink]="['/lister-zone']"><i class="bi bi-geo-alt-fill"></i><span>&nbsp;Zone Touristique</span></div>
-    <div class="nav-button"><i class="fas fa-thumbtack"></i><span>Guide Touristique</span></div>
+    <div class="nav-button"  [routerLink]="['/lister-zone']"> &nbsp;&nbsp;<i class="fa-solid fa-location-dot"></i><span>&nbsp;Zone Touristique</span></div>
+    <div class="nav-button"[routerLink]="['/liste-guide']" >&nbsp;&nbsp;<i class="fa-solid fa-people-pulling"></i> &nbsp;<span>Guide Touristique</span></div>
     <hr />
-    <div class="nav-button"><i class="fas fa-heart"></i><span>Messagerie</span></div>
-    <div class="nav-button"><i class="fas fa-chart-line"></i><span>Réservation</span></div>
+    <div class="nav-button" [routerLink]="['/messagerie']">&nbsp;&nbsp;<i class="fa-solid fa-message"></i>&nbsp;<span>Messagerie</span></div>
+    <div class="nav-button" [routerLink]="['/reservation']" ><i class="fas fa-chart-line"></i><span>Réservation</span></div>
     <hr />
     <div id="nav-content-highlight"></div>
-    <button type="button" class="btn btn-danger" [routerLink]="['/auth']">Déconnexion</button>
+    <button type="button" class="btn btn-danger" [routerLink]="['/login']">Déconnexion</button>
   </div>
 <div>
+</div>
 </div>
 

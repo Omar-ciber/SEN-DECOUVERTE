@@ -69,3 +69,15 @@ body {
 text-decoration: none;
 }
 
+.single-blog-item{
+  /* border: 1px solid red; */
+  max-width: 500px;
+  min-width: 400px;
+  max-width: 300px;
+
+  }
+    .single-blog-item h2,h4,p {
+      text-decoration: none;
+    }
+
+

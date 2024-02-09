@@ -1,1 +1,68 @@
-<p>messagerie works!</p>
+<app-navbar></app-navbar>
+<app-sidebar></app-sidebar>
+<div class="gestionM">
+  <h2>Gestion messageries</h2>
+</div>
+<div class="recherche-container">
+  <label for="search">Rechercher par contenu:</label>&nbsp;
+  <input type="text" id="search" name="search" placeholder=" recherche">
+</div>
+<div class="message-container">
+  <div class="profilMessage">
+    <img src="https://static.vecteezy.com/ti/vecteur-libre/p3/19495014-artiste-homme-garcon-avatar-utilisateur-personne-gens-peau-noire-style-plat-vectoriel.jpg" alt="Photo de profil">
+  </div>
+  <div class="contenu-message ">
+    <div class="nom-prenom">
+      <p>Noel Robinson Ndecky</p>
+    </div>
+    <p>Contenu du message reçu Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <button class="boutonRepondre" (click)="ouvrirPopup()">Répondre</button>
+  </div>
+</div>
+<div class="message-container">
+  <div class="profilMessage">
+    <img src="https://static.vecteezy.com/ti/vecteur-libre/p3/19495014-artiste-homme-garcon-avatar-utilisateur-personne-gens-peau-noire-style-plat-vectoriel.jpg" alt="Photo de profil">
+  </div>
+  <div class="contenu-message">
+    <div class="nom-prenom">
+      <p>Noel Robinson Ndecky</p>
+    </div>
+    <p>Contenu du message reçu Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <button class="boutonRepondre" (click)="ouvrirPopup()">Répondre</button>
+  </div>
+</div>
+<div class="message-container">
+  <div class="profilMessage">
+    <img src="https://static.vecteezy.com/ti/vecteur-libre/p3/19495014-artiste-homme-garcon-avatar-utilisateur-personne-gens-peau-noire-style-plat-vectoriel.jpg" alt="Photo de profil">
+  </div>
+  <div class="contenu-message">
+    <div class="nom-prenom">
+      <p>Noel Robinson Ndecky</p>
+    </div>
+    <p>Contenu du message reçu Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+    <button class="boutonRepondre"(click)="ouvrirPopup()">Répondre</button>
+  </div>
+</div>
+
+
+<!-- Popup pour répondre au message -->
+<div class="popup" *ngIf="afficherPopup">
+  <div class="popup-content">
+    <span class="close" (click)="fermerPopup()">&times;</span>
+    <h2>Répondre au message</h2>
+    <form>
+      <div>
+        <label for="email">Email du destinataire:</label>
+        <input type="email" id="email" required>
+      </div>
+      <div>
+        <label for="reponseMessage">Votre réponse:</label>
+        <textarea id="reponseMessage" required></textarea>
+      </div>
+      <div class="buttons">
+        <button type="button" (click)="envoyerReponse()">Envoyer</button>
+        <button type="button" (click)="fermerPopup()">Annuler</button>
+      </div>
+    </form>
+  </div>
+</div>

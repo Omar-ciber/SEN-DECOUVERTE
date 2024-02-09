@@ -1,7 +1,8 @@
 .bannierEX img{
 width: 100%;
+height: 600px;
 background-size: cover;
-filter: blur(1px);
+
 }
 .paginationExp ul{
   display: flex;
@@ -18,7 +19,7 @@ filter: blur(1px);
 
 }
 .card img {
-  border-radius: 5px;
+  border-radius: 10px;
 }
 .card-titlePP{
   color: white;

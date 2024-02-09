@@ -1,4 +1,51 @@
-<div class="container">
-
-  
+<app-navbar></app-navbar>
+<!-- dsfdg -->
+<app-sidebar></app-sidebar>
+<!-- table des guides -->
+<div class="listeGui">
+  <h2>Liste des Guides </h2>
 </div>
+<button class="add-Guide-button" (click)="togglePopup()">Ajouter</button>
+<table class="table">
+  <thead class="tbGuides">
+    <tr>
+      <th scope="col">Photo</th>
+      <th scope="col">Nom et prenom</th>
+      <th scope="col">Zone</th>
+      <th scope="col">Statut</th>
+      <th scope="col">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Diop Aliou</td>
+      <td>Gorée</td>
+      <td><button type="button" class="btn btn-outline-primary">Primary</button></td>
+      <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Ndoye Moussa</td>
+      <td>Gorée</td>
+      <td><button type="button" class="btn btn-outline-primary">Primary</button></td>
+       <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Ndione Andre</td>
+      <td>Saly</td>
+      <td><button type="button" class="btn btn-outline-primary">Primary</button></td>
+      <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Mouhamed Malick</td>
+      <td>Ile du Saloum</td>
+      <td><button type="button" class="btn btn-outline-primary">Primary</button></td>
+      <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
+    </tr>
+  </tbody>
+</table>
+<!-- popup pour guides -->
+

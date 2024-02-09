@@ -1,17 +1,19 @@
 <!-- <p>lister-zone works!</p> -->
+<app-navbar></app-navbar>
 <app-sidebar></app-sidebar>
-<div class="listeZon">
+<div class="listeZon ">
   <h2>Liste des zones touristique</h2>
 </div>
  <div class="datetable">
 <!-- Modal -->
   <button class="add-zone-button" (click)="togglePopup()">Ajouter</button>
 <!-- fin modal -->
-   <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table">
+   <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table" *ngIf="tabZone.length>0">
      <thead class="">
        <tr>
          <th>Images</th>
          <th>Nom de la zone</th>
+         <th>Descriptions </th>
          <th>Couts</th>
          <th>Durée</th>
          <th>Statut</th>
@@ -19,98 +21,36 @@
        </tr>
      </thead>
      <tbody class="Souscategorie">
-       <tr>
-         <td>1</td>
-         <td>Gorée</td>
-         <td>10000fcfa</td>
-         <td>2h</td>
-         <td>Publier </td>
-        <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i
-         class="fa-solid fa-trash"></i></span></td>
-       </tr>
-       <tr>
-         <td>2</td>
-         <td>Ile du Saloum</td>
-         <td>10000fcfa</td>
-         <td>2h</td>
-         <td>Publier</td>
-        <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
-        </td>
-       </tr>
-       <tr>
-         <td>3</td>
-         <td>Saly Mbour</td>
-         <td>10000fcfa</td>
-         <td>2h</td>
-         <td>Publier</td>
-        <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
-        </td>
-       </tr>
-       <tr>
-         <td>4</td>
-         <td>Parc Niokolo Kaba</td>
-         <td>10000fcfa</td>
-         <td>2h</td>
-         <td>Publier</td>
-        <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
-        </td>
-       </tr>
-       <tr>
-         <td>5</td>
-         <td>Pont Federbe de Saint-louis</td>
-         <td>10000fcfa</td>
-         <td>2h</td>
-         <td>Publier</td>
-        <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
-        </td>
-       </tr>
-       <tr>
-         <td>6</td>
-         <td>Menument de rennaissance</td>
-         <td>10000fcfa</td>
-         <td>2h</td>
-         <td>Publier</td>
-        <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
-        </td>
-       </tr>
-       <tr>
-         <td>7</td>
-         <td>Parc Bandia</td>
-         <td>10000fcfa</td>
-         <td>2h</td>
-         <td>Publier</td>
-        <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
-        </td>
-       </tr>
-       <tr>
-         <td>8</td>
-         <td>Reserve de Fathala</td>
-         <td>10000fcfa</td>
-         <td>2h</td>
-         <td>Publier</td>
-        <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
-        </td>
-       </tr>
-       <tr>
-         <td>9</td>
-         <td>Kedougou</td>
-         <td>10000fcfa</td>
-         <td>2h</td>
-         <td>Publier</td>
-        <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
-        </td>
-       </tr>
-       <tr>
-         <td>10</td>
-         <td>Cap Skiring</td>
-         <td>10000fcfa</td>
-         <td>2h</td>
-         <td>Publier</td>
-        <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i
-         class="fa-solid fa-trash"></i></span></td>
+       <tr *ngFor="let zone of tabZone">
+         <td><img src="http://127.0.0.1:8000/storage/app/public/images/{{zone.images}}" alt="test"></td>
+         <td>{{zone.nom}}</td>
+         <td>{{zone.description}}</td>
+         <td>{{zone.cout}}</td>
+         <td>{{zone.duree}}</td>
+        <td><button type="button" class="btn btn-outline-primary">{{zone.statut}}</button></td>
+        <td><span><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;
+          <i (click)="supprimerZone(zone.id)" class="fa-solid fa-trash" style="cursor: pointer;"></i> </span> </td>
        </tr>
      </tbody>
    </table>
+  <table *ngIf="tabZone.length<0">
+    <thead class="thHead">
+      <tr class="thHead">
+        <th>Images</th>
+        <th>Nom de la zone</th>
+        <th>Descriptions </th>
+        <th>Couts</th>
+        <th>Durée</th>
+        <th>Statut</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Aucune donnée disponible dans le tableau</td>
+      </tr>
+    </tbody>
+  </table>
  </div>
 
  <!-- Popup -->
@@ -118,28 +58,52 @@
    <div class="popup" [class.active]="showPopup">
      <div class="popup-content">
        <h2>Ajouter Zone</h2>
-       <label for="image">Image:</label>
-       <input type="file" id="image" (change)="getFile($event)" accept="image" required>
-       <img *ngIf="newZone.image" [src]="newZone.image" alt="Image prévisualisée">
+       <label for="images">Images:</label>
+       <input type="file" id="image" (change)="getFile($event)" accept="image" [(ngModel)]="images" required>
        <label for="name">Nom:</label>
-       <input type="text" id="name" [(ngModel)]="newZone.name" style="width: 100%;">
-       <label for="cost">Tarif:</label>
-       <input type="number" id="cost" [(ngModel)]="newZone.cost" style="width: 100%;">
+       <input type="text" id="name" [(ngModel)]="nom" style="width: 100%;">
+       <label for="description">Description:</label>
+       <input type="text" id="description" [(ngModel)]="description" style="width: 100%;">
+       <label for="cout">Tarif:</label>
+       <input type="text" id="cout" [(ngModel)]="Tarif" style="width: 100%;">
        <label for="duration">Heure:</label>
-       <input type="number" id="duration" [(ngModel)]="newZone.duration" style="width: 100%;">
+       <input type="text" id="duration" [(ngModel)]="duree" style="width: 100%;">
        <label for="status">État:</label>
-       <select id="status" [(ngModel)]="newZone.status" style="width: 100%;">
+       <select id="status" [(ngModel)]="status" style="width: 100%;">
          <option value="publie">Publié</option>
          <option value="non-publie">Non publié</option>
        </select>
        <label for="action">Action:</label>
        <select id="action" [(ngModel)]="newZone.action" style="width: 100%;">
-         <option value="modifier">Modifier</option>
-         <option value="supprimer">Supprimer</option>
+        <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
+        </td>
        </select>
-       <button (click)="saveAndClose()" class="Enregistre">Enregistrer</button>
-       <button (click)="togglePopup()" class="Fermer">Fermer</button>
+       <button (click)="saveAndClose()" class="Enregistre" (click)="ajouterZone()">Ajouter</button>
+       <button (click)="togglePopup()" class="Fermer">Annuler</button>
      </div>
    </div>
  </div>
  <!-- modal fin -->
+
+
+
+
+<!-- Modal -->
+<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+            aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div> -->

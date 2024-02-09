@@ -7,7 +7,7 @@ import { HeaderComponentComponent } from './header/header-component/header-compo
 import { FooterComponent } from './footer/footer/footer.component';
 import { AproposComponent } from './apropos/apropos/apropos.component';
 import { ExplorerComponent } from './explorer/explorer/explorer.component';
-import { AccueilComponent } from './accueil/accueil/accueil.component';
+// import { AccueilComponent } from './accueil/accueil/accueil.component';
 import { ContactezNousComponent } from './contact/contactez-nous/contactez-nous.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AdminComponent } from './Administrateur/admin/admin.component';
@@ -22,19 +22,23 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-
 import { GuideComponent } from './Administrateur/guide/guide.component';
 import { AddGuideComponent } from './Administrateur/guide/add-guide/add-guide.component';
-
 import { ReservationComponent } from './Administrateur/reservation/reservation.component';
 import { MessagerieComponent } from './Administrateur/messagerie/messagerie.component';
 import { AddZoneComponent } from './Administrateur/zone/add-zone/add-zone.component';
-import { ListerZoneComponent } from './Administrateur/zone/lister-zone/lister-zone.component';
+// import { ListerZoneComponent } from './Administrateur/zone/lister-zone/lister-zone.component';
 import { DataTablesModule } from 'angular-datatables';
 import { NavbarComponent } from './Administrateur/navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthService } from './services/login.service';
-import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClient, HttpClientModule } from '@angular/common/http';
+import Swal from 'sweetalert2';
+import { ListerZoneComponent } from './Administrateur/zone/lister-zone/lister-zone.component';
+import { ListeGuideComponent } from './Administrateur/guide/liste-guide/liste-guide.component';
+import { AccueilComponent } from './accueil/accueil/accueil.component';
+import { AuthInterceptor } from './interceptors/interceptor';
+import { ConnexionService } from './services/connexion.service';
 
 @NgModule({
   declarations: [
@@ -43,7 +47,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FooterComponent,
     AproposComponent,
     ExplorerComponent,
-    AccueilComponent,
+  AccueilComponent,
     ContactezNousComponent,
     AdminComponent,
     AuthComponent,
@@ -59,8 +63,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     AddZoneComponent,
     ListerZoneComponent,
     NavbarComponent,
-
-
+    ListeGuideComponent
   ],
   imports: [
     BrowserModule,
@@ -76,8 +79,16 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule
 
+
   ],
-  providers: [],
+  providers: [
+    ConnexionService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

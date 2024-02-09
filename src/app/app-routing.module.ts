@@ -16,9 +16,11 @@ import { ListeGuideComponent } from './Administrateur/guide/liste-guide/liste-gu
 import { NavbarComponent } from './Administrateur/navbar/navbar.component';
 import { LoginComponent } from './auths/login/login.component';
 import { AddGuideComponent } from './Administrateur/guide/add-guide/add-guide.component';
+import { MessagerieComponent } from './Administrateur/messagerie/messagerie.component';
+import { ReservationComponent } from './Administrateur/reservation/reservation.component';
 // import { ListeZoneComponent } from './Administrateur/Zone/liste-zone/liste-zone.component';
 const routes: Routes = [
-  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+  { path: 'accueil', redirectTo: 'accueil', pathMatch: 'full' },
   { path: 'accueil', component: AccueilComponent },
   { path: 'explorer', component: ExplorerComponent },
   { path: 'apropos', component: AproposComponent },
@@ -34,6 +36,8 @@ const routes: Routes = [
   { path: 'navbar', component: NavbarComponent },
   { path: 'login', component: LoginComponent },
   { path: 'add-guide', component: AddGuideComponent },
+  {path:'messagerie',component:MessagerieComponent},
+  {path:'reservation',component:ReservationComponent}
 
 
 ];

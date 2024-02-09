@@ -4,7 +4,7 @@ export class ExplorerZone {
     public id: number,
     public nom: string,
     public description: string,
-    public image: string,
+    public images: string,
     public details: string
   ) {}
 }

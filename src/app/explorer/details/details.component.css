@@ -103,7 +103,7 @@ color: white;
         }
         .row{
           /* border: 1px solid red; */
-          background-color: #054861;
+          background-color: #F8FAFB;
 
         }
 
@@ -447,8 +447,8 @@ color: white;
   margin-top: 100px;
   margin-bottom: 200px;
   background-color: #0E1E25;
-  max-width: 500px;
-  min-height: 500px;
+  max-width: 93%;
+  min-height: 600px;
   margin-left: 50px;
 
 
@@ -460,7 +460,6 @@ color: white;
  margin-left: 50px;
  border-radius: 20px;
 
-
 }
 
 label {
@@ -469,35 +468,89 @@ label {
   color: white;
   margin: 5px;
 }
+.votreNom{
+  display: block;
+    margin-bottom: 5px;
+    color: white;
+    margin: 5px;
+}
 
-select,
-input[type="email"],
-input[type="datetime-local"] {
-  width: 400px;
+.votreNom label{
+ margin-left: 50px;
+}
+.votreNom input{
+  width: 600px;
+  height: 50px;
   padding: 5px;
   font-size: 18px;
   color: black;
   margin-top: 10px;
+  margin-left: 45px;
+  border-radius: 20px;
+}
+.teleph label{
+margin-left: 50px;
+}
+
+.teleph input{
+    width: 600px;
+    height: 50px;
+      padding: 5px;
+      font-size: 18px;
+      color: black;
+      margin-top: 10px;
+      margin-left: 45px;
+      border-radius: 20px;
+    }
+    .VotreZone input{
+      width: 600px;
+      height: 50px;
+      padding: 5px;
+      font-size: 18px;
+      color: black;
+      margin-top: 10px;
+      margin-left: 45px;
+      border-radius: 20px;
+    }
+
+    .VotreZone label{
+      margin-left: 50px;
+      border-radius: 20px;
+    }
+
+select,
+input[type="email"],
+input[type="datetime-local"] {
+  width: 600px;
+  height: 50px;
+  padding: 5px;
+  font-size: 18px;
+  color: black;
+  margin-top: 10px;
+  border-radius: 20px;
 }
 .mesBoutons{
   justify-content: center;
   display: flex;
   gap: 50px;
-  margin-top: -5px;
+  margin-top: 20px;
+  /* border: 2px solid red; */
+  margin-left: 50%;
 
 }
 .submit-button{
   color: white;
   margin-left: 100px;
   background-color: blue;
-  width: 90px;
+  width: 120px;
+  height: 50px;
   justify-content: center;
   display: flex;
   border-radius: 20px;
 }
 .annuler-bouton{
   background-color: red;
-  width: 90px;
+  width: 120px;
   border-radius: 20px;
   color: white;
   justify-content: center;
@@ -506,3 +559,5 @@ input[type="datetime-local"] {
 .zone-checkbox{
   margin-left: 50px;
 }
+/* ghjhjkmù */
+

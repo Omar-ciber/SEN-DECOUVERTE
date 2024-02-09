@@ -1,8 +1,66 @@
 
-.bannerContact img{
-  width: 100%;
-  margin-top: 5px;
+/* contact-form.component.css */
+
+ .bannerContact img {
+   width: 10%;
+   margin-top: 5px;
+ }
+ .card-title h2{
+ color: red
+ }
+ .card-titleContact{
+  color: white;
+  font-weight: bold;
+ }
+ .contact{
+  color: white;
+  font-weight: bold;
+ }
+
+.form-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 20px;
 }
+
+form {
+  background-color: #054861;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  flex: 1;
+}
+
+label {
+  margin: 10px 0;
+  font-weight: bold;
+}
+
+input {
+  width: 70%;
+
+  padding: 8px;
+  margin: 5px 0 15px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.bton button{
+  color: white;
+  width: 100px;
+  height: 30px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+
+
+
+/*
+
+
 .FormulaireContact{
 
   display: flex;
@@ -14,7 +72,7 @@
 }
 .Messageri{
   margin-top: 40px;
-  /* margin-left: 50%; */
+  margin-left: 50%;
 
 }
 
@@ -25,7 +83,7 @@
 .FormContact label input{
  max-width: 100%;
  margin-left: 20px;
- /* height:10% ; */
+ height:10% ;
 }
 .FormContact textarea{
   width: 80%;
@@ -49,4 +107,4 @@ color: red;
 }
 .FormContact{
   border: 1px red ;
-}
+} */

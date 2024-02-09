@@ -5,14 +5,11 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './liste-guide.component.html',
   styleUrls: ['./liste-guide.component.css']
 })
-export class ListeGuideComponent implements OnInit {
- dtOptions: DataTables.Settings = {};
-
-  ngOnInit(): void {
-    this.dtOptions = {
-      pagingType: 'full_numbers'
-    };
-  }
+export class ListeGuideComponent  {
+newGuide: any;
+togglePopup() {
+throw new Error('Method not implemented.');
+}
 
   };
 

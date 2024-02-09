@@ -1,5 +1,5 @@
 <!-- <p>bonjour</p> -->
-<!-- <app-header-component></app-header-component> -->
+<app-header-component></app-header-component>
 <!-- detail debut section -->
 <section>
   <div class="second-container">
@@ -108,7 +108,6 @@
           <p class="title">Andre D Ndione</p>
           <img src="https://img.freepik.com/photos-gratuite/portrait-homme-afro-americain_23-2149072219.jpg?size=626&ext=jpg&ga=GA1.2.1437972313.1694467442&semt=ais" class="img-fluid rounded-start"
             alt="...">
-
           <p>andre@gmail.com</p>
         </div>
         <div class="flip-card-back">
@@ -127,7 +126,6 @@
           <p class="title">Assane Diop</p>
           <img src="https://img.freepik.com/photos-premium/bel-homme-affaires-executif-afro-americain-joyeux-au-bureau-espace-travail_216356-296.jpg?size=626&ext=jpg&ga=GA1.1.1437972313.1694467442&semt=ais" class="img-fluid rounded-start"
             alt="...">
-
           <p>assae@gmail.com</p>
         </div>
         <div class="flip-card-back">
@@ -145,32 +143,59 @@
   <div class="titlereservation">
     <h3>Faites votre reservation</h3>
   </div>
-  <div class="email-input">
-    <label for="email">Adresse e-mail :</label>
-    <input type="email" id="email" name="email" placeholder="Entrez votre adresse e-mail" required><br>
+  <div class="nomEttel d-flex">
+    <div class="votreNom">
+      <label for="">Nom</label>
+      <input type="text" placeholder="ngom">
+    </div>
+    <div class="teleph">
+    <label for="">Telephone:</label>
+    <input type="text" placeholder="00221....">
+    </div>
   </div>
-  <div class="person-selector">
-  <label for="selectedPerson">Choisissez votre guide:</label>
-  <select id="selectedPerson" name="selectedPerson">
-    <option value="john-doe">... </option>
-    <option value="john-doe">Salem M mouhamed </option>
-    <option value="jane-doe">Andre D Ndione</option>
-    <option value="alice-smith">Assane Diop </option>
-    <option value="alice-smith">Amadem Fall</option>
-  </select> <br>
-</div>
-<div class="date-input">
-  <label for="startDate">Date et heure de début :</label>
-  <input type="datetime-local" id="startDate" name="startDate" required>
-</div>
-<div class="date-input">
-  <label for="endDate">Date et heure de fin :</label>
-  <input type="datetime-local" id="endDate" name="endDate" required>
-</div>
-<div class="zone-checkbox">
+  <div class="sectionreserve1 d-flex">
+    <div class="email-input">
+      <label for="email">Adresse e-mail :</label>
+      <input type="email" id="email" name="email" placeholder="Entrez votre adresse e-mail" required><br>
+    </div>
+    <div class="person-selector">
+    <label for="selectedPerson">Choisissez votre guide:</label>
+    <select id="selectedPerson" name="selectedPerson">
+      <option value="john-doe">... </option>
+      <option value="john-doe">Salem M mouhamed </option>
+      <option value="jane-doe">Andre D Ndione</option>
+      <option value="alice-smith">Assane Diop </option>
+      <option value="alice-smith">Amadem Fall</option>
+    </select> <br>
+  </div>
+  </div>
+  <div class="NombreZetJours d-flex">
+    <div class="person-selector">
+      <label for="selectedNombrejrs">Nombre de jours:</label>
+      <select id="selectedPerson" name="selectedPerson">
+        <option value="john-doe">... </option>
+        <option value="john-doe">-0+</option>
+      </select> <br>
+    </div>  
+    <div class="VotreZone">
+      <label for="">Zone:</label>
+      <input type="text" placeholder="Parcs Niokolo koba">
+    </div>
+  </div>
+  <div class="sectionreserve2 d-flex">
+    <div class="date-input">
+      <label for="startDate">Date et heure de début :</label>
+      <input type="datetime-local" id="startDate" name="startDate" required>
+    </div>
+    <div class="date-input">
+      <label for="endDate">Date et heure de fin :</label>
+      <input type="datetime-local" id="endDate" name="endDate" required>
+    </div>
+  </div>
+<!-- <div class="zone-checkbox">
   <input type="checkbox" id="zone" name="zone">
   <label for="zone">Zone</label>
-</div>
+</div> -->
 <div class="mesBoutons">
   <div class="submit-button ">
     <button type="submit">Valider</button>

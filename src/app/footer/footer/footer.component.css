@@ -1,11 +1,11 @@
 .footerLogo img{
-  height: 50px;
+  height: 80px;
     margin-bottom: 30px;
     /* border: 1px solid red; */
 }
 .footer{
   background-color: #0E1E25;
-  
+
 }
 .footer-menu-item{
 color: white;

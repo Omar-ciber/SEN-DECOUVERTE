@@ -716,3 +716,8 @@ h6 span {
   width: auto;
   display: block;
 }
+/* fleche retour */
+.back-to-home{
+  color: #102770;
+  font-weight: bold;
+}

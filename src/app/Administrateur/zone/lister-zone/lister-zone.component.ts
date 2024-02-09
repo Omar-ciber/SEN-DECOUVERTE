@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ZoneService } from 'src/app/services/add-zone.service';
+import Swal from 'sweetalert2';
+
 @Component({
   selector: 'app-lister-zone',
   templateUrl: './lister-zone.component.html',
@@ -6,7 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListerZoneComponent implements OnInit {
   dtOptions: DataTables.Settings = {};
-  ngOnInit(): void {
+  // categories: any;
+  // les attributs
+  categories: any[] = [];
+  tabZone: any[] = [];
+
+  nom: string = '';
+  description: string = '';
+  images: any ;
+  Tarif: string = '';
+  duree: string = '';
+  status:string = '';
+
+  zones: any;
+
+  ngOnInit(): void  {
+    this.listeZone();
+    //tables
     this.dtOptions = {
       searching: true,
       lengthChange: false,
@@ -17,6 +36,7 @@ export class ListerZoneComponent implements OnInit {
       }
     };
   };
+  // popup d'ajout
     showPopup = false;
   newZone: any = {};
 
@@ -25,19 +45,8 @@ export class ListerZoneComponent implements OnInit {
   }
 
   getFile(event: any) {
-    const file = event.target.files[0];
-    if (file) {
-      this.previewImage(file);
-      this.newZone.image = file;
-    }
-  }
-
-  previewImage(file: File): void {
-    const reader = new FileReader();
-    reader.onload = (e: any) => {
-      this.newZone.image = e.target.result;
-    };
-    reader.readAsDataURL(file);
+    console.warn(event.target.files[0]);
+    this.images= event.target.files[0] as File;
   }
 
   saveAndClose(): void {
@@ -47,5 +56,73 @@ export class ListerZoneComponent implements OnInit {
     // Fermez le popup
     this.togglePopup();
 
-}
+  }
+  // fin popup d'ajout
+
+  // ajouter et lister zone
+  zoneData: any = {};
+
+  constructor(private zoneService: ZoneService, private listeService: ZoneService, private deleteZone:ZoneService) { }
+// Méthode pour ajouter les zones
+  ajouterZone(): void {
+     Swal.fire({
+          title: "Good job!",
+          text: "Ajout Reussi!",
+          icon: "success"
+        });
+
+     let formData = new FormData();
+    formData.append("nom", this.nom);
+    formData.append("description", this.description);
+    // formData.append("statut", this.status);
+    formData.append("cout", this.Tarif);
+    formData.append("duree", this.duree);
+    formData.append("images", this.images);
+
+    this.zoneService.postZone(formData).subscribe(
+      ( response: any) => {
+        console.log('Zone ajoutée avec succès !', response);
+        this.listeZone();
+
+      },
+      ( error: any) => {
+        console.error('Erreur lors de l\'ajout de la zone :', error);
+
+      }
+    );
+  }
+
+  //Méthode pour lister les zones
+   listeZone() {
+    this.listeService.getAllZones().subscribe(
+      (zone: any) => {
+        this.tabZone = zone;
+        console.log(this.tabZone);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+   }
+
+     // Methode pour supprimer un trajet
+  supprimerZone(zoneId: any) {
+    Swal.fire({
+      title: "Etes vous sur",
+      text: "voulez vous supprimer!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#FA7436",
+      cancelButtonColor: "#FA0436",
+      confirmButtonText: "OUI !!"
+    }).then((result) => {
+      if (result.isConfirmed) {
+        this.deleteZone.deleteZone(zoneId).subscribe((resp: any) => {
+          console.log(resp)
+          this.listeZone();
+        });
+      }
+    });
+
+  }
 }
