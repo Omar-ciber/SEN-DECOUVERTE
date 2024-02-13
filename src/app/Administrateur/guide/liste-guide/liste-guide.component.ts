@@ -6,6 +6,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./liste-guide.component.css']
 })
 export class ListeGuideComponent  {
+guide: any;
+supprimerZone(arg0: any) {
+throw new Error('Method not implemented.');
+}
 newGuide: any;
 togglePopup() {
 throw new Error('Method not implemented.');

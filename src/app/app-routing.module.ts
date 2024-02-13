@@ -20,7 +20,8 @@ import { MessagerieComponent } from './Administrateur/messagerie/messagerie.comp
 import { ReservationComponent } from './Administrateur/reservation/reservation.component';
 // import { ListeZoneComponent } from './Administrateur/Zone/liste-zone/liste-zone.component';
 const routes: Routes = [
-  { path: 'accueil', redirectTo: 'accueil', pathMatch: 'full' },
+  { path: '', redirectTo: 'accueil', pathMatch: 'full' },
+  // {path:"",component:AccueilComponent},
   { path: 'accueil', component: AccueilComponent },
   { path: 'explorer', component: ExplorerComponent },
   { path: 'apropos', component: AproposComponent },

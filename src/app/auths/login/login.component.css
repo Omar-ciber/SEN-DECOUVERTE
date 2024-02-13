@@ -31,19 +31,27 @@ body {
   background-color: white;
   border-radius: 20px;
   color: black;
+  height:40px;
+  justify-content: center;
+    display: flex;
+
 }
 
+
 .Connexion2 {
+  /* border: 1px solid red; */
   margin-top: 20px;
   background-color: white;
   display: flex;
-  height: 100%;
-  width: 30%;
+  height: 30px;
+  width: 150px;
   align-items: center;
   justify-content: center;
   border-radius: 20px;
   color: black;
   font-weight: bold;
+  margin-left: 110px;
+  text-decoration:none;
 
 
 }
@@ -59,12 +67,15 @@ body {
   margin-top: 20px;
   display: flex;
   width: 150px;
-  height: 100%;
+  height: 30px;
   align-items: center;
   justify-content: center;
   border-radius: 20px;
   color: black;
   font-weight: bold;
+  margin-left: 110px;
+  text-decoration: none;
+
 }
 
 .boutonR i {

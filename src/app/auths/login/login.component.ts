@@ -11,73 +11,116 @@ import Swal from 'sweetalert2';
 export class LoginComponent {
   router: any;
 
-  constructor(private auth: ConnexionService, private route: Router) {
+  constructor(private auth: ConnexionService, private route: Router) {}
 
-  }
   formData: any = {
     email: "",
-    password : "",
+    password: "",
   }
 
   register: any = {
     email: '',
     name: '',
-    password:''
+    password: ''
   }
+
   connecion() {
-    console.log("voir input element", this.formData)
+    if (!this.validateEmail(this.formData.email)) {
+      Swal.fire({
+        title: "Erreur",
+        text: "Format d'e-mail incorrect",
+        icon: "error"
+      });
+      return;
+    }
+
+    if (!this.validatePasswordLength(this.formData.password)) {
+      Swal.fire({
+        title: "Erreur",
+        text: "Mot de passe doit contenir au moins 6 caractères",
+        icon: "error"
+      });
+      return;
+    }
+
     const Datainput = {
       email: this.formData.email,
-      password :  this.formData.password,
+      password: this.formData.password,
     }
+
     this.auth.loginUser(Datainput).subscribe((resplogin) => {
       console.log("voir login", resplogin);
       localStorage.setItem('userOnline', JSON.stringify(resplogin));
-      // if (resplogin.status==200) {
-        // alert("connexion réussie");
-        // console.log(resplogin.user.role==="visiteur");
+
       if (resplogin.user.role == "visiteur") {
-          Swal.fire({
+        Swal.fire({
           title: "Good job!",
-          text: "Connexion Reussi!",
+          text: "Connexion Reussie!",
           icon: "success"
         });
-          this.route.navigate(['/accueil']);
+        this.route.navigate(['/accueil']);
       } else if (resplogin.user.role == "admin") {
         Swal.fire({
           title: "Good job!",
-          text: "Connexion Reussi!",
+          text: "Connexion Reussie!",
           icon: "success"
         });
-          this.route.navigate(['/admin']);
-        }
-      // }
-    })
-}
+        this.route.navigate(['/admin']);
+      }
+    });
+  }
+
   inscription() {
-    console.log("voir input element", this.formData)
+    if (!this.validateEmail(this.register.email)) {
+      Swal.fire({
+        title: "Erreur",
+        text: "Format d'e-mail incorrect",
+        icon: "error"
+      });
+      return;
+    }
+
+    if (!this.validatePasswordLength(this.register.password)) {
+      Swal.fire({
+        title: "Erreur",
+        text: "Mot de passe doit contenir au moins 6 caractères",
+        icon: "error"
+      });
+      return;
+    }
+
     const Datainput = {
       email: this.register.email,
       password: this.register.password,
-      name:this.register.name
+      name: this.register.name
     }
+
     this.auth.registerUser(Datainput).subscribe((respRegister) => {
       console.log("voir Register", respRegister)
-      if (respRegister.status==200) {
+
         Swal.fire({
           title: "Good job!",
-          text: "Inscription Reussi!",
+          text: "Inscription Reussie!",
           icon: "success"
         });
-      }
+
     })
+    this.register.email=''
   }
-  // pour le flèche retour au page d'accueil
+
+  // Validation de l'e-mail
+  validateEmail(email: string): boolean {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
+  // Validation de la longueur du mot de passe
+  validatePasswordLength(password: string): boolean {
+    return password.length >= 6;
+  }
 
   // Méthode pour gérer le retour à l'accueil
   retourAccueil() {
     this.router.navigate(['/accueil']);
   }
-
-  // fin
 }

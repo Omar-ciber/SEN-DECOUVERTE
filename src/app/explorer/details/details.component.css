@@ -43,7 +43,8 @@ color: white;
 /* reservation */
 .Reservation{
   width: 70%;
-  padding: 50px;
+  /* padding: 50px; */
+  border: 2px solid red;
 }
 
 .rating{
@@ -456,11 +457,22 @@ color: white;
 .person-selector,
 .email-input,
 .date-input {
-  margin-bottom: 20px;
+margin-bottom: 20px;
  margin-left: 50px;
  border-radius: 20px;
 
 }
+.person-selector input{
+  width: 600px;
+    height: 50px;
+    padding: 5px;
+    font-size: 18px;
+    color: black;
+    margin-top: 10px;
+    /* margin-left: 20px; */
+    border-radius: 20px;
+  }
+
 
 label {
   display: block;
@@ -473,6 +485,9 @@ label {
     margin-bottom: 5px;
     color: white;
     margin: 5px;
+}
+.VotreZone{
+  margin-left: 50px;
 }
 
 .votreNom label{
@@ -535,12 +550,13 @@ input[type="datetime-local"] {
   gap: 50px;
   margin-top: 20px;
   /* border: 2px solid red; */
-  margin-left: 50%;
+  margin-left: 30%;
 
 }
 .submit-button{
   color: white;
-  margin-left: 100px;
+  /* border: 2px solid red; */
+  /* margin-left: 10px; */
   background-color: blue;
   width: 120px;
   height: 50px;
