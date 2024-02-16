@@ -13,6 +13,9 @@ export class EffectuerReservationService {
     getAllReservations(): Observable<any> {
     return this.http.get<any>(`${baseUrl}/reservations`);
     }
+    getReservationsGuide(id :any): Observable<any> {
+    return this.http.get<any>(`${baseUrl}/reservations/${id}`);
+    }
 
   // Faire une reservation
 //     postreservation(reservation: any): Observable<any> {

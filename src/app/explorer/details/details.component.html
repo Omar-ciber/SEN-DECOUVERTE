@@ -11,7 +11,7 @@
       <div class="history-wrapper">
         <div class="title-wrap text-center one-of-two">
           <h2 class="h1  mb-0 ">Historique</h2>
-          <p class="fs-3 font-weight-500">Créé en 1954, le Parc national du Niokolo-Koba (PNNK) est situé à 650 km à l’est de Dakar dans la région de Tambacounda.
+          <p class="fs-3 font-weight-500">Créé en 1956, le Parc national du Niokolo-Koba (PNNK) est situé à 650 km à l’est de Dakar dans la région de Tambacounda.
           Avec près d’un million d’hectares d’une nature incroyablement riche, entre forêts-galeries, grandes plaines humides,
           savane arborée. </p>
         </div>
@@ -78,8 +78,9 @@
       <p></p>
     </div>
     <div class="flip-card-back">
-      <p class="title">BACK</p>
-      <p>Leave Me</p>
+      <p class="title">Guide</p>
+      <p>je suis Salem M Mouhamed, guide touristique passionné, basé à Gorée depuis quatre années. Mon amour pour l'histoire, la
+      culture et les merveilles de cette île m'a conduit à partager ces trésors avec les visiteurs du monde entier.</p>
     </div>
   </div>
 </div>
@@ -94,8 +95,9 @@
       <p>amadem@gmail.com</p>
     </div>
     <div class="flip-card-back">
-      <p class="title">BACK</p>
-      <p>Leave Me</p>
+      <p class="title">Guide</p>
+      <p>je suis Amadem Fall, guide touristique passionné, basé à Gorée depuis quatre années. Mon amour pour l'histoire, la
+      culture et les merveilles de cette île m'a conduit à partager ces trésors avec les visiteurs du monde entier.</p>
     </div>
   </div>
 </div>
@@ -142,50 +144,47 @@
   <div class="titlereservation">
     <h3>Faites votre reservation</h3>
   </div>
-  <div class="nomEttel d-flex">
+  <div class="nomEttel col col-md-6">
     <div class="votreNom">
       <label for="">Nom</label>
       <input type="text" placeholder="ngom" name="nom" [(ngModel)]="Nom">
     </div>
     <div class="teleph">
     <label for="">Telephone:</label>
-    <input type="tel" placeholder="00221...." name="telephone" [(ngModel)]="telephone">
+    <input type="text" placeholder="00221...." name="telephone" [(ngModel)]="telephone">
     </div>
   </div>
-  <div class="sectionreserve1 d-flex">
+  <div class="sectionreserve1 col col-md-6">
     <div class="email-input">
       <label for="email">Adresse e-mail :</label >
-      <input type="email" id="email" name="email" [(ngModel)]="email" ><br>
+      <input type="email" placeholder="@gmail.com" id="email" name="email" [(ngModel)]="email" ><br>
     </div>
     <div class="person-selector">
     <label for="selectedPerson">Choisissez votre guide:</label>
     <select id="selectedPerson" name="guide"[(ngModel)]="guide">
       <option value="">... </option>
-      <option value= 1 >Salem M mouhamed </option>
-      <option value="2">Andre D Ndione</option>
-      <option value="3">Assane Diop </option>
-      <option value="4">Amadem Fall</option>
+      <option value= 11 >Salem M mouhamed </option>
+      <option value="12">Andre D Ndione</option>
+      <option value="13">Assane Diop </option>
+      <option value="16">Amadem Fall</option>
     </select> <br>
   </div>
   </div>
-  <div class="NombreZetJours d-flex">
+  <div class="NombreZetJours col col-md-6">
     <div class="person-selector">
       <label for="selectedNombrejrs">Nombre de personnes:</label>
-      <input type="number" id="selectedPerson" name="personne" [(ngModel)]="nombre_de_personnes">
+      <input type="number" placeholder="nombre de personne" id="selectedPerson" name="personne" [(ngModel)]="nombre_de_personnes">
     </div>
     <div class="VotreZone">
       <label for="">Zone:</label>
-      <!-- <input type="text" name="zone" [(ngModel)]="zone"> -->
+      <!-- <input type="text" placeholder="" name="zone" [(ngModel)]="zone"> -->
       <select id="selectedZone" name="zone" [(ngModel)]="zone">
         <option value="">... </option>
-        <option value=1>Zone 1</option>
-        <option value=2>Zone 2</option>
-        <option value=3>Zone 3</option>
-        <option value=4>Zone 4</option>
+        <option value=16>Niokolo Koba</option>
       </select>
     </div>
   </div>
-  <div class="sectionreserve2 d-flex">
+  <div class="sectionreserve2 col col-md-6">
     <div class="date-input">
       <label for="startDate">Date et heure de début :</label>
       <input type="datetime-local" id="startDate" name="datedebute"[(ngModel)]="date_debut">

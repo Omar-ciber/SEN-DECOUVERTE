@@ -49,6 +49,8 @@ justify-content: center;
 
 .add-zone-button {
   margin-bottom: 10px;
+  /* border: 2px solid red; */
+  margin-left: 50px;
 }
 
 .popup {

@@ -1,6 +1,6 @@
 <!-- <p>login works!</p> -->
 <div class="back-to-home" [routerLink]="['/accueil']">← Retour à l'accueil</div>
-<form action="">
+<form action="connexionIscriptio">
   <div class="sectionbody">
     <div class="authlogin">
       <div class="row full-height justify-content-center">
@@ -14,7 +14,7 @@
                 <div class="card-front">
                   <div class="center-wrap">
                     <div class="section text-center">
-                      <h4 class="Connexion">Se connecter</h4>
+                      <h4 class="Connexion ">Se connecter</h4>
                       <div class="form-group">
                         <input type="email" name="email" class="form-style" placeholder="Votre adresse e-mail"
                           id="logemail" autocomplete="off" [(ngModel)]="formData.email">
@@ -25,7 +25,7 @@
                           id="logpass" autocomplete="off" [(ngModel)]="formData.password">
                         <i class="input-icon uil uil-lock-alt"></i>
                       </div>
-                      <a href="#" class="Connexion2 text-center"(click)=" connecion()" >connecter</a>
+                      <a href="#" class="Connexion2 text-center"(click)=" connecion();connecionGuide() " >connecter</a>
                       <p class="Motpass"><a href="#" class="link">Mot de pass oublier?</a></p>
                     </div>
                   </div>

@@ -27,6 +27,9 @@ export class ZoneService {
   deleteZone(zoneId: any): Observable<any> {
     return this.http.delete(`${baseUrl}/supprimerZone/${zoneId}`);
   }
+  publierZone(zoneId: any): Observable<any> {
+     return this.http.get(`${baseUrl}/publierZone/${zoneId}`);
+}
 }
 
 

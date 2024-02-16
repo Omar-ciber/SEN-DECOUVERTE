@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { EffectuerReservationService } from 'src/app/services/effectuer-reservation.service';
 import Swal from 'sweetalert2';
+import { NgModel } from '@angular/forms';
 
 
 @Component({
@@ -18,7 +19,7 @@ export class DetailsComponent {
   telephone: string = "";
   nombre_de_personnes: string = "";
   guide: string = "";
-  zone: string = "";
+  zone: string="";
   date_debut: string = "";
   date_fin: string = "";
 
@@ -30,6 +31,7 @@ export class DetailsComponent {
         text: "Veuillez remplir tous les champs SVP!!",
         icon: "error"
       });
+
       return;
     }
 
@@ -46,7 +48,7 @@ export class DetailsComponent {
     let reservation = {
       Nom: this.Nom,
       email: this.email,
-      telephon: this.telephone,
+      telephone: this.telephone,
       nombre_de_personnes: this.nombre_de_personnes,
       guide: this.guide,
       zone: this.zone,
@@ -54,7 +56,9 @@ export class DetailsComponent {
       date_fin: this.date_fin
     }
 
-    console.log("Objet reservation: ", reservation)
+    console.log("Objet reservation: ", reservation);
+    console.log(this.Nom);
+
 
     this.reservationService.postReservation(reservation).subscribe(
       (response: any) => {

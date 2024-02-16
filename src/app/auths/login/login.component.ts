@@ -51,6 +51,7 @@ export class LoginComponent {
     this.auth.loginUser(Datainput).subscribe((resplogin) => {
       console.log("voir login", resplogin);
       localStorage.setItem('userOnline', JSON.stringify(resplogin));
+      console.warn('le userOnline', resplogin)
 
       if (resplogin.user.role == "visiteur") {
         Swal.fire({
@@ -62,11 +63,44 @@ export class LoginComponent {
       } else if (resplogin.user.role == "admin") {
         Swal.fire({
           title: "Good job!",
-          text: "Connexion Reussie!",
+          text: "Bienvenue!",
           icon: "success"
         });
         this.route.navigate(['/admin']);
       }
+    });
+  }
+// pour la connexion du guide
+  connecionGuide() {
+    if (!this.validateEmail(this.formData.email)) {
+      Swal.fire({
+        title: "Erreur",
+        text: "Format d'e-mail incorrect",
+        icon: "error"
+      });
+      return;
+    }
+
+    if (!this.validatePasswordLength(this.formData.password)) {
+      Swal.fire({
+        title: "Erreur",
+        text: "Mot de passe doit contenir au moins 6 caractères",
+        icon: "error"
+      });
+      return;
+    }
+
+    const Datainput = {
+      email: this.formData.email,
+      password: this.formData.password,
+    }
+
+    this.auth.loginGuide(Datainput).subscribe((resplogin) => {
+      console.log ('voire login guide')
+      console.log("voir login", resplogin);
+      localStorage.setItem('userOnline', JSON.stringify(resplogin));
+
+      this.route.navigate(['/admin']);
     });
   }
 

@@ -105,6 +105,12 @@ export class ListerZoneComponent implements OnInit {
     )
    }
 
+  publier(id: any): void {
+    this.zoneService.publierZone(id).subscribe((respons) => {
+      console.log("c 'est publier", respons)
+    })
+  }
+
      // Methode pour supprimer un trajet
   supprimerZone(zoneId: any) {
     Swal.fire({

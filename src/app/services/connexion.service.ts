@@ -11,6 +11,10 @@ export class ConnexionService {
   loginUser(user: any) : Observable<any> {
     return this.http.post<any>(`http://127.0.0.1:8000/api/login`, user)
   }
+  loginGuide(user: any) : Observable<any> {
+    return this.http.post<any>(`http://127.0.0.1:8000/api/login/guide`, user)
+  }
+
   registerUser(user: any) : Observable<any> {
     return this.http.post<any>(`http://127.0.0.1:8000/api/register`, user)
   }

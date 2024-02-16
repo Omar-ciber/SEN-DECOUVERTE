@@ -1,6 +1,6 @@
 .headerLogo img{
-  height: 70px;
-  margin-top: -40px;
+  height: 60px;
+  margin-top: -30px;
 
 }
 
@@ -10,10 +10,7 @@ box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 
   background-color: white;
   margin-top: 20px;
 }
-.containerHeader{
-  /* border: 1px solid red; */
-  /* display: flex; */
-}
+
 .ContenuHeader{
   justify-content: center;
   display: flex;
@@ -25,4 +22,43 @@ box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 
 }
 .scroll a:hover {
   color: aqua;
+}
+
+
+
+
+/* ====================== pour mon nouvaux header====================== */
+
+
+
+.Navigation {
+  /* border: 1px solid black; */
+  background-color: #18283B;
+  padding: 0 20px;
+
+}
+
+.logo img {
+  width: 100px;
+  height: 70px;
+}
+
+.navbar-nav li a {
+  color: white;
+  /* font-weight: 800; */
+  font-weight: bold;
+}
+
+.connexion {
+  background-color: #0F42A8 !important;
+}
+
+.burger i {
+  color: white !important;
+  font-size: 35px;
+}
+
+.activeLink {
+  color: white;
+  border-bottom: 2px solid #0F42A8 !important;
 }

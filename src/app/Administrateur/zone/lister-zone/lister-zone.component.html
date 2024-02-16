@@ -22,14 +22,15 @@
      </thead>
      <tbody class="Souscategorie">
        <tr *ngFor="let zone of tabZone">
-         <td><img src="http://127.0.0.1:8000/storage/app/public/images/{{zone.images}}" alt="test"></td>
+         <td><img src="http://127.0.0.1:8000/public/storage/images/{{zone.images}}" alt="test"></td>
          <td>{{zone.nom}}</td>
          <td>{{zone.description}}</td>
          <td>{{zone.cout}}</td>
          <td>{{zone.duree}}</td>
         <td><button type="button" class="btn btn-outline-primary">{{zone.statut}}</button></td>
         <td><span><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;
-          <i (click)="supprimerZone(zone.id)" class="fa-solid fa-trash" style="cursor: pointer;"></i> </span> </td>
+          <i (click)="supprimerZone(zone.id)" class="fa-solid fa-trash" style="cursor: pointer;">
+          </i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-rectangle-ad" (click)=" publier(zone.id)"></i> </span> </td>
        </tr>
      </tbody>
    </table>
@@ -88,22 +89,4 @@
 
 
 
-<!-- Modal -->
-<!-- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
-            aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-      </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div> -->
+

@@ -10,14 +10,14 @@
   <div id="nav-content">
     <div class="nav-button" [routerLink]="['/admin']"><span class="Admindash"><i class="bi bi-speedometer2"></i>&nbsp;Dashboard Amin</span>
     </div>
-    <div class="nav-button"  [routerLink]="['/lister-zone']"> &nbsp;&nbsp;<i class="fa-solid fa-location-dot"></i><span>&nbsp;Zone Touristique</span></div>
-    <div class="nav-button"[routerLink]="['/liste-guide']" >&nbsp;&nbsp;<i class="fa-solid fa-people-pulling"></i> &nbsp;<span>Guide Touristique</span></div>
+    <div class="nav-button"  [routerLink]="['/lister-zone']"*ngIf="isAdmin"> &nbsp;&nbsp;<i class="fa-solid fa-location-dot"></i><span>&nbsp;Zone Touristique</span></div>
+    <div class="nav-button"[routerLink]="['/liste-guide']"*ngIf="isAdmin">&nbsp;&nbsp;<i class="fa-solid fa-people-pulling"></i> &nbsp;<span>Guide Touristique</span></div>
     <hr />
-    <div class="nav-button" [routerLink]="['/messagerie']">&nbsp;&nbsp;<i class="fa-solid fa-message"></i>&nbsp;<span>Messagerie</span></div>
-    <div class="nav-button" [routerLink]="['/reservation']" ><i class="fas fa-chart-line"></i><span>Réservation</span></div>
+    <div class="nav-button" [routerLink]="['/messagerie']" >&nbsp;&nbsp;<i class="fa-solid fa-message"></i>&nbsp;<span>Messagerie</span></div>
+    <div class="nav-button" [routerLink]="['/reservation']"  ><i class="fas fa-chart-line"></i><span>Réservation</span></div>
     <hr />
     <div id="nav-content-highlight"></div>
-    <button type="button" class="btn btn-danger" [routerLink]="['/login']">Déconnexion</button>
+    <button type="button" class="btn btn-danger" (click)="logout()">Déconnexion</button>
   </div>
 <div>
 </div>

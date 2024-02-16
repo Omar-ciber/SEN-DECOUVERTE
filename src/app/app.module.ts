@@ -39,6 +39,7 @@ import { ListeGuideComponent } from './Administrateur/guide/liste-guide/liste-gu
 import { AccueilComponent } from './accueil/accueil/accueil.component';
 import { AuthInterceptor } from './interceptors/interceptor';
 import { ConnexionService } from './services/connexion.service';
+import { ProfilComponent } from './auths/profil/profil.component';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { ConnexionService } from './services/connexion.service';
     AddZoneComponent,
     ListerZoneComponent,
     NavbarComponent,
-    ListeGuideComponent
+    ListeGuideComponent,
+    ProfilComponent
   ],
   imports: [
     BrowserModule,
