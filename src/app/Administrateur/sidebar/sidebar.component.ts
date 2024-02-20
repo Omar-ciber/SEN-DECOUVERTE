@@ -45,7 +45,7 @@ export class SidebarComponent implements OnInit{
     throw new Error('Method not implemented.');
   }
 
- 
+
 
 
   //declaration fonction
@@ -61,6 +61,8 @@ export class SidebarComponent implements OnInit{
 //  fonction pour deconnection
   logout(): void {
     localStorage.removeItem('userOnline');
+    localStorage.removeItem('token');
+
     this.route.navigate(['/']);
 }
 }

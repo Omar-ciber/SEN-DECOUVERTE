@@ -36,8 +36,11 @@ margin-top: 70px;
 }
 .single-explore-item{
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
-  max-height: 600px;
-  min-height: 600px;
+  max-width: 500px; ;
+  max-height: 650px;
+  min-height: 650px;
+  /* border: 2px solid red; */
+
 
 }
 .single-explore-img img{

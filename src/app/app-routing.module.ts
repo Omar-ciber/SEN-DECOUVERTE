@@ -18,6 +18,7 @@ import { LoginComponent } from './auths/login/login.component';
 import { AddGuideComponent } from './Administrateur/guide/add-guide/add-guide.component';
 import { MessagerieComponent } from './Administrateur/messagerie/messagerie.component';
 import { ReservationComponent } from './Administrateur/reservation/reservation.component';
+import { adminGuard } from './guard/admin.guard';
 // import { AdminGuard } from './guard/admin.guard';
 // import { ListeZoneComponent } from './Administrateur/Zone/liste-zone/liste-zone.component';
 const routes: Routes = [
@@ -31,7 +32,7 @@ const routes: Routes = [
   { path: 'confidentialite', component: ConfidentialiteComponent },
   { path: 'auth', component: AuthComponent },
   { path: 'details', component: DetailsComponent },
-  { path: 'admin', component: AdminComponent},
+  { path: 'admin', component: AdminComponent , canActivate:[adminGuard]},
   { path: 'sidebar', component: SidebarComponent },
   { path: 'lister-zone', component: ListerZoneComponent },
   { path: 'liste-guide', component: ListeGuideComponent },
@@ -39,7 +40,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'add-guide', component: AddGuideComponent },
   {path:'messagerie',component:MessagerieComponent},
-  {path:'reservation',component:ReservationComponent}
+  {path:'reservation',component:ReservationComponent,  canActivate:[adminGuard]}
 
 
 ];

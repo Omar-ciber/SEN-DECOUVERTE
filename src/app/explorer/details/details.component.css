@@ -462,7 +462,7 @@ margin-bottom: 20px;
 
 }
 .person-selector input{
-  width: 500px;
+  width: 400px;
     height: 50px;
     padding: 5px;
     font-size: 18px;
@@ -493,7 +493,7 @@ label {
  margin-left: 50px;
 }
 .votreNom input{
-  width: 500px;
+  width: 400px;
   height: 50px;
   padding: 5px;
   font-size: 18px;
@@ -507,7 +507,7 @@ margin-left: 50px;
 }
 
 .teleph input{
-    width: 500px;
+    width: 400px;
     height: 50px;
       padding: 5px;
       font-size: 18px;
@@ -517,7 +517,7 @@ margin-left: 50px;
       border-radius: 20px;
     }
     .VotreZone input{
-      width: 500px;
+      width: 400px;
       height: 50px;
       padding: 5px;
       font-size: 18px;
@@ -535,7 +535,7 @@ margin-left: 50px;
 select,
 input[type="email"],
 input[type="datetime-local"] {
-  width: 500px;
+  width: 400px;
   height: 50px;
   padding: 5px;
   font-size: 18px;

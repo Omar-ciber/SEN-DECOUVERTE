@@ -5,7 +5,9 @@
 }
 .row{
   max-height: 130px;
+  /* border: 2px solid red; */
 }
+
 
 .counter-box {
   box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
@@ -13,8 +15,11 @@
   /* background: #f6f6f6; */
   padding: 40px 20px 37px;
   text-align: center;
-  max-width: 300px;
+  max-width: 250px;
   max-height: 130px;
+  margin-top: -50px;
+  /* margin-left: 200px; */
+  /* border: 2px solid red; */
 
 
 }

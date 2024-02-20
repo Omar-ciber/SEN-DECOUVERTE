@@ -91,6 +91,7 @@ export class DetailsComponent {
       }
     );
   }
+  
 
   // Validation du format d'e-mail
   validateEmail(email: string): boolean {

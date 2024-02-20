@@ -24,6 +24,96 @@ export class LoginComponent {
     password: ''
   }
 
+    // Variables pour faire la vérifications
+  verifName : String  =  "";
+  verifEmail : String = "";
+  verifPassword : String = "";
+
+  // Variables si les champs sont exacts
+  exactName : boolean = false;
+  exactEmail : boolean = false;
+  exactPassword: boolean = false;
+// Fonction pour verication du nom lors d l'inscription
+  verifNameFonction() {
+    const nameRegex=/^[a-zA-Z][a-zA-Z -]{1,100}$/;
+    this.exactName = false;
+    if(this.register.name == ""){
+      this.verifName = "Veuillez renseigner votre nom";
+    }
+    else if (this.register.name.length < 2 ){
+      this.verifName = "Le nom est trop court";
+    }else if (!this.register.name.match(nameRegex)) {
+       this.verifName = "Le nom ne dois pas avoir de caractere speciaux";
+    }
+    else {
+      this.verifName = "";
+      this.exactName = true;
+    }
+  }
+// Fonction de verication pour le mail avec les pattern lors de l'inscription
+  verifEmailFonction(){
+    const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$/;
+    this.exactEmail = false;
+
+    if(this.register.email == ""){
+      this.verifEmail = "Veuillez renseigner votre email";
+    }
+    else if (!this.register.email.match(emailPattern) ){
+      this.verifEmail = "Veuillez donner un email valide";
+    }
+    else {
+      this.verifEmail = "";
+      this.exactEmail = true;
+    }
+  }
+// Fonction de verication pour le mail avec les pattern lors de la connexion
+  verifEmailConnexionFonction(){
+    const emailPattern = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+.[A-Za-z]{2,}$/;
+    this.exactEmail = false;
+
+    if(this.formData.email == ""){
+      this.verifEmail = "Veuillez renseigner votre email";
+    }
+    else if (!this.formData.email.match(emailPattern) ){
+      this.verifEmail = "Veuillez donner un email valide";
+    }
+    else {
+      this.verifEmail = "";
+      this.exactEmail = true;
+    }
+  }
+
+
+// Fonction pour verificaton pour le mot de pass lors de l'inscription
+   verifPasswordFonction(){
+    this.exactPassword = false;
+    if(this.register.password == ""){
+      this.verifPassword = "Veuillez renseigner votre mot de passe";
+    }
+    else if (this.register.password.length < 5 ){
+      this.verifPassword = "Mot de passe doit être supérieur ou égal à 5";
+    }
+    else{
+      this.verifPassword = "";
+      this.exactPassword = true;
+    }
+   }
+  // Fonction pour verificaton pour le mot de pass lors de la connexion
+
+   verifPasswordConnexionFonction(){
+    this.exactPassword = false;
+    if(this.formData.password == ""){
+      this.verifPassword = "Veuillez renseigner votre mot de passe";
+    }
+    else if (this.formData.password.length < 5 ){
+      this.verifPassword = "Mot de passe doit être supérieur ou égal à 5";
+    }
+    else{
+      this.verifPassword = "";
+      this.exactPassword = true;
+    }
+   }
+  // fonction pour la connexion
   connecion() {
     if (!this.validateEmail(this.formData.email)) {
       Swal.fire({
@@ -51,7 +141,9 @@ export class LoginComponent {
     this.auth.loginUser(Datainput).subscribe((resplogin) => {
       console.log("voir login", resplogin);
       localStorage.setItem('userOnline', JSON.stringify(resplogin));
-      console.warn('le userOnline', resplogin)
+      localStorage.setItem('token', JSON.stringify(resplogin.authorization.token));
+
+      // console.warn('le userOnline', resplogin)
 
       if (resplogin.user.role == "visiteur") {
         Swal.fire({
@@ -99,6 +191,7 @@ export class LoginComponent {
       console.log ('voire login guide')
       console.log("voir login", resplogin);
       localStorage.setItem('userOnline', JSON.stringify(resplogin));
+      localStorage.setItem('token', JSON.stringify(resplogin.authorization.token));
 
       this.route.navigate(['/admin']);
     });
@@ -143,15 +236,26 @@ export class LoginComponent {
   }
 
   // Validation de l'e-mail
+  // validateEmail(email: string): boolean {
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   return emailRegex.test(email);
+  // }
+
   validateEmail(email: string): boolean {
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex=/^[A-Za-z]+[A-Za-z0-9\._%+-]+@[A-Za-z0-9\.-]+\.[A-Za-z]{2,}$/;
     return emailRegex.test(email);
   }
 
-  // Validation de la longueur du mot de passe
   validatePasswordLength(password: string): boolean {
     return password.length >= 6;
   }
+
+  // visualiser le mot de passe saisie
+  showPassword = false;
+
+togglePasswordVisibility() {
+  this.showPassword = !this.showPassword;
+}
 
   // Méthode pour gérer le retour à l'accueil
   retourAccueil() {
