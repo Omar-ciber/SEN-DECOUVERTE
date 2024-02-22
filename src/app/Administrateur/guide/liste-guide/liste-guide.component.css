@@ -1,3 +1,19 @@
+.tableGuide img{
+  width: 50px;
+}
+
+.boutonAguide{
+  margin-left: 300px;
+  margin-top: 20px;
+}
+.Adguid{
+  background-color: #18283B;
+  height: 30px;
+  width: 110px;
+  color: white;
+  border-radius: 10px;
+}
+
 .table{
   margin-left: 300px;
     width: 76%;

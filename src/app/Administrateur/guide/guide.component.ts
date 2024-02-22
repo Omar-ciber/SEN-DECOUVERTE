@@ -25,26 +25,7 @@ export class GuideComponent implements OnInit {
   	open(content: any) {
 		this.modalService.open(content);
     }
-  // methode pour supprimer un guide
-   supprimerZone(GuideId: any) {
-    Swal.fire({
-      title: "Etes vous sur",
-      text: "voulez vous supprimer!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#FA7436",
-      cancelButtonColor: "#FA0436",
-      confirmButtonText: "OUI !!"
-    }).then((result) => {
-      if (result.isConfirmed) {
-        this.deleteGuide.deleteZone(GuideId).subscribe((resp: any) => {
-          console.log(resp)
-          this.listeGuide();
-        });
-      }
-    });
 
-  }
   listeGuide() {
     throw new Error('Method not implemented.');
   }

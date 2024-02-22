@@ -1,7 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { EffectuerReservationService } from 'src/app/services/effectuer-reservation.service';
 import Swal from 'sweetalert2';
 import { NgModel } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { ZoneService } from 'src/app/services/add-zone.service';
+import { AddGuideService } from 'src/app/services/add-guide.service';
 
 
 @Component({
@@ -9,23 +12,58 @@ import { NgModel } from '@angular/forms';
   templateUrl: './details.component.html',
   styleUrls: ['./details.component.css']
 })
-export class DetailsComponent {
-
-  constructor(private reservationService: EffectuerReservationService) {}
-
-  // Mes variables
+export class DetailsComponent implements OnInit {
+  zoneDetail: any;
+  tabZoneGuide: any;
+  tabZone: any;
+   // Mes variables
   Nom: string = "";
   email: string = "";
   telephone: string = "";
   nombre_de_personnes: string = "";
   guide: string = "";
-  zone: string="";
+  // zone! :this.zoneDetail.nom;
+   zone :any;
   date_debut: string = "";
   date_fin: string = "";
+  id:any;
+
+  constructor(private reservationService: EffectuerReservationService,private route:ActivatedRoute,private zoneService: ZoneService,private  guideService:AddGuideService) {}
+  ngOnInit(): void {
+    this.id = localStorage.getItem('idZone')
+    this.listeGuideParZone();
+     // recuperer une zone
+    this.route.params.subscribe((params) => {
+       const zoneId = params['id'];
+      this.zoneService
+        .detailzone(zoneId)
+        .subscribe((response) => {
+          this.zoneDetail= response;
+          console.log(this.zoneDetail);
+        });
+    });
+
+  }
+
+  listeGuideParZone() {
+    console.log('je suis id',this.id);
+
+    this.guideService.guideParZone(this.id).subscribe(
+      (response: any) => {
+        this.tabZoneGuide = response;
+        console.log('guide de la zone',this.tabZoneGuide);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
+
 
   Test() {
     // Validation des champs obligatoires
-    if (!this.Nom || !this.email || !this.telephone || !this.nombre_de_personnes || !this.guide || !this.zone || !this.date_debut || !this.date_fin) {
+    if (!this.Nom || !this.email || !this.telephone || !this.nombre_de_personnes || !this.guide ||  !this.date_debut || !this.date_fin) {
       Swal.fire({
         title: "Erreur",
         text: "Veuillez remplir tous les champs SVP!!",
@@ -91,7 +129,21 @@ export class DetailsComponent {
       }
     );
   }
-  
+
+   // la liste des zones pour bouclé
+  listeZone() {
+    this.zoneService.getAllZones().subscribe(
+      (zone: any) => {
+        this.tabZone = zone;
+        console.log(this.tabZone);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+  }
+
+
 
   // Validation du format d'e-mail
   validateEmail(email: string): boolean {

@@ -7,43 +7,19 @@
   <label for="search">Rechercher par contenu:</label>&nbsp;
   <input type="text" id="search" name="search" placeholder=" recherche">
 </div>
-<div class="message-container">
-  <div class="profilMessage">
-    <img src="https://static.vecteezy.com/ti/vecteur-libre/p3/19495014-artiste-homme-garcon-avatar-utilisateur-personne-gens-peau-noire-style-plat-vectoriel.jpg" alt="Photo de profil">
-  </div>
-  <div class="contenu-message ">
-    <div class="nom-prenom">
-      <p>Noel Robinson Ndecky</p>
-    </div>
-    <p>Contenu du message reçu Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <button class="boutonRepondre" (click)="ouvrirPopup()">Répondre</button>
-  </div>
-</div>
-<div class="message-container">
-  <div class="profilMessage">
-    <img src="https://static.vecteezy.com/ti/vecteur-libre/p3/19495014-artiste-homme-garcon-avatar-utilisateur-personne-gens-peau-noire-style-plat-vectoriel.jpg" alt="Photo de profil">
-  </div>
-  <div class="contenu-message">
-    <div class="nom-prenom">
-      <p>Noel Robinson Ndecky</p>
-    </div>
-    <p>Contenu du message reçu Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <button class="boutonRepondre" (click)="ouvrirPopup()">Répondre</button>
-  </div>
-</div>
-<div class="message-container">
-  <div class="profilMessage">
-    <img src="https://static.vecteezy.com/ti/vecteur-libre/p3/19495014-artiste-homme-garcon-avatar-utilisateur-personne-gens-peau-noire-style-plat-vectoriel.jpg" alt="Photo de profil">
-  </div>
-  <div class="contenu-message">
-    <div class="nom-prenom">
-      <p>Noel Robinson Ndecky</p>
-    </div>
-    <p>Contenu du message reçu Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-    <button class="boutonRepondre"(click)="ouvrirPopup()">Répondre</button>
-  </div>
-</div>
 
+<div *ngFor="let message of tabMessages" class="message-container">
+  <div class="profilMessage">
+    <img src="{{ message.profilImage }}" alt="Photo de profil">
+  </div>
+  <div class="contenu-message">
+    <div class="nom-prenom">
+      <p>{{ message.nomPrenom }}</p>
+    </div>
+    <p>{{ message.contenuMessage }}</p>
+    <button class="boutonRepondre" (click)="ouvrirPopup(message)">Répondre</button>
+  </div>
+</div>
 
 <!-- Popup pour répondre au message -->
 <div class="popup" *ngIf="afficherPopup">
@@ -66,3 +42,5 @@
     </form>
   </div>
 </div>
+
+<!-- <a href="#" class="Connexion2 text-center" (click)="connecion();connecionGuide()">connecter</a> -->

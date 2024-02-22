@@ -31,17 +31,16 @@ const routes: Routes = [
   { path: 'conditions', component: UtilisationComponent },
   { path: 'confidentialite', component: ConfidentialiteComponent },
   { path: 'auth', component: AuthComponent },
-  { path: 'details', component: DetailsComponent },
+  { path: 'detailZone/:id', component: DetailsComponent },
   { path: 'admin', component: AdminComponent , canActivate:[adminGuard]},
   { path: 'sidebar', component: SidebarComponent },
   { path: 'lister-zone', component: ListerZoneComponent },
   { path: 'liste-guide', component: ListeGuideComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'add-guide', component: AddGuideComponent },
+  { path: 'add-guide', component: AddGuideComponent,  canActivate:[adminGuard] },
   {path:'messagerie',component:MessagerieComponent},
   {path:'reservation',component:ReservationComponent,  canActivate:[adminGuard]}
-
 
 ];
 

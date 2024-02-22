@@ -13,10 +13,10 @@
                 </div>
                 <div class="explore-content">
                   <div class="row">
-                    <div class=" col-md-4 col-sm-6">
+                    <div class=" col-md-4 col-sm-6" *ngFor="let zone of tabZonePublie">
                       <div class="single-explore-item">
                         <div class="single-explore-img">
-                          <img src="https://i.pinimg.com/originals/73/80/67/7380672f2425bc3f3eb55ee7d7e1342b.jpg" alt="explore image">
+                          <img src="http://127.0.0.1:8000/storage/{{zone.images}}"  alt="explore image">
                           <div class="single-explore-img-info">
                             <button onclick="window.location.href='#'">Le Mieux Noté</button>
                             <div class="single-explore-image-icon-box">
@@ -36,21 +36,20 @@
                           </div>
                         </div>
                         <div class="single-explore-txt bg-theme-1">
-                          <h2>Toubacouta</h2>
+                          <h2>{{zone.nom}}</h2>
                           <p class="explore-rating-price">
                             <span class="explore-rating">5.0</span>
                             <a href="#"> 10 évaluations</a>
                             <span class="explore-price-box">
-                              Tarif
-                              <span class="explore-price">par heure</span>
+                            {{zone.cout}}
+                              <span class="explore-price">{{zone.duree}}</span>
                             </span>
                           </p>
-                          <p>Toubacouta (ou Toubakouta) est un village du Sénégal, situé dans le Sine-Saloum à une quarantaine de kilomètres au sud
-                          de Foundiougne, entre Sokone et Karang Poste.</p>
+                          <p>{{zone.description}}</p>
                           <div class="explore-open-close-part">
                             <div class="row">
                               <div class="col-sm-5">
-                                <button type="button" class="btn btn-warning" routerLink ='/details'>Détails</button>
+                                <button type="button" class="btn btn-warning" [routerLink] ="['/detailZone',zone.id]" (click)="getAnnonce(zone)">Détails</button>
                               </div>
                               <div class="col-sm-7">
                                 <div class="explore-map-icon">
@@ -64,7 +63,7 @@
                         </div>
                       </div>
                     </div>
-                    <div class="col-md-4 col-sm-6">
+                    <!-- <div class="col-md-4 col-sm-6">
                       <div class="single-explore-item">
                         <div class="single-explore-img">
                           <img src="https://www.restaurantlapointe.com/wp-content/uploads/2022/01/Pointe-des-almadies-33.jpg" alt="explore image">
@@ -322,9 +321,9 @@
                           </div>
                         </div>
                       </div>
-                    </div>
+                    </div> -->
                   </div>
-                  <div class="row">
+                  <!-- <div class="row">
                     <div class=" col-md-4 col-sm-6">
                       <div class="single-explore-item">
                         <div class="single-explore-img">
@@ -636,7 +635,7 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div> -->
                 </div>
               </div>
             </section>

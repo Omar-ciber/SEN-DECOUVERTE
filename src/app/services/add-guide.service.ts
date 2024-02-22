@@ -7,17 +7,22 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AddGuideService {
-  // http: any;
 
-  // constructor(http: HttpClient) { }
-  // // lister les guide
-  // getAllGuide(): Observable<any> {
-  //   return this.http.get<any>(`${baseUrl}/listerGuide`);
-  // }
+  constructor(private http: HttpClient) { }
+  // lister les guide
+  getAllGuide(): Observable<any> {
+    return this.http.get<any>(`${baseUrl}/listerGuide`,{});
+  }
 
-  // // Méthode pour ajouter un guide
-  // postGuide(guide: any): Observable<any> {
-  //   return this.http.post<any>(`${baseUrl}/Create-guide`, guide);
-  // }
-  
+  // Méthode pour ajouter un guide
+  postGuide(guide: any): Observable<any> {
+    return this.http.post<any>(`${baseUrl}/create-guide`, guide);
+  }
+
+deleteGuide(guideId: any): Observable<any> {
+    return this.http.delete(`${baseUrl}/delete-guide/${guideId}`);
+  }
+  guideParZone(ZoneId: any): Observable<any> {
+    return this.http.get<any>(`${baseUrl}/listerGuidesParZone/${ZoneId}`,{});
+ } 
 }

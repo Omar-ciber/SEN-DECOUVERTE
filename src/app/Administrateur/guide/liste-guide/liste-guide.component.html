@@ -1,51 +1,97 @@
 <app-navbar></app-navbar>
-<!-- dsfdg -->
 <app-sidebar></app-sidebar>
-<!-- table des guides -->
-<div class="listeGui">
-  <h2>Liste des Guides </h2>
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="ajouterGuideModal" tabindex="-1" role="dialog" aria-labelledby="ajouterGuideModalLabel"
+  aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ajouterGuideModalLabel">Ajouter un guide</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="form-group">
+            <label for="imageProfile">Image de profil</label>
+            <input type="file" (change)="getFile($event)" class="form-control-file" name="image" id="imageProfile" accept="image/*" [(ngModel)]="image" >
+            <small id="imageProfileHelp" class="form-text text-muted">Téléchargez une image de profil.</small>
+          </div>
+          <div class="form-group">
+            <label for="nomGuide">Nom et prénom</label>
+            <input type="text" class="form-control" id="nomGuide" name="nom" placeholder="Entrez le nom et prénom du guide" [(ngModel)]="name">
+          </div>
+          <div class="form-group">
+            <label for="mailGuide">Adresse mail</label>
+            <input type="text" class="form-control" name="email" id="mailGuide" placeholder="Adresse mail" [(ngModel)]="email">
+          </div>
+          <div class="form-group">
+            <label for="password">Mot de pass</label>
+            <input type="text" class="form-control" name="password" id="password" placeholder="Mot de passe" [(ngModel)]="password">
+          </div>
+          <div class="form-group">
+            <label for="">Description</label>
+            <input type="text" class="form-control" name="description" id="description" placeholder="Description" [(ngModel)]="description">
+          </div>
+          <div class="form-group">
+            <label for="">Duree d'experience</label>
+            <input type="text" class="form-control" name="duree" id="experience" placeholder="duree_experience " [(ngModel)]="duree_experience">
+          </div>
+        <div class="form-group">
+          <label for="zone">Zone</label>
+          <select name="selectedZone" class="form-control" [(ngModel)]="selectedZone">
+            <!-- Utilisation de *ngFor pour boucler à travers le tableau tabZone et générer les options -->
+            <option *ngFor="let elt of tabZone" [value]="elt.id">{{ elt.nom  }}</option>
+          </select>
+        </div>
+ <!-- Bouton de soumission du formulaire -->
+          <button type="submit" class="btn btn-primary" (click)="AjoutGuide()"  data-dismiss="modal">Ajouter</button>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+      </div>
+    </div>
+  </div>
 </div>
-<button class="add-Guide-button" (click)="togglePopup()">Ajouter</button>
+<!-- Reste de votre code pour la liste des guides -->
+<div class="listeGui">
+  <h2>Liste des Guides</h2>
+</div>
+<!-- Bouton pour ouvrir le popup -->
+<div class="boutonAguide">
+  <button type="button" class="Adguid" data-toggle="modal" data-target="#ajouterGuideModal">
+    Ajouter un guide
+  </button>
+</div>
 <table class="table">
   <thead class="tbGuides">
     <tr>
+      <!-- <th scope="col">N</th> -->
       <th scope="col">Photo</th>
       <th scope="col">Nom et prenom</th>
+      <th scope="col">Mail</th>
       <th scope="col">Zone</th>
       <th scope="col">Statut</th>
       <th scope="col">Action</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">1</th>
-      <td>Diop Aliou</td>
-      <td>Gorée</td>
+  <tbody class="tableGuide" >
+    <!-- Vos lignes existantes pour la liste des guides restent inchangées -->
+    <tr  *ngFor="let item of tabGuide">
+      <!-- <th scope="row">{{index+1}}</th> -->
+      <th><img src="http://127.0.0.1:8000/storage/{{item.image}}" alt="test"></th>
+      <td>{{item.name}} {{item.prenom}}</td>
+      <td>{{item.email}}</td>
+      <td>{{item.zone_id}}</td>
       <td><button type="button" class="btn btn-outline-primary">Primary</button></td>
-      <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
+      <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i (click)="supprimerGuide(item.id)"
+            class="fa-solid fa-trash"></i></span></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Ndoye Moussa</td>
-      <td>Gorée</td>
-      <td><button type="button" class="btn btn-outline-primary">Primary</button></td>
-       <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i (click)="supprimerZone(guide.id)" class="fa-solid fa-trash" style="cursor: pointer;"></i></span>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Ndione Andre</td>
-      <td>Saly</td>
-      <td><button type="button" class="btn btn-outline-primary">Primary</button></td>
-      <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Mouhamed Malick</td>
-      <td>Ile du Saloum</td>
-      <td><button type="button" class="btn btn-outline-primary">Primary</button></td>
-      <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
-    </tr>
+    <!-- ... (autres lignes) ... -->
   </tbody>
 </table>
-<!-- popup pour guides -->
-

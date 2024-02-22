@@ -147,16 +147,18 @@ export class LoginComponent {
 
       if (resplogin.user.role == "visiteur") {
         Swal.fire({
-          title: "Good job!",
+          title: "Merci!!!",
           text: "Connexion Reussie!",
-          icon: "success"
+          icon: "success",
+          timer:1500
         });
         this.route.navigate(['/accueil']);
       } else if (resplogin.user.role == "admin") {
         Swal.fire({
-          title: "Good job!",
+          title: "Merci!!!",
           text: "Bienvenue!",
-          icon: "success"
+          icon: "success",
+          timer:1500
         });
         this.route.navigate(['/admin']);
       }
@@ -169,6 +171,7 @@ export class LoginComponent {
         title: "Erreur",
         text: "Format d'e-mail incorrect",
         icon: "error"
+        
       });
       return;
     }
@@ -226,9 +229,10 @@ export class LoginComponent {
       console.log("voir Register", respRegister)
 
         Swal.fire({
-          title: "Good job!",
+          title: "Merci!!!",
           text: "Inscription Reussie!",
-          icon: "success"
+          icon: "success",
+          timer:1500
         });
 
     })

@@ -2,9 +2,9 @@
 <app-header-component></app-header-component>
 <!-- detail debut section -->
 <section>
-  <div class="second-container">
+  <div class="second-container" *ngIf="zoneDetail">
     <div class="section-heading wow fadeIn">
-      <h2 class="ml3 text-center mt-6">Le parc national du Niokolo-Koba</h2>
+      <h2 class="ml3 text-center mt-6">La zone touristique : {{zoneDetail.nom}}</h2>
       <div class="heading-separator"></div>
     </div>
     <div class="row">
@@ -15,131 +15,83 @@
           Avec près d’un million d’hectares d’une nature incroyablement riche, entre forêts-galeries, grandes plaines humides,
           savane arborée. </p>
         </div>
-        <div class="timeline-box one-of-two">
-          <img class="mb-1-6 rounded" src="https://www.senegal-original.com/uploads/sites/22/2018/06/niokolo-koba-1.jpeg" alt="...">
+        <div class="timeline-box one-of-two" >
+          <img class="mb-1-6 rounded" src="http://127.0.0.1:8000/storage/{{zoneDetail.images}}" alt="...">
           <div class="content">
-            <h3 class="h4 mb-2 mb-md-3">Le parc national du Niokolo-Koba</h3>
-            <p class="mb-0">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
-              illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
-              praesent luptatum</p>
+            <h3 class="h4 mb-2 mb-md-3">{{zoneDetail.nom}}</h3>
+            <p class="mb-0">{{zoneDetail.description}}</p>
           </div>
           <div class="year">Zone</div>
         </div>
-        <div class="timeline-box one-of-two">
-          <img class="mb-1-6 rounded" src="https://image.over-blog.com/I6e-vVK8YnO-gZ4fAcBqXubW_Lc=/filters:no_upscale()/image%2F1992828%2F20210212%2Fob_b257b6_b1a4107.jpg" alt="...">
-          <div class="content">
-            <h3 class="h4 mb-2 mb-md-3">Le parc national du Niokolo-Koba</h3>
-            <p class="mb-0">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
-              illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
-              praesent luptatum</p>
-          </div>
-          <div class="year">Zone </div>
-        </div>
-        <div class="timeline-box one-of-two">
-          <img class="mb-1-6 rounded" src="https://x7a7w8w2.rocketcdn.me/wp-content/uploads/2018/08/cropped-discover-senegal_lions1.jpg" alt="...">
-          <div class="content">
-            <h3 class="h4 mb-2 mb-md-3">We win the national awards</h3>
-            <p class="mb-0">Duis autem vel eum iriure dolor in hendrerit in vulputate velit esse molestie consequat, vel
-              illum dolore eu feugiat nulla facilisis at vero eros et accumsan et iusto odio dignissim qui blandit
-              praesent luptatum</p>
-          </div>
-          <div class="year">Zone</div>
-        </div>
-        <div class="timeline-box one-of-two">
-          <img class="mb-1-6 rounded" src="https://niokolodge.sn/wp-content/uploads/2020/04/niokolodge-senegal-faune-wildlife-nature.jpg" alt="...">
-          <div class="content">
-            <h3 class="h4 mb-2 mb-md-3">Le parc national du Niokolo-Koba</h3>
-            <p class="mb-0">Le Parc abrite une remarquable diversité d’animaux sauvages. Peu habitués aux safaris de masse, les animaux sont ici
-            plus farouches qu’ailleurs. Les approcher s’apprécie comme nulle part ailleurs. On peut ainsi avoir la chance
-            d’apercevoir lions, léopards, buffles, antilopes, chimpanzés et babouins, hippopotames et crocodiles, le grand élan de
-            Derby ou encore plus de 300 espèces d’oiseaux, …</p>
-          </div>
-          <div class="year">Zone</div>
-        </div>
+
       </div>
     </div>
   </div>
 </section>
-<!-- fin section détail parc -->
-<!--  section guides -->
-<div class="Nosguide">
-  <h3 class="text-center mt-6">Nos Guides</h3>
-</div>
-<div class="guidesNioko">
-<div class="groupe1">
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <p class="title">Salem M Mouhamed</p>
-      <img src="https://img.freepik.com/photos-gratuite/bel-homme-serieux-lunettes-pointe-son-doigt-mur-blanc-isole_496169-1027.jpg?size=626&ext=jpg&ga=GA1.2.1437972313.1694467442&semt=ais" class="img-fluid rounded-start"
-        alt="...">
 
-      <p>saloumfall@gmail.com</p>
-      <p></p>
-    </div>
-    <div class="flip-card-back">
-      <p class="title">Guide</p>
-      <p>je suis Salem M Mouhamed, guide touristique passionné, basé à Gorée depuis quatre années. Mon amour pour l'histoire, la
-      culture et les merveilles de cette île m'a conduit à partager ces trésors avec les visiteurs du monde entier.</p>
-    </div>
-  </div>
-</div>
-<br>
-<div class="flip-card">
-  <div class="flip-card-inner">
-    <div class="flip-card-front">
-      <p class="title">Amademe Fall</p>
-      <img src="https://img.freepik.com/photos-gratuite/homme-americain-africain-porter-pull-rouge_273609-23350.jpg?size=626&ext=jpg&ga=GA1.2.1437972313.1694467442&semt=ais" class="img-fluid rounded-start"
-        alt="...">
-
-      <p>amadem@gmail.com</p>
-    </div>
-    <div class="flip-card-back">
-      <p class="title">Guide</p>
-      <p>je suis Amadem Fall, guide touristique passionné, basé à Gorée depuis quatre années. Mon amour pour l'histoire, la
-      culture et les merveilles de cette île m'a conduit à partager ces trésors avec les visiteurs du monde entier.</p>
-    </div>
-  </div>
-</div>
-</div>
-  <div class="groupe2">
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <p class="title">Andre D Ndione</p>
-          <img src="https://img.freepik.com/photos-gratuite/portrait-homme-afro-americain_23-2149072219.jpg?size=626&ext=jpg&ga=GA1.2.1437972313.1694467442&semt=ais" class="img-fluid rounded-start"
-            alt="...">
-          <p>andre@gmail.com</p>
-        </div>
-        <div class="flip-card-back">
-          <p class="title">Guide</p>
-          <p>Je suis André Ndione,ma passion pour l'histoire et la culture de cette
-          île m'a guidé à travers des années d'exploration et de partage ,je suis fier de pouvoir
-          communiquer dans plusieurs langues, et je suis la pour vous.
-</p>
+<!-- Team -->
+<section id="team" class="pb-5">
+  <div class="container">
+    <h1 class="section-title h1">Nos Guides</h1>
+    <div class="row">
+      <!-- Team member -->
+      <div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let item of tabZoneGuide">
+        <div class="image-flip" ontouchstart="this.classList.toggle('hover');">
+          <div class="mainflip">
+            <div class="frontside">
+              <div class="card">
+                <div class="card-body text-center">
+                  <p><img class=" img-fluid"
+                      src="http://127.0.0.1:8000/storage/{{item.image}}" alt="card image">
+                  </p>
+                  <h4 class="card-title">{{item.name}}</h4>
+                  <h4 class="card-title">{{item.email}}</h4>
+                  <h4 class="card-title">experience:{{item.duree_experience
+}}</h4>
+                  <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i
+                      class="fa fa-plus"></i></a>
+                </div>
+              </div>
+            </div>
+            <div class="backside col-12  col-md-12">
+              <div class="card">
+                <div class="card-body text-center mt-4">
+                  <h4 class="card-title">{{item.name}}</h4>
+                  <p class="card-text">{{item.description}}</p>
+                  <!-- <ul class="list-inline">
+                    <li class="list-inline-item">
+                      <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                        <i class="fa fa-facebook"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                        <i class="fa fa-twitter"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                        <i class="fa fa-skype"></i>
+                      </a>
+                    </li>
+                    <li class="list-inline-item">
+                      <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
+                        <i class="fa fa-google"></i>
+                      </a>
+                    </li>
+                  </ul> -->
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
+      <!-- ./Team member -->
+
     </div>
-    <br>
-    <div class="flip-card">
-      <div class="flip-card-inner">
-        <div class="flip-card-front">
-          <p class="title">Assane Diop</p>
-          <img src="https://img.freepik.com/photos-premium/bel-homme-affaires-executif-afro-americain-joyeux-au-bureau-espace-travail_216356-296.jpg?size=626&ext=jpg&ga=GA1.1.1437972313.1694467442&semt=ais" class="img-fluid rounded-start"
-            alt="...">
-          <p>assae@gmail.com</p>
-        </div>
-        <div class="flip-card-back">
-          <p class="title">Guide</p>
-          <p>je suis Assane Diop, guide touristique passionné, basé à Gorée depuis quatre années. Mon amour pour l'histoire, la
-          culture et les merveilles de cette île m'a conduit à partager ces trésors avec les visiteurs du monde entier.</p>
-        </div>
-      </div>
   </div>
-  </div>
-</div>
-<!-- fin section  guides -->
-<!-- section reservaton -->
+</section>
+<!-- Team --><!-- section reservaton -->
 <form class="reservation">
   <div class="titlereservation">
     <h3>Faites votre reservation</h3>
@@ -160,14 +112,11 @@
       <input type="email" placeholder="@gmail.com" id="email" name="email" [(ngModel)]="email" ><br>
     </div>
     <div class="person-selector">
-    <label for="selectedPerson">Choisissez votre guide:</label>
-    <select id="selectedPerson" name="guide"[(ngModel)]="guide">
-      <option value="">... </option>
-      <option value= 11 >Salem M mouhamed </option>
-      <option value="12">Andre D Ndione</option>
-      <option value="13">Assane Diop </option>
-      <option value="16">Amadem Fall</option>
-    </select> <br>
+    <label for="guide">Choisissez votre guide:</label>
+    <select name="guide" class="form-control omar" [(ngModel)]="guide">
+      <!-- Utilisation de *ngFor pour boucler à travers le tableau tabZone et générer les options -->
+      <option *ngFor="let elt of tabZoneGuide" [value]="elt.id">{{ elt.name }}</option>
+    </select>
   </div>
   </div>
   <div class="NombreZetJours col col-md-6">
@@ -177,10 +126,8 @@
     </div>
     <div class="VotreZone">
       <label for="">Zone:</label>
-      <select id="selectedZone" name="zone" [(ngModel)]="zone">
-        <option value="">... </option>
-        <option value=16>Niokolo Koba</option>
-      </select>
+      <input type="text"  [value]="zoneDetail.nom" disabled="disabled"  name="zone" [(ngModel)]="zoneDetail.nom">
+
     </div>
   </div>
   <div class="sectionreserve2 col col-md-6">

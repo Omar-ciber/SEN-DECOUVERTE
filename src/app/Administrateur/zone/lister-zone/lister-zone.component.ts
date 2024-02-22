@@ -1,3 +1,4 @@
+import { PublierZoneService } from './../../../guard/services/publier-zone.service';
 import { Component, OnInit } from '@angular/core';
 import { ZoneService } from 'src/app/services/add-zone.service';
 import Swal from 'sweetalert2';
@@ -13,6 +14,8 @@ export class ListerZoneComponent implements OnInit {
   // les attributs
   categories: any[] = [];
   tabZone: any[] = [];
+  tabZonePublie: any[] = [];
+  ZonePublie: any;
 
   nom: string = '';
   description: string = '';
@@ -22,9 +25,11 @@ export class ListerZoneComponent implements OnInit {
   status:string = '';
 
   zones: any;
+  listezonesPubliees: any;
 
   ngOnInit(): void  {
     this.listeZone();
+    this.listeZonePublier();
     //tables
     this.dtOptions = {
       searching: true,
@@ -62,14 +67,9 @@ export class ListerZoneComponent implements OnInit {
   // ajouter et lister zone
   zoneData: any = {};
 
-  constructor(private zoneService: ZoneService, private listeService: ZoneService, private deleteZone:ZoneService) { }
+  constructor(private zoneService: ZoneService, private listeService: ZoneService, private deleteZone:ZoneService ,private publierZone:ZoneService) { }
 // Méthode pour ajouter les zones
   ajouterZone(): void {
-     Swal.fire({
-          title: "Good job!",
-          text: "Ajout Reussi!",
-          icon: "success"
-        });
 
      let formData = new FormData();
     formData.append("nom", this.nom);
@@ -83,6 +83,12 @@ export class ListerZoneComponent implements OnInit {
       ( response: any) => {
         console.log('Zone ajoutée avec succès !', response);
         this.listeZone();
+         Swal.fire({
+          title: "Merci!",
+          text: "Ajout Reussi!",
+          icon: "success"
+        });
+
 
       },
       ( error: any) => {
@@ -104,12 +110,45 @@ export class ListerZoneComponent implements OnInit {
       }
     )
    }
-
-  publier(id: any): void {
-    this.zoneService.publierZone(id).subscribe((respons) => {
+//  fonction pour publier zone
+  publier(zoneId: any): void {
+    this.zoneService.publierZone(zoneId).subscribe((respons) => {
       console.log("c 'est publier", respons)
     })
   }
+  // fonction pour lister les zones publier
+
+ zonepublier(idZone:any){
+    this.zoneService.publierZone(idZone).subscribe(
+      (zone: any) => {
+        this.ZonePublie = zone;
+        console.log(this.ZonePublie);
+         Swal.fire({
+          title: "Merci!",
+          text: "Publication Reussi!",
+           icon: "success",
+           timer:1500
+        });
+
+      },
+      (err: any) => {
+        console.log(err);
+      }
+    )
+ }
+
+  //Méthode pour lister les zones
+   listeZonePublier() {
+    this.listeService.listezonepublier().subscribe(
+      (zone: any) => {
+        this.tabZonePublie = zone;
+        console.log('zone publie',this.tabZonePublie);
+      },
+      (err) => {
+        console.log(err);
+      }
+    )
+   }
 
      // Methode pour supprimer un trajet
   supprimerZone(zoneId: any) {
