@@ -29,7 +29,7 @@ export class ListerZoneComponent implements OnInit {
 
   ngOnInit(): void  {
     this.listeZone();
-    this.listeZonePublier();
+    // this.listeZonePublier();
     //tables
     this.dtOptions = {
       searching: true,
@@ -83,10 +83,13 @@ export class ListerZoneComponent implements OnInit {
       ( response: any) => {
         console.log('Zone ajoutée avec succès !', response);
         this.listeZone();
+        this.ngOnInit();
          Swal.fire({
           title: "Merci!",
           text: "Ajout Reussi!",
-          icon: "success"
+           icon: "success",
+           timer: 1500
+
         });
 
 
@@ -112,14 +115,14 @@ export class ListerZoneComponent implements OnInit {
    }
 //  fonction pour publier zone
   publier(zoneId: any): void {
-    this.zoneService.publierZone(zoneId).subscribe((respons) => {
-      console.log("c 'est publier", respons)
+    this.zoneService.publierzone(zoneId).subscribe((response:any) => {
+      console.log("zone publier", response)
     })
   }
   // fonction pour lister les zones publier
 
- zonepublier(idZone:any){
-    this.zoneService.publierZone(idZone).subscribe(
+ publierzone(idZone:any){
+    this.zoneService.publierzone(idZone).subscribe(
       (zone: any) => {
         this.ZonePublie = zone;
         console.log(this.ZonePublie);
@@ -127,7 +130,7 @@ export class ListerZoneComponent implements OnInit {
           title: "Merci!",
           text: "Publication Reussi!",
            icon: "success",
-           timer:1500
+          timer:1500
         });
 
       },

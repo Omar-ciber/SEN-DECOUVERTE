@@ -13,6 +13,7 @@ export class ListeGuideComponent implements OnInit  {
   // les varibles
   image: any;
   name: string = '';
+  telephone:string ='';
   email: string = '';
   password: string = '';
   description: string = '';
@@ -39,6 +40,7 @@ export class ListeGuideComponent implements OnInit  {
     formData.append("image", this.image);
     formData.append("name", this.name);
     formData.append("email", this.email);
+    formData.append("telephone", this.telephone);
     formData.append("password", this.password);
     formData.append("description", this.description);
     formData.append("duree_experience", this.duree_experience);
@@ -48,7 +50,7 @@ export class ListeGuideComponent implements OnInit  {
       ( response: any) => {
         console.log('Guide ajoutée avec succès !', response);
       Swal.fire({
-          title: "Good job!",
+          title: "Merci!!!",
           text: "Ajout Reussi!",
           icon: "success",
           timer:1500

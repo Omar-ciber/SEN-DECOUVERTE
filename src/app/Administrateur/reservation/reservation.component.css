@@ -29,3 +29,23 @@
   color: white;
   font-weight: bold;
 }
+.disponible{
+  margin-left: 310px;
+display: flex;
+gap: 10px;
+  color: white;
+  margin-top: 10px;
+
+}
+.Disponibletn{
+  background-color: #18283B;
+  border-radius: 10px;
+    width: 100px;
+      height: 35px;
+}
+.indisponible{
+  background-color: #18283B;
+  border-radius: 10px;
+    width: 100px;
+      height: 35px;
+}

@@ -36,7 +36,7 @@ margin-top: 70px;
 }
 .single-explore-item{
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
-  max-width: 500px; ;
+  max-width: 650px; ;
   max-height: 650px;
   min-height: 650px;
   /* border: 2px solid red; */
@@ -44,8 +44,8 @@ margin-top: 70px;
 
 }
 .single-explore-img img{
-  max-width: 500px;
-  min-width: 500px;
+  max-width: 600px;
+  min-width: 600px;
   max-height: 300px;
   min-height: 300px;
 }

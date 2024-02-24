@@ -13,11 +13,11 @@
     <div class="nav-button"  [routerLink]="['/lister-zone']"*ngIf="isAdmin"> &nbsp;&nbsp;<i class="fa-solid fa-location-dot"></i><span>&nbsp;Zone Touristique</span></div>
     <div class="nav-button"[routerLink]="['/liste-guide']"*ngIf="isAdmin">&nbsp;&nbsp;<i class="fa-solid fa-people-pulling"></i> &nbsp;<span>Guide Touristique</span></div>
     <hr />
-    <div class="nav-button" [routerLink]="['/messagerie']" >&nbsp;&nbsp;<i class="fa-solid fa-message"></i>&nbsp;<span>Messagerie</span></div>
+    <div class="nav-button" [routerLink]="['/messagerie']">&nbsp;&nbsp;<i class="fa-solid fa-message"></i>&nbsp;<span>Messagerie</span></div>
     <div class="nav-button" [routerLink]="['/reservation']"  ><i class="fas fa-chart-line"></i><span>Réservation</span></div>
     <hr />
     <div id="nav-content-highlight"></div>
-    <button type="button" class="btn btn-danger" (click)="logout()">Déconnexion</button>
+    <button type="button" class="btn btn-danger mx-5" (click)="logout()">Déconnexion</button>
   </div>
 <div>
 </div>

@@ -9,12 +9,7 @@ import { baseUrl } from './url';
   providedIn: 'root'
 })
 export class ZoneService {
-  PublierZoneService() {
-    throw new Error('Method not implemented.');
-  }
-  listezonesPubliees(zoneId: any) {
-    throw new Error('Method not implemented.');
-  }
+  
 
   // private apiUrl = 'http://127.0.0.1:8000/api/ajoutZone';
 
@@ -33,11 +28,11 @@ export class ZoneService {
   deleteZone(zoneId: any): Observable<any> {
     return this.http.delete(`${baseUrl}/supprimerZone/${zoneId}`);
   }
-  publierZone(zoneId: any): Observable<any> {
-     return this.http.get(`${baseUrl}/PublierZone/${zoneId}`);
-  }
   listezonepublier(): Observable<any> {
      return this.http.get(`${baseUrl}/listeZonesPubliees` );
+  }
+  publierzone(zoneId:any): Observable<any> {
+     return this.http.get(`${baseUrl}/PublierZone/${zoneId}` );
   }
 
   detailzone(zoneId:any): Observable<any> {

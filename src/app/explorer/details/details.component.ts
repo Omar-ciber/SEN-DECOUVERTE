@@ -89,7 +89,7 @@ export class DetailsComponent implements OnInit {
       telephone: this.telephone,
       nombre_de_personnes: this.nombre_de_personnes,
       guide: this.guide,
-      zone: this.zone,
+      zone: this.id,
       date_debut: this.date_debut,
       date_fin: this.date_fin
     }
@@ -105,7 +105,8 @@ export class DetailsComponent implements OnInit {
         Swal.fire({
           title: "Success",
           text: "Réservation effectuée avec succès!",
-          icon: "success"
+          icon: "success",
+          timer:1500
         });
 
         // Réinitialise les valeurs des champs après une réservation réussie
