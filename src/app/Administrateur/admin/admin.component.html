@@ -2,37 +2,34 @@
 <app-navbar></app-navbar>
 <app-sidebar></app-sidebar>
 <div class="containerAdmin">
-
   <div class="row">
     <div class="four col-md-3">
-      <div class="counter-box ">
+      <div class="counter-box">
         <i class="fa-solid fa-location-dot"></i>
-        <span class="counter">{{zones.length}}</span>
+        <span class="counter">{{ zones?.length }}</span>
         <p>Zones</p>
       </div>
     </div>
     <div class="four col-md-3">
       <div class="counter-box">
         <i class="fa-solid fa-person-walking-with-cane"></i>
-        <span class="counter">{{guides.length}}</span>
+        <span class="counter">{{ guides?.length }}</span>
         <p>Guides</p>
       </div>
     </div>
     <div class="four col-md-3">
       <div class="counter-box">
         <i class="fa-solid fa-comment-dots"></i>
-        <span class="counter">{{ message.length}}</span>
-        <p>Messages </p>
+        <span class="counter">{{ message?.length }}</span>
+        <p>Messages</p>
       </div>
     </div>
     <div class="four col-md-3">
       <div class="counter-box">
-      <i class="fa-solid fa-hippo"></i>
-        <span class="counter">5</span>
-        <p>Parcs</p>
+        <i class="fa-solid fa-hippo"></i>
+        <span class="counter">{{ reservations?.length }}</span>
+        <p>Résevations</p>
       </div>
     </div>
   </div>
 </div>
-
-

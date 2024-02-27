@@ -34,7 +34,17 @@
           />
         </td>
         <td>{{ zone.nom }}</td>
-        <td>{{ zone.description }}</td>
+        <td
+          style="
+            display: inline-block;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            width: 200px;
+          "
+        >
+          <span style="">{{ zone.description }}</span>
+        </td>
         <td>{{ zone.cout }}</td>
         <td>{{ zone.duree }}</td>
         <td>
@@ -45,10 +55,10 @@
         <td>
           <span
             ><i
+              (click)="togglePopup(zone.id)"
               class="fa-solid fa-marker me-2"
-              data-bs-toggle="modal"
-              data-bs-target="#exampleModal"
-            ></i> 
+              style="cursor: pointer"
+            ></i>
             <i
               (click)="supprimerZone(zone.id)"
               class="fa-solid fa-trash me-2"
@@ -92,7 +102,7 @@
   <div class="popup" [class.active]="showPopup">
     <div class="popup-content">
       <h2>Ajouter Zone</h2>
-      <label for="images">Images:</label>
+      <label for="images" *ngIf="!modficationStatus">Images:</label>
       <input
         type="file"
         id="image"
@@ -100,6 +110,20 @@
         accept="image"
         [(ngModel)]="images"
         required
+        *ngIf="!modficationStatus"
+      />
+      <label for="file" class="custum-file-upload" *ngIf="modficationStatus">
+        <img src="http://127.0.0.1:8000/storage/{{ images }}" alt="" />
+      </label>
+      <label for="images" *ngIf="modficationStatus">Changer d'image:</label>
+      <input
+        type="file"
+        id="image"
+        (change)="getFile($event)"
+        accept="image"
+        [(ngModel)]="images"
+        required
+        *ngIf="modficationStatus"
       />
       <label for="name">Nom:</label>
       <input
@@ -179,6 +203,7 @@
         </td>
       </select>
       <button
+        *ngIf="!modficationStatus"
         type="submit"
         class="Enregistre"
         (click)="saveAndClose(); ajouterZone()"
@@ -190,6 +215,20 @@
         "
       >
         Ajouter
+      </button>
+      <button
+        *ngIf="modficationStatus"
+        type="submit"
+        class="Enregistre"
+        (click)="saveAndClose(); modifierZone(id)"
+        [disabled]="
+          !isFormValid() ||
+          !isFieldValid('nom') ||
+          !isFieldValid('description') ||
+          !isFieldValid('Tarif')
+        "
+      >
+        Modifier
       </button>
       <button (click)="togglePopup()" class="Fermer">Annuler</button>
     </div>

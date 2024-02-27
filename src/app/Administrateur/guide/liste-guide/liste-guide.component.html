@@ -1,63 +1,149 @@
 <app-navbar></app-navbar>
 <app-sidebar></app-sidebar>
 
-
-
 <!-- Modal -->
-<div class="modal fade" id="ajouterGuideModal" tabindex="-1" role="dialog" aria-labelledby="ajouterGuideModalLabel"
-  aria-hidden="true">
+<div
+  class="modal fade"
+  id="ajouterGuideModal"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="ajouterGuideModalLabel"
+  aria-hidden="true"
+>
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="ajouterGuideModalLabel">Ajouter un guide</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <h5 class="modal-title" id="ajouterGuideModalLabel">
+          Ajouter un guide
+        </h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <div class="modal-body">
         <form>
-          <div class="form-group">
-            <label for="imageProfile">Image de profil</label>
-            <input type="file" (change)="getFile($event)" class="form-control-file" name="image" id="imageProfile" accept="image/*" [(ngModel)]="image" >
-            <small id="imageProfileHelp" class="form-text text-muted">Téléchargez une image de profil.</small>
+          <div class="form-group d-flex" style="justify-content: space-between">
+            <div>
+              <label for="imageProfile">Image de profil</label>
+              <input
+                type="file"
+                (change)="getFile($event)"
+                class="form-control-file"
+                name="image"
+                id="imageProfile"
+                accept="image/*"
+                [(ngModel)]="image"
+              />
+              <small id="imageProfileHelp" class="form-text text-muted"
+                >Téléchargez une image de profil.</small
+              >
+            </div>
+            <img
+              src="http://127.0.0.1:8000/storage/{{ image }}"
+              alt=""
+              *ngIf="image"
+              style="width: 100px; height: auto"
+            />
           </div>
           <div class="form-group">
             <label for="nomGuide">Nom et prénom</label>
-            <input type="text" class="form-control" id="nomGuide" name="nom" placeholder="Entrez le nom et prénom du guide" [(ngModel)]="name">
+            <input
+              type="text"
+              class="form-control"
+              id="nomGuide"
+              name="nom"
+              placeholder="Entrez le nom et prénom du guide"
+              [(ngModel)]="name"
+            />
           </div>
           <div class="form-group">
             <label for="teleGuide">Telephone</label>
-            <input type="" class="form-control" name="telephone" id="teleGuide" placeholder="Numero telephone" [(ngModel)]="telephone">
+            <input
+              type=""
+              class="form-control"
+              name="telephone"
+              id="teleGuide"
+              placeholder="Numero telephone"
+              [(ngModel)]="telephone"
+            />
           </div>
           <div class="form-group">
             <label for="mailGuide">Adresse mail</label>
-            <input type="text" class="form-control" name="email" id="mailGuide" placeholder="Adresse mail" [(ngModel)]="email">
+            <input
+              type="text"
+              class="form-control"
+              name="email"
+              id="mailGuide"
+              placeholder="Adresse mail"
+              [(ngModel)]="email"
+            />
           </div>
           <div class="form-group">
             <label for="password">Mot de pass</label>
-            <input type="text" class="form-control" name="password" id="password" placeholder="Mot de passe" [(ngModel)]="password">
+            <input
+              type="text"
+              class="form-control"
+              name="password"
+              id="password"
+              placeholder="Mot de passe"
+              [(ngModel)]="password"
+            />
           </div>
           <div class="form-group">
             <label for="">Description</label>
-            <input type="text" class="form-control" name="description" id="description" placeholder="Description" [(ngModel)]="description">
+            <input
+              type="text"
+              class="form-control"
+              name="description"
+              id="description"
+              placeholder="Description"
+              [(ngModel)]="description"
+            />
           </div>
           <div class="form-group">
             <label for="">Duree d'experience</label>
-            <input type="text" class="form-control" name="duree" id="experience" placeholder="duree_experience " [(ngModel)]="duree_experience">
+            <input
+              type="text"
+              class="form-control"
+              name="duree"
+              id="experience"
+              placeholder="duree_experience "
+              [(ngModel)]="duree_experience"
+            />
           </div>
-        <div class="form-group">
-          <label for="zone">Zone</label>
-          <select name="selectedZone" class="form-control" [(ngModel)]="selectedZone">
-            <!-- Utilisation de *ngFor pour boucler à travers le tableau tabZone et générer les options -->
-            <option *ngFor="let elt of tabZone" [value]="elt.id">{{ elt.nom  }}</option>
-          </select>
-        </div>
- <!-- Bouton de soumission du formulaire -->
-          <button type="submit" class="btn btn-primary" (click)="AjoutGuide()"  data-dismiss="modal">Ajouter</button>
+          <div class="form-group">
+            <label for="zone">Zone</label>
+            <select
+              name="selectedZone"
+              class="form-control"
+              [(ngModel)]="selectedZone"
+            >
+              <!-- Utilisation de *ngFor pour boucler à travers le tableau tabZone et générer les options -->
+              <option *ngFor="let elt of tabZone" [value]="elt.id">
+                {{ elt.nom }}
+              </option>
+            </select>
+          </div>
+          <!-- Bouton de soumission du formulaire -->
+          <button
+            type="submit"
+            class="btn btn-primary"
+            (click)="AjoutGuide()"
+            data-dismiss="modal"
+          >
+            Ajouter
+          </button>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Fermer</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">
+          Fermer
+        </button>
       </div>
     </div>
   </div>
@@ -68,7 +154,12 @@
 </div>
 <!-- Bouton pour ouvrir le popup -->
 <div class="boutonAguide">
-  <button type="button" class="Adguid" data-toggle="modal" data-target="#ajouterGuideModal">
+  <button
+    type="button"
+    class="Adguid"
+    data-toggle="modal"
+    data-target="#ajouterGuideModal"
+  >
     Ajouter un guide
   </button>
 </div>
@@ -85,18 +176,34 @@
       <th scope="col">Action</th>
     </tr>
   </thead>
-  <tbody class="tableGuide" >
+  <tbody class="tableGuide">
     <!-- Vos lignes existantes pour la liste des guides restent inchangées -->
-    <tr  *ngFor="let item of tabGuide">
+    <tr *ngFor="let item of tabGuide">
       <!-- <th scope="row">{{index+1}}</th> -->
-      <th><img src="http://127.0.0.1:8000/storage/{{item.image}}" alt="test"></th>
-      <td>{{item.name}} {{item.prenom}}</td>
-      <td>{{item.email}}</td>
-      <td>{{item.telephone}}</td>
-      <td>{{item.zone_id}}</td>
-      <td><button type="button" class="btn btn-outline-primary">Disponible</button></td>
-      <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i (click)="supprimerGuide(item.id)"
-            class="fa-solid fa-trash"></i></span></td>
+      <th>
+        <img src="http://127.0.0.1:8000/storage/{{ item.image }}" alt="test" />
+      </th>
+      <td>{{ item.name }} {{ item.prenom }}</td>
+      <td>{{ item.email }}</td>
+      <td>{{ item.telephone }}</td>
+      <td>{{ item.zone_id }}</td>
+      <td>
+        <button type="button" class="btn btn-outline-primary">
+          Disponible
+        </button>
+      </td>
+      <td>
+        <span class="d-flex gap-4" id="icon"
+          ><i
+            class="fa-solid fa-marker"
+            id="ajouterGuideModalLabel"
+            data-toggle="modal"
+            data-target="#ajouterGuideModal"
+            (click)="chargreInfosById(item.id)"
+          ></i
+          ><i (click)="supprimerGuide(item.id)" class="fa-solid fa-trash"></i
+        ></span>
+      </td>
     </tr>
     <!-- ... (autres lignes) ... -->
   </tbody>

@@ -10,7 +10,9 @@ import Swal from 'sweetalert2';
 })
 export class LoginComponent {
   router: any;
-
+  state: boolean = false;
+  color1: string = "#102770";
+  color2: string = "black";
   constructor(private auth: ConnexionService, private route: Router) {}
 
   formData: any = {
@@ -33,7 +35,20 @@ export class LoginComponent {
   exactName : boolean = false;
   exactEmail : boolean = false;
   exactPassword: boolean = false;
-// Fonction pour verication du nom lors d l'inscription
+  // Fonction pour verication du nom lors d l'inscription
+
+  showColor() {
+    this.state = !this.state;
+    if (this.state) {
+      this.color1 = "black";
+      this.color2 = "#102770";
+    }
+    if (!this.state) {
+      this.color2 = "black";
+      this.color1 = "#102770";
+    }
+  }
+
   verifNameFonction() {
     const nameRegex=/^[a-zA-Z][a-zA-Z -]{1,100}$/;
     this.exactName = false;
@@ -78,7 +93,7 @@ export class LoginComponent {
     }
     else if (!this.formData.email.match(emailPattern) ){
       this.verifEmail = "Veuillez donner un email valide";
-      
+
     }
     else {
       this.verifEmail = "";

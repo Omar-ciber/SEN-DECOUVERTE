@@ -45,8 +45,8 @@ font-weight: bold;
   color: black;
 }
 .profil img{
- max-width: 30px;
- max-height: 30px ;
+  max-width: 30px;
+  max-height: 30px ;
 }
 /* modal debut  */
 
@@ -55,6 +55,7 @@ font-weight: bold;
 
 .zone-list {
   position: relative;
+  z-index: 999;
 }
 
 .add-zone-button {

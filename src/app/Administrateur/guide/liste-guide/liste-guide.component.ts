@@ -19,14 +19,41 @@ export class ListeGuideComponent implements OnInit  {
   description: string = '';
   duree_experience: string = '';
   selectedZone: string = '';
-  tabZone: any;
-  tabGuide: any;
+  tabZone!: any[];
+  tabGuide!: any[];
+  saveGuideById!: any[];
 
   constructor(private guideService:AddGuideService, private listeService:ZoneService){}
   ngOnInit(): void {
     this.listeZone();
     this.listGuide();
     // console.log('id je suis',this.selectedZone);
+
+  }
+
+  // Charer informatons
+  chargreInfosById(id: any) {
+    this.saveGuideById = this.tabGuide.filter(gui => gui.id === id);
+    this.image = this.saveGuideById[0].image;
+    this.name = this.saveGuideById[0].name;
+    this.telephone = this.saveGuideById[0].telephone;
+    this.email = this.saveGuideById[0].email;
+    this.password = this.saveGuideById[0].password;
+    this.description = this.saveGuideById[0].description;
+    this.duree_experience = this.saveGuideById[0].duree_experience;
+    this.selectedZone = this.saveGuideById[0].selectedZone;
+  }
+  // Modification d'un guide
+  modierGuide() {
+    let formData = new FormData();
+    formData.append("image", this.image);
+    formData.append("name", this.name);
+    formData.append("email", this.email);
+    formData.append("telephone", this.telephone);
+    formData.append("password", this.password);
+    formData.append("description", this.description);
+    formData.append("duree_experience", this.duree_experience);
+    formData.append("zone_id", this.selectedZone);
 
   }
   // methode pour recup l'image
@@ -36,7 +63,7 @@ export class ListeGuideComponent implements OnInit  {
   }
 
   AjoutGuide() {
-     let formData = new FormData();
+    let formData = new FormData();
     formData.append("image", this.image);
     formData.append("name", this.name);
     formData.append("email", this.email);

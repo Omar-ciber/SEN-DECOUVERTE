@@ -2,6 +2,7 @@ import { MessagerieService } from 'src/app/services/messagerie.service';
 import { Component, OnInit } from '@angular/core';
 import { AddGuideService } from 'src/app/services/add-guide.service';
 import { ZoneService } from 'src/app/services/add-zone.service';
+import { EffectuerReservationService } from 'src/app/services/effectuer-reservation.service';
 
 @Component({
   selector: 'app-admin',
@@ -12,11 +13,13 @@ export class AdminComponent implements OnInit {
   guides: any;
   zones: any;
   message: any;
+  reservations: any;
 
   constructor(
     private guideService: AddGuideService,
     private zoneService: ZoneService,
-    private MessagerieService: MessagerieService
+    private messagerieService: MessagerieService,
+    private reservationService: EffectuerReservationService
   ) { }
 
   ngOnInit(): void {
@@ -34,9 +37,14 @@ export class AdminComponent implements OnInit {
         this.zones = zones;
       }
     )
-    this.MessagerieService.listerMessage().subscribe(
+    this.messagerieService.listerMessage().subscribe(
       message => {
         this.message = message;
+      }
+    )
+    this.reservationService.getAllReservations().subscribe(
+      reservations => {
+        this.reservations = reservations;
       }
     )
   }

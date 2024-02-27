@@ -16,7 +16,7 @@ export class ListerZoneComponent implements OnInit {
   tabZone: any[] = [];
   tabZonePublie: any[] = [];
   ZonePublie: any;
-   fieldDirty: { [key: string]: boolean } = {};
+  fieldDirty: { [key: string]: boolean } = {};
 
   nom: string = '';
   description: string = '';
@@ -27,6 +27,9 @@ export class ListerZoneComponent implements OnInit {
 
   zones: any;
   listezonesPubliees: any;
+  modificateur!: any[];
+  modficationStatus: boolean = false;
+  id: any;
 
   ngOnInit(): void  {
     this.listeZone();
@@ -46,8 +49,20 @@ export class ListerZoneComponent implements OnInit {
     showPopup = false;
   newZone: any = {};
 
-  togglePopup(): void {
+  togglePopup(id?: any): void {
     this.showPopup = !this.showPopup;
+    if (id) {
+      this.id = id;
+      this.modficationStatus = true;
+      this.modificateur = this.tabZone.filter(z => z.id === id);
+      this.nom = this.modificateur[0].nom;
+      this.description = this.modificateur[0].description;
+      this.images = this.modificateur[0].images;
+      this.Tarif = this.modificateur[0].cout;
+      this.duree = this.modificateur[0].duree;
+      this.status = this.modificateur[0].statut
+      console.log(this.modificateur);
+    }
   }
   PopupModif = false;
   togglePopupmodif(): void {
@@ -123,18 +138,19 @@ export class ListerZoneComponent implements OnInit {
   }
 
   // methde pour modifier
-  modifierZone(): void{
-       let formData = new FormData();
-    formData.append("nom", this.selectedZone.nom);
-    formData.append("description", this.selectedZone.description);
+  modifierZone(id: any): void{
+    let formData = new FormData();
+    formData.append("nom", this.nom);
+    formData.append("description", this.description);
     // formData.append("statut", this.status);
-    formData.append("cout", this.selectedZone.Tarif);
-    formData.append("duree", this.selectedZone.duree);
+    formData.append("cout", this.Tarif);
+    formData.append("duree", this.duree);
     formData.append("images", this.images);
 
-    console.log("jjjjjjj", this.selectedZone.nom)
-    this.zoneService.updateZone(this.selectedZone, formData).subscribe((Response) => {
-      console.log("etat de cetee modif", Response)
+    // console.log("jjjjjjj", this.selectedZone.nom)
+    this.zoneService.updateZone(id, formData).subscribe((Response) => {
+      console.log("etat de cetee modif", Response);
+      this.listeZone();
     })
   }
   //Méthode pour lister les zones
@@ -162,6 +178,7 @@ export class ListerZoneComponent implements OnInit {
       (zone: any) => {
         this.ZonePublie = zone;
         console.log(this.ZonePublie);
+        this.listeZone();
          Swal.fire({
           title: "Merci!",
           text: "Publication Reussi!",
@@ -224,7 +241,7 @@ isFieldValid(fieldName: string): boolean {
     }
   }
 
-   isFieldDirty(fieldName: string): boolean {
+  isFieldDirty(fieldName: string): boolean {
     return this.fieldDirty[fieldName] || false;
   }
 
@@ -237,7 +254,7 @@ isFieldValid(fieldName: string): boolean {
     }
   }
 
-               isFormValid(): boolean {
+  isFormValid(): boolean {
     return Object.keys(this.fieldDirty).every((fieldName) =>
       this.isFieldValid(fieldName)
     );
