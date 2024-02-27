@@ -44,14 +44,17 @@ export class DetailsComponent implements OnInit {
     });
 
   }
-
+  // variable pour stocker guie disponible
+  guidedispo: any;
   listeGuideParZone() {
-    console.log('je suis id',this.id);
-
+    console.log('je suis id', this.id);
     this.guideService.guideParZone(this.id).subscribe(
       (response: any) => {
         this.tabZoneGuide = response;
-        console.log('guide de la zone',this.tabZoneGuide);
+        console.log('guide de la zone', this.tabZoneGuide);
+        this.guidedispo = this.tabZoneGuide.filter((element: { disponibilite: string }) =>
+        element.disponibilite === 'disponible'
+        )
       },
       (err) => {
         console.log(err);

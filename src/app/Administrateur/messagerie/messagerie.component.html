@@ -1,7 +1,7 @@
 <app-navbar></app-navbar>
 <app-sidebar></app-sidebar>
 <div class="gestionM">
-  <h2>Gestion messageries</h2>
+  <h1>Gestion messageries</h1>
 </div>
 <div class="recherche-container">
   <label for="search">Rechercher par contenu:</label>&nbsp;
@@ -10,16 +10,51 @@
 
 <div *ngFor="let message of tabMessages" class="message-container">
   <div class="profilMessage">
-    <img src="{{ message.profilImage }}" alt="Photo de profil">
+    <img src="https://media.istockphoto.com/id/1300845620/fr/vectoriel/appartement-dic%C3%B4ne-dutilisateur-isol%C3%A9-sur-le-fond-blanc-symbole-utilisateur.jpg?s=612x612&w=0&k=20&c=BVOfS7mmvy2lnfBPghkN__k8OMsg7Nlykpgjn0YOHj0=" alt="Photo de profil">
   </div>
   <div class="contenu-message">
     <div class="nom-prenom">
-      <p>{{ message.nomPrenom }}</p>
+      <p>{{ message.nom}} {{ message.email}} {{ message.telephone}}</p>
     </div>
-    <p>{{ message.contenuMessage }}</p>
-    <button class="boutonRepondre" (click)="ouvrirPopup(message)">Répondre</button>
+    <p>{{ message.contenu}}</p>
+    <!-- <button class="boutonRepondre" data-bs-toggle="modal" data-bs-target="#exampleModal"
+      (click)="chargeElement(message)">Répondre</button> -->
   </div>
 </div>
+<!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
+
+<!-- Modal -->
+  <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header" *ngIf="selectElemnt">
+          <h5 class="modal-title" id="exampleModalLabel">Repondre</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Email address</label>
+              <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email"
+                [(ngModel)]="selectElemnt.email">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label">Message</label>
+              <textarea class="form-control" placeholder="Reponse" id="floatingTextarea" name="contenu"
+                [(ngModel)]="contenu"></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" data-bs-dismiss="modal" (click)="repondre()">Envoyer</button>
+          </form>
+        </div>
+        <div class="modal-footer">
+        </div>
+      </div>
+    </div>
+  </div> -->
 
 <!-- Popup pour répondre au message -->
 <div class="popup" *ngIf="afficherPopup">

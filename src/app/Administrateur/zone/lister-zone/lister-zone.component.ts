@@ -16,6 +16,7 @@ export class ListerZoneComponent implements OnInit {
   tabZone: any[] = [];
   tabZonePublie: any[] = [];
   ZonePublie: any;
+   fieldDirty: { [key: string]: boolean } = {};
 
   nom: string = '';
   description: string = '';
@@ -48,6 +49,10 @@ export class ListerZoneComponent implements OnInit {
   togglePopup(): void {
     this.showPopup = !this.showPopup;
   }
+  PopupModif = false;
+  togglePopupmodif(): void {
+    this.PopupModif = !this.PopupModif;
+  }
 
   getFile(event: any) {
     console.warn(event.target.files[0]);
@@ -60,6 +65,16 @@ export class ListerZoneComponent implements OnInit {
     this.newZone = {};
     // Fermez le popup
     this.togglePopup();
+
+    // this.togglePopupmodif()
+
+  }
+  saveAndCloseModif(): void {
+
+    // Réinitialisez les données du formulaire
+
+    // Fermez le popup
+    this.togglePopupmodif()
 
   }
   // fin popup d'ajout
@@ -100,7 +115,28 @@ export class ListerZoneComponent implements OnInit {
       }
     );
   }
+  // methode pour charger zone dans formulair
+  selectedZone: any;
+  chargerZone(element :any): void{
+    this.selectedZone = element;
 
+  }
+
+  // methde pour modifier
+  modifierZone(): void{
+       let formData = new FormData();
+    formData.append("nom", this.selectedZone.nom);
+    formData.append("description", this.selectedZone.description);
+    // formData.append("statut", this.status);
+    formData.append("cout", this.selectedZone.Tarif);
+    formData.append("duree", this.selectedZone.duree);
+    formData.append("images", this.images);
+
+    console.log("jjjjjjj", this.selectedZone.nom)
+    this.zoneService.updateZone(this.selectedZone, formData).subscribe((Response) => {
+      console.log("etat de cetee modif", Response)
+    })
+  }
   //Méthode pour lister les zones
    listeZone() {
     this.listeService.getAllZones().subscribe(
@@ -173,4 +209,38 @@ export class ListerZoneComponent implements OnInit {
     });
 
   }
+
+  // validation des champs
+isFieldValid(fieldName: string): boolean {
+    switch (fieldName) {
+      case 'nom':
+        return this.nom.trim().length >= 2;
+      case 'description':
+         return this.description.trim().length >= 5;
+      case 'Tarif':
+        return this.Tarif.trim().length >= 2;
+      default:
+        return true;
+    }
+  }
+
+   isFieldDirty(fieldName: string): boolean {
+    return this.fieldDirty[fieldName] || false;
+  }
+
+  setFieldDirty(fieldName: string): void {
+    this.fieldDirty[fieldName] = true;
+
+    // Reset fieldDirty flag when the corresponding field is empty
+    if ((this as any)[fieldName] === '') {
+      this.fieldDirty[fieldName] = false;
+    }
+  }
+
+               isFormValid(): boolean {
+    return Object.keys(this.fieldDirty).every((fieldName) =>
+      this.isFieldValid(fieldName)
+    );
+  }
+
 }

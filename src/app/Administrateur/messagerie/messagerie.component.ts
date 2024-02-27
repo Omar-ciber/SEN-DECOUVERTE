@@ -1,11 +1,44 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { MessagerieService } from 'src/app/services/messagerie.service';
 
 @Component({
   selector: 'app-messagerie',
   templateUrl: './messagerie.component.html',
   styleUrls: ['./messagerie.component.css']
 })
-export class MessagerieComponent {
+export class MessagerieComponent implements OnInit {
+contenu: string = "";
+email: string = "";
+ngOnInit(): void {
+  this.allMessages();
+}
+
+  constructor(private messageservice: MessagerieService) { }
+
+  // methode pour lister mesage
+  allMessages(): void{
+    this.messageservice.listerMessage().subscribe((data) => {
+      this.tabMessages = data
+      console.log("voir message",this.tabMessages);
+    })
+  }
+  // methode pour recuperer donnee
+  selectElemnt: any;
+  chargeElement(element: any) {
+    this.selectElemnt = element;
+  }
+  // methode pour repondr aux messages
+  repondre(): void{
+    const newRepnse = {
+      contenu: this.contenu,
+      email : this.selectElemnt.email,
+    }
+    // console.log("email", this.email)
+    console.log("detail", newRepnse.email)
+    this.messageservice.responsMessage(newRepnse).subscribe((respons) => {
+      console.log("etat de la reponse", respons)
+    })
+  }
 
 // Dans votre composant TypeScript
 

@@ -4,17 +4,17 @@
   <div id="nav-header"><a id="nav-title" href="https://codepen.io" target="_blank">
     <img src="assets/logofooter.png" alt="">
   </a>
-    <label for="nav-toggle"><span id="nav-toggle-burger"></span></label>
+    <label for="nav-toggle"><i class="fa-solid fa-bars"></i></label>
     <hr />
   </div>
   <div id="nav-content">
-    <div class="nav-button" [routerLink]="['/admin']"><span class="Admindash"><i class="bi bi-speedometer2"></i>&nbsp;Dashboard Amin</span>
+    <div class="nav-button" [routerLink]="['/admin']" routerLinkActive="changeStyle"><span class="Admindash">&nbsp;&nbsp;<i class="fa-solid fa-gauge"></i>&nbsp;Dashboard</span>
     </div>
-    <div class="nav-button"  [routerLink]="['/lister-zone']"*ngIf="isAdmin"> &nbsp;&nbsp;<i class="fa-solid fa-location-dot"></i><span>&nbsp;Zone Touristique</span></div>
-    <div class="nav-button"[routerLink]="['/liste-guide']"*ngIf="isAdmin">&nbsp;&nbsp;<i class="fa-solid fa-people-pulling"></i> &nbsp;<span>Guide Touristique</span></div>
+    <div class="nav-button" [routerLink]="['/lister-zone']" routerLinkActive="changeStyle" *ngIf="isAdmin"> <span class="Admindash">&nbsp;&nbsp;<i class="fa-solid fa-location-dot"></i>&nbsp;Zone Touristique</span></div>
+    <div class="nav-button"[routerLink]="['/liste-guide']" routerLinkActive="changeStyle"*ngIf="isAdmin"><span class="Admindash">&nbsp;&nbsp;<i class="fa-solid fa-people-pulling"></i> &nbsp;Guide Touristique</span></div>
     <hr />
-    <div class="nav-button" [routerLink]="['/messagerie']">&nbsp;&nbsp;<i class="fa-solid fa-message"></i>&nbsp;<span>Messagerie</span></div>
-    <div class="nav-button" [routerLink]="['/reservation']"  ><i class="fas fa-chart-line"></i><span>Réservation</span></div>
+    <div class="nav-button" [routerLink]="['/messagerie']" routerLinkActive="changeStyle" *ngIf="isAdmin"><span class="Admindash">&nbsp;&nbsp;<i class="fa-solid fa-message"></i>&nbsp;Messagerie</span></div>
+    <div class="nav-button" [routerLink]="['/reservation']" routerLinkActive="changeStyle" ><span class="Admindash"><i class="fas fa-chart-line"></i>Réservation</span></div>
     <hr />
     <div id="nav-content-highlight"></div>
     <button type="button" class="btn btn-danger mx-5" (click)="logout()">Déconnexion</button>
@@ -22,4 +22,3 @@
 <div>
 </div>
 </div>
-

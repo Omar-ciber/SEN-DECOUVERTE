@@ -57,6 +57,7 @@ export class LoginComponent {
 
     if(this.register.email == ""){
       this.verifEmail = "Veuillez renseigner votre email";
+
     }
     else if (!this.register.email.match(emailPattern) ){
       this.verifEmail = "Veuillez donner un email valide";
@@ -73,9 +74,11 @@ export class LoginComponent {
 
     if(this.formData.email == ""){
       this.verifEmail = "Veuillez renseigner votre email";
+       this.exactEmail = false;
     }
     else if (!this.formData.email.match(emailPattern) ){
       this.verifEmail = "Veuillez donner un email valide";
+      
     }
     else {
       this.verifEmail = "";
@@ -89,6 +92,7 @@ export class LoginComponent {
     this.exactPassword = false;
     if(this.register.password == ""){
       this.verifPassword = "Veuillez renseigner votre mot de passe";
+
     }
     else if (this.register.password.length < 5 ){
       this.verifPassword = "Mot de passe doit être supérieur ou égal à 5";
@@ -171,7 +175,7 @@ export class LoginComponent {
         title: "Erreur",
         text: "Format d'e-mail incorrect",
         icon: "error"
-        
+
       });
       return;
     }

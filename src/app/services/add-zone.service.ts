@@ -9,7 +9,7 @@ import { baseUrl } from './url';
   providedIn: 'root'
 })
 export class ZoneService {
-  
+
 
   // private apiUrl = 'http://127.0.0.1:8000/api/ajoutZone';
 
@@ -22,6 +22,10 @@ export class ZoneService {
   // Méthode pour ajouter un zone
   postZone(zone: any): Observable<any> {
     return this.http.post<any>(`${baseUrl}/ajoutZone`, zone);
+  }
+  // methode  pour modifier
+  updateZone(id: any, zone: any): Observable<any>{
+    return this.http.post<any>(`${baseUrl}/modifierZone/${id}`, zone );
   }
 
   // Méthode pour supprimer un zone

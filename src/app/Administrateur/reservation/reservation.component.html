@@ -4,11 +4,11 @@
 <app-sidebar></app-sidebar>
 <!-- <table></table> -->
 <div class="ReservtionListe">
-  <h2>Gestion des reservations</h2>
+  <h1>Gestion des reservations</h1>
 </div>
 <div class="disponible">
-  <button type="button" class="Disponibletn">Disponible</button>
-  <button type="button" class="indisponible">Indisponible</button>
+  <button type="button" class="Disponibletn" (click)="activerGuide()">Disponible</button>
+  <button type="button" class="indisponible" (click)="DesactiverGuide()">Indisponible</button>
 </div>
 
 <table class="table" *ngIf="!isAdmin">
@@ -35,7 +35,7 @@
       <div class="boutonAction d-flex">
         <td>{{elementGuide.validation}} </td> &nbsp;&nbsp;
       </div>
-      <td> <a (click)="accepterReservation(elementGuide.id)"> <i class="fa-solid fa-check"></i></a></td> &nbsp;&nbsp;
+      <td> <a (click)="accepterReservation(elementGuide.id)"> <i class="fa-solid fa-check "style="cursor: pointer;"></i></a></td> &nbsp;&nbsp;
     </tr>
   </tbody>
 </table>

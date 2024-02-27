@@ -1,13 +1,15 @@
 .imgLogo {
-  width: 100px;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  overflow: hidden;
 }
 
 .Navbar {
   padding: 6px 25px;
   /* border: 1px solid red; */
-background-color: #18283B;
-margin-left: 16px;
-height: 89px;
+  background-color: #18283B;
+  height: 89px;
 }
 .dropdown-center{
   /* border: 1px solid red; */

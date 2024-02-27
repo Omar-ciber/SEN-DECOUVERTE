@@ -12,35 +12,37 @@
       <div class="card-body">
         <h2 class="card-titleContact">Contatez - nous</h2>
         <div class="mb-3 nomprenom">
-          <input type="text" placeholder="Nom" class="mb-3 me-3">
-          <input type="text" placeholder="Prénom" class="mb-3 ">
+          <label for="exampleInputEmail1" class="form-label text-light">Nom et Prenom</label><br>
+          <input type="text" placeholder="Nom" class="mb-3 me-3" name="nom" [(ngModel)]="nom">
         </div>
         <div class="mb-3 nomprenom">
-          <input type="email" id="exampleInputEmail1" placeholder="E-mail" class="mb-3 me-3"
-            aria-describedby="emailHelp">
-          <input type="tel" placeholder="Téléphone" class="mb-3 " id="exampleInputPassword1">
+            <label for="exampleInputEmail1" class="form-label text-light">Email address</label>
+            <input type="email" class="form-control" placeholder="Adresse mail" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" [(ngModel)]="email">
+            <label for="exampleInputTelepne" class="form-label text-light">Telephone</label><br>
+          <input type="tel" placeholder="Téléphone" class="mb-3 " id="exampleInputName" name="telephone" [(ngModel)]="telephone">
         </div>
-        <div class="gmessage">
-          <textarea name="" id="" cols="43" rows="3" placeholder="Message" class="message"></textarea>
+        <div class="gmessage ">
+          <label for="exampleInputMessage" class="form-label text-light">Message</label><br>
+          <textarea name="contenu" id="" cols="43" rows="3" placeholder="Message" class="message" [(ngModel)]="contenu"></textarea>
         </div>
         <div class="bton">
-          <button type="submit" class="bg-danger w-5 btn">Envoyer</button>
+          <button type="submit" class="bg-danger w-5 btn"   (click)="sendMessage()">Envoyer</button>
         </div>
       </div>
     </div>
             <div class="contact">
-              <div class="tel">
-                <i class="bi bi-telephone"></i>
-                <p>+221 77 322 04 68</p>
-                <p>+221 77 131 81 03</p>
+              <div class="tel ">
+                <!-- <i class="bi bi-telephone text-light"></i> -->
+                <p class="text-light">+221 77 322 04 68</p>
+                <p class="text-light">+221 77 131 81 03</p>
               </div>
               <div class="email">
                 <i class="bi bi-envelope-fill"></i>
-                <p>sendecouvert@gmail.com</p>
+                <p class="text-light">sendecouvert@gmail.com</p>
               </div>
               <div class="localisation">
                 <i class="bi bi-geo-alt-fill"></i>
-                <p>Dakar, Sénégal</p>
+                <p class="text-light">Dakar, Sénégal</p>
               </div>
             </div>
             </form>

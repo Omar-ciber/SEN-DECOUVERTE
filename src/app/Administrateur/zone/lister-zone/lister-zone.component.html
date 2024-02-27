@@ -1,45 +1,78 @@
 <!-- <p>lister-zone works!</p> -->
 <app-navbar></app-navbar>
 <app-sidebar></app-sidebar>
-<div class="listeZon ">
-  <h2>Liste des zones touristique</h2>
+<div class="listeZon">
+  <h1>Liste des zones touristique</h1>
 </div>
- <div class="datetable">
-<!-- Modal -->
+<div class="datetable">
+  <!-- Modal -->
   <button class="add-zone-button" (click)="togglePopup()">Ajouter</button>
-<!-- fin modal -->
-   <table datatable [dtOptions]="dtOptions" class="row-border hover w-100 table" *ngIf="tabZone.length>0">
-     <thead class="">
-       <tr>
-         <th>Images</th>
-         <th>Nom de la zone</th>
-         <th>Descriptions </th>
-         <th>Couts</th>
-         <th>Durée</th>
-         <th>Statut</th>
-         <th>Action</th>
-       </tr>
-     </thead>
-     <tbody class="Souscategorie">
-       <tr *ngFor="let zone of tabZone">
-         <td><img src="http://127.0.0.1:8000/storage/{{zone.images}}" alt="test"></td>
-         <td>{{zone.nom}}</td>
-         <td>{{zone.description}}</td>
-         <td>{{zone.cout}}</td>
-         <td>{{zone.duree}}</td>
-        <td><button type="button" class="btn btn-outline-primary" >{{zone.statut}}</button></td>
-        <td><span><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;
-          <i (click)="supprimerZone(zone.id)" class="fa-solid fa-trash" style="cursor: pointer;">
-          </i>&nbsp;&nbsp;&nbsp;&nbsp;<i (click)="publierzone(zone.id)" class="fa-solid fa-rectangle-ad"  style="cursor: pointer;"></i> </span> </td>
-       </tr>
-     </tbody>
-   </table>
-  <table *ngIf="tabZone.length<0">
+  <!-- fin modal -->
+  <table
+    datatable
+    [dtOptions]="dtOptions"
+    class="row-border hover w-100 table"
+    *ngIf="tabZone.length > 0"
+  >
+    <thead class="">
+      <tr>
+        <th>Images</th>
+        <th>Nom de la zone</th>
+        <th>Descriptions</th>
+        <th>Couts</th>
+        <th>Durée</th>
+        <th>Statut</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody class="Souscategorie">
+      <tr *ngFor="let zone of tabZone">
+        <td>
+          <img
+            src="http://127.0.0.1:8000/storage/{{ zone.images }}"
+            alt="test"
+          />
+        </td>
+        <td>{{ zone.nom }}</td>
+        <td>{{ zone.description }}</td>
+        <td>{{ zone.cout }}</td>
+        <td>{{ zone.duree }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-primary">
+            {{ zone.statut }}
+          </button>
+        </td>
+        <td>
+          <span
+            ><i
+              class="fa-solid fa-marker me-2"
+              data-bs-toggle="modal"
+              data-bs-target="#exampleModal"
+            ></i> 
+            <i
+              (click)="supprimerZone(zone.id)"
+              class="fa-solid fa-trash me-2"
+              style="cursor: pointer"
+            >
+            </i>
+            <i
+              (click)="publierzone(zone.id)"
+              class="fa-solid fa-rectangle-ad"
+              style="cursor: pointer"
+            ></i>
+          </span>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- tabeau  reservation guide -->
+  <table *ngIf="tabZone.length < 0">
     <thead class="thHead">
       <tr class="thHead">
         <th>Images</th>
         <th>Nom de la zone</th>
-        <th>Descriptions </th>
+        <th>Descriptions</th>
         <th>Couts</th>
         <th>Durée</th>
         <th>Statut</th>
@@ -52,25 +85,134 @@
       </tr>
     </tbody>
   </table>
- </div>
+</div>
 
- <!-- Popup -->
- <div class="zone-list">
-   <div class="popup" [class.active]="showPopup">
-     <div class="popup-content">
+<!-- Popup -->
+<div class="zone-list">
+  <div class="popup" [class.active]="showPopup">
+    <div class="popup-content">
+      <h2>Ajouter Zone</h2>
+      <label for="images">Images:</label>
+      <input
+        type="file"
+        id="image"
+        (change)="getFile($event)"
+        accept="image"
+        [(ngModel)]="images"
+        required
+      />
+      <label for="name">Nom:</label>
+      <input
+        type="text"
+        id="name"
+        [(ngModel)]="nom"
+        style="width: 100%"
+        [ngClass]="{
+          'is-valid': isFieldValid('nom'),
+          'is-invalid': !isFieldValid('nom') && isFieldDirty('nom')
+        }"
+        (input)="setFieldDirty('nom')"
+      />
+      <div
+        *ngIf="!isFieldValid('nom') && isFieldDirty('nom')"
+        class="invalid-feedback"
+      >
+        Veuillez saisir un nom d'au moins 2 lettres.
+      </div>
+      <label for="description">Description:</label>
+      <input
+        type="text"
+        id="description"
+        [(ngModel)]="description"
+        style="width: 100%"
+        [ngClass]="{
+          'is-valid': isFieldValid('description'),
+          'is-invalid':
+            !isFieldValid('description') && isFieldDirty('description')
+        }"
+        (input)="setFieldDirty('description')"
+      />
+      <div
+        *ngIf="!isFieldValid('description') && isFieldDirty('description')"
+        class="invalid-feedback"
+      >
+        la description doit dépasser 5 lettres
+      </div>
+      <label for="cout">Tarif:</label>
+      <input
+        type="text"
+        id="cout"
+        [(ngModel)]="Tarif"
+        style="width: 100%"
+        [ngClass]="{
+          'is-valid': isFieldValid('Tarif'),
+          'is-invalid': !isFieldValid('Tarif') && isFieldDirty('Tarif')
+        }"
+        (input)="setFieldDirty('Tarif')"
+      />
+      <div
+        *ngIf="!isFieldValid('Tarif') && isFieldDirty('Tarif')"
+        class="invalid-feedback"
+      >
+        Veuillez renseigner ce champs en FCFA.
+      </div>
+      <label for="duration">Heure:</label>
+      <input
+        type="text"
+        id="duration"
+        [(ngModel)]="duree"
+        style="width: 100%"
+      />
+      <label for="status">État:</label>
+      <select id="status" [(ngModel)]="status" style="width: 100%">
+        <option value="publie">Publié</option>
+        <option value="non-publie">Non publié</option>
+      </select>
+      <label for="action">Action:</label>
+      <select id="action" [(ngModel)]="newZone.action" style="width: 100%">
+        <td>
+          <span id="icon"
+            ><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i
+              class="fa-solid fa-trash"
+            ></i
+          ></span>
+        </td>
+      </select>
+      <button
+        type="submit"
+        class="Enregistre"
+        (click)="saveAndClose(); ajouterZone()"
+        [disabled]="
+          !isFormValid() ||
+          !isFieldValid('nom') ||
+          !isFieldValid('description') ||
+          !isFieldValid('Tarif')
+        "
+      >
+        Ajouter
+      </button>
+      <button (click)="togglePopup()" class="Fermer">Annuler</button>
+    </div>
+  </div>
+</div>
+<!-- modal fin -->
+<!-- Popup  Modification-->
+<!-- <div class="zone-list">
+   <div class="popup" [class.active]="PopupModif">
+     <div class="popup-content" *ngIf="selectedZone">
        <h2>Ajouter Zone</h2>
        <label for="images">Images:</label>
        <input type="file" id="image" (change)="getFile($event)" accept="image" [(ngModel)]="images" required>
        <label for="name">Nom:</label>
-       <input type="text" id="name" [(ngModel)]="nom" style="width: 100%;">
+       <input type="text" id="name" [(ngModel)]="selectedZone.nom" style="width: 100%;">
        <label for="description">Description:</label>
-       <input type="text" id="description" [(ngModel)]="description" style="width: 100%;">
+       <input type="text" id="description" [(ngModel)]="selectedZone.description" style="width: 100%;">
        <label for="cout">Tarif:</label>
-       <input type="text" id="cout" [(ngModel)]="Tarif" style="width: 100%;">
+       <input type="text" id="cout" [(ngModel)]="selectedZone.cout" style="width: 100%;">
        <label for="duration">Heure:</label>
-       <input type="text" id="duration" [(ngModel)]="duree" style="width: 100%;">
+       <input type="text" id="duration" [(ngModel)]="selectedZone.duree" style="width: 100%;">
        <label for="status">État:</label>
-       <select id="status" [(ngModel)]="status" style="width: 100%;">
+       <select id="status" [(ngModel)]="selectedZone.status" style="width: 100%;">
          <option value="publie">Publié</option>
          <option value="non-publie">Non publié</option>
        </select>
@@ -79,14 +221,77 @@
         <td><span id="icon"><i class="fa-solid fa-marker"></i>&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa-solid fa-trash"></i></span>
         </td>
        </select>
-       <button (click)="saveAndClose()" class="Enregistre" (click)="ajouterZone()">Ajouter</button>
-       <button (click)="togglePopup()" class="Fermer">Annuler</button>
+       <button (click)="saveAndCloseModif()" class="Enregistre" (click)="modifierZone()">Modifier</button>
+       <button (click)="togglePopupmodif()" class="Fermer">Annuler</button>
      </div>
    </div>
- </div>
- <!-- modal fin -->
-
-
-
-
-
+ </div> -->
+<!-- modal fin -->
+<!-- Modal de modification-->
+<div
+  class="modal fade"
+  id="exampleModal"
+  tabindex="-1"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modifiction</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="mb-3">
+        <label for="exampleInputImage" class="form-label">Images:</label>
+        <input type="image" class="form-control" id="image" name="image" />
+        <label for="disabledTextInput" class="form-label">Nom:</label>
+        <input
+          type="text"
+          id="disabledTextInput"
+          class="form-control"
+          placeholder="Disabled input"
+        />
+        <label for="disabledTextInput" class="form-label">Description:</label>
+        <input
+          type="text"
+          id="disabledTextInput"
+          class="form-control"
+          placeholder="Disabled input"
+        />
+        <label for="disabledTextInput" class="form-label">Tarif:</label>
+        <input
+          type="text"
+          id="disabledTextInput"
+          class="form-control"
+          placeholder="Disabled input"
+        />
+        <label for="disabledTextInput" class="form-label">Description:</label>
+        <input
+          type="text"
+          id="disabledTextInput"
+          class="form-control"
+          placeholder="Disabled input"
+        />
+        <label for="disabledTextInput" class="form-label">Cout:</label>
+        <input
+          type="text"
+          id="disabledTextInput"
+          class="form-control"
+          placeholder="Disabled input"
+        />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+          Close
+        </button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Button trigger modal -->

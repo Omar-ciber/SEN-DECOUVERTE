@@ -12,7 +12,7 @@ export class ReservationComponent implements OnInit {
 
   constructor(private reservationservice: EffectuerReservationService, private route: Router) { }
   ngOnInit(): void {
-
+ this.allreservation();
  this.userConnecte = JSON.parse(localStorage.getItem('userOnline') || "{}");
   console.log("info locolestorage")
     console.log(this.userConnecte);
@@ -35,14 +35,15 @@ export class ReservationComponent implements OnInit {
 
     }
     this.allreservationForAdmin();
-    this.allreservation();
+
   }
   dataresevationGuide: any;
   dataresevationAdmin: any;
   allreservation(): void {
     this.reservationservice.getReservationsByGuide().subscribe((data) => {
       this.dataresevationGuide = data;
-      console.log("mes reservations", this.dataresevationGuide)
+      console.warn(this.dataresevationGuide);
+      console.log("mes reservationshuuhjkhjkhjkhk", this.dataresevationGuide)
     })
   }
 
@@ -84,14 +85,20 @@ allreservationForAdmin(): void {
 
   }
 
-
-
-
-
    // les variables
   isAdmin: boolean = false;
   isGuide: boolean = false;
   userConnecte: any;
 
-
+  // methode pour changer disponibilte d'un guide
+  DesactiverGuide(): void{
+    this.reservationservice.getIndisponibiliteGuide().subscribe((respons) => {
+      console.log('voir statut bouuuuoooooooopppooo', respons)
+    })
+  }
+  activerGuide(): void{
+    this.reservationservice.getDisponibiliteGuide().subscribe((respons) => {
+      console.log('voir statut stoooooooopppooo', respons)
+    })
+  }
 }

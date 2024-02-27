@@ -36,14 +36,14 @@ export class SidebarComponent implements OnInit{
     }
 
   }
-  ConnexionGuide() {
-    console.log('guide connecter')
-    throw new Error('Method not implemented.');
-  }
-  ConnexionAdmin() {
-    console.log('Admin connecter.');
-    throw new Error('Method not implemented.');
-  }
+  // ConnexionGuide() {
+  //   console.log('guide connecter')
+  //   throw new Error('Method not implemented.');
+  // }
+  // ConnexionAdmin() {
+  //   console.log('Admin connecter.');
+  //   throw new Error('Method not implemented.');
+  // }
 
 
 
@@ -63,6 +63,6 @@ export class SidebarComponent implements OnInit{
     localStorage.removeItem('userOnline');
     localStorage.removeItem('token');
 
-    this.route.navigate(['/login']);
+    this.route.navigate(['/accueil']);
 }
 }

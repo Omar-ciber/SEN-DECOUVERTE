@@ -1,3 +1,5 @@
+import { OnInit } from '@angular/core';
+
 // import { Component } from '@angular/core';
 // import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 // import { ReactiveFormsModule } from '@angular/forms';
@@ -38,12 +40,35 @@
 
 
 import { Component } from '@angular/core';
+import { MessagerieService } from 'src/app/services/messagerie.service';
 
 @Component({
   selector: 'app-contactez-nous',
   templateUrl: './contactez-nous.component.html',
   styleUrls: ['./contactez-nous.component.css']
 })
-export class ContactezNousComponent {
+export class ContactezNousComponent implements OnInit{
+  nom: string = "";
+  email: string = "";
+telephone: string = "";
+contenu: string = "";
+  ngOnInit(): void {
+}
+  constructor(private messagerieservice: MessagerieService) { }
+
+
+  sendMessage(): void{
+    console.log("eee", this.nom)
+    console.log("eee", this.email)
+    const newMessage = {
+      email: this.email,
+      nom: this.nom,
+      telephone: this.telephone,
+      contenu: this.contenu,
+    }
+    this.messagerieservice.postMessageri(newMessage).subscribe((respons) => {
+      console.log("where is the message", respons)
+    })
+  }
 
 }

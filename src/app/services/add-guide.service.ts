@@ -24,5 +24,7 @@ deleteGuide(guideId: any): Observable<any> {
   }
   guideParZone(ZoneId: any): Observable<any> {
     return this.http.get<any>(`${baseUrl}/listerGuidesParZone/${ZoneId}`,{});
- } 
+  }
+
+  
 }

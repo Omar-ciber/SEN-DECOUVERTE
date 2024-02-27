@@ -20,13 +20,13 @@ export class EffectuerReservationService {
     }
   /**fonction lister reservation pour guides */
     getReservationsByGuide(): Observable<any> {
-    return this.http.get<any>(`${baseUrl}/listerReservationsParGuide`, {});
+    return this.http.get<any>(`${baseUrl}/listerReservationsParGuide`,);
     }
 
    /**fonction lister reservation pour admin */
-    getReservationsByAdmin(): Observable<any> {
-    return this.http.get<any>(`${baseUrl}/listerReservationsParGuide`, {});
-    }
+    // getReservationsByAdmin(): Observable<any> {
+    // return this.http.get<any>(`${baseUrl}/reservations`,);
+    // }
 
   // Faire une reservation
 //     postreservation(reservation: any): Observable<any> {
@@ -44,12 +44,12 @@ export class EffectuerReservationService {
  }
   // statut pour disponibiliter
  getDisponibiliteGuide(): Observable<any> {
-    return this.http.get<any>(`${baseUrl}/ChangerStatutGuideEn_Dispo`, {});
+    return this.http.get<any>(`${baseUrl}/ChangerStatutGuideEn_Dispo`);
  }
 
   // statut nondisponible
    getIndisponibiliteGuide(): Observable<any> {
-    return this.http.get<any>(`${baseUrl}/ChangerStatutGuideEn_Nodispo`, {});
+    return this.http.get<any>(`${baseUrl}/ChangerStatutGuideEn_NoDispo`);
  }
 
 }
