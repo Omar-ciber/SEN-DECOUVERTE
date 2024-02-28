@@ -21,16 +21,16 @@ export class DetailsComponent implements OnInit {
   email: string = "";
   telephone: string = "";
   nombre_de_personnes: string = "";
-  guide: string = "";
+  name: string = "";
   // zone! :this.zoneDetail.nom;
-   zone :any;
+   nom :any;
   date_debut: string = "";
   date_fin: string = "";
-  id:any;
+  // nom:any;
 
   constructor(private reservationService: EffectuerReservationService,private route:ActivatedRoute,private zoneService: ZoneService,private  guideService:AddGuideService) {}
   ngOnInit(): void {
-    this.id = localStorage.getItem('idZone')
+    this.nom = localStorage.getItem('idZone')
     this.listeGuideParZone();
      // recuperer une zone
     this.route.params.subscribe((params) => {
@@ -47,8 +47,8 @@ export class DetailsComponent implements OnInit {
   // variable pour stocker guie disponible
   guidedispo: any;
   listeGuideParZone() {
-    console.log('je suis id', this.id);
-    this.guideService.guideParZone(this.id).subscribe(
+    console.log('je suis id', this.nom);
+    this.guideService.guideParZone(this.nom).subscribe(
       (response: any) => {
         this.tabZoneGuide = response;
         console.log('guide de la zone', this.tabZoneGuide);
@@ -66,7 +66,7 @@ export class DetailsComponent implements OnInit {
 
   Test() {
     // Validation des champs obligatoires
-    if (!this.Nom || !this.email || !this.telephone || !this.nombre_de_personnes || !this.guide ||  !this.date_debut || !this.date_fin) {
+    if (!this.Nom || !this.email || !this.telephone || !this.nombre_de_personnes || !this.name ||  !this.date_debut || !this.date_fin) {
       Swal.fire({
         title: "Erreur",
         text: "Veuillez remplir tous les champs SVP!!",
@@ -91,8 +91,8 @@ export class DetailsComponent implements OnInit {
       email: this.email,
       telephone: this.telephone,
       nombre_de_personnes: this.nombre_de_personnes,
-      guide: this.guide,
-      zone: this.id,
+      guide: this.name,
+      zone: this.nom,
       date_debut: this.date_debut,
       date_fin: this.date_fin
     }
@@ -117,8 +117,8 @@ export class DetailsComponent implements OnInit {
         this.email = "";
         this.telephone = "";
         this.nombre_de_personnes = "";
-        this.guide = "";
-        this.zone = "";
+        this.name = "";
+        this.nom = "";
         this.date_debut = "";
         this.date_fin = "";
       },

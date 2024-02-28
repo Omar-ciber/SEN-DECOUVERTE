@@ -19,6 +19,7 @@ import { AddGuideComponent } from './Administrateur/guide/add-guide/add-guide.co
 import { MessagerieComponent } from './Administrateur/messagerie/messagerie.component';
 import { ReservationComponent } from './Administrateur/reservation/reservation.component';
 import { adminGuard } from './guard/admin.guard';
+import { ProfilComponent } from './auths/profil/profil.component';
 // import { AdminGuard } from './guard/admin.guard';
 // import { ListeZoneComponent } from './Administrateur/Zone/liste-zone/liste-zone.component';
 const routes: Routes = [
@@ -40,7 +41,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'add-guide', component: AddGuideComponent,  canActivate:[adminGuard] },
   {path:'messagerie',component:MessagerieComponent},
-  {path:'reservation',component:ReservationComponent,  canActivate:[adminGuard]}
+  { path: 'reservation', component: ReservationComponent, canActivate: [adminGuard] },
+  {path :'profil',component:ProfilComponent},
 
 ];
 

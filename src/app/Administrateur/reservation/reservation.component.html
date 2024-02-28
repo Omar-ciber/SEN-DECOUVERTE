@@ -1,4 +1,3 @@
-
 <app-navbar></app-navbar>
 <app-sidebar></app-sidebar>
 <!-- <p>reservation works!</p> -->
@@ -6,12 +5,16 @@
   <h1>Gestion des reservations</h1>
 </div>
 <div class="disponible">
-  <button type="button" class="Disponibletn" (click)="activerGuide()">Disponible</button>
-  <button type="button" class="indisponible" (click)="DesactiverGuide()">Indisponible</button>
+  <button type="button" class="Disponibletn" (click)="activerGuide()">
+    Disponible
+  </button>
+  <button type="button" class="indisponible" (click)="DesactiverGuide()">
+    Indisponible
+  </button>
 </div>
 
 <table class="table" *ngIf="!isAdmin">
-  <thead class="sousTitreL" >
+  <thead class="sousTitreL">
     <tr>
       <!-- <th scope="col">image</th> -->
       <th scope="col">Nom et Prénom</th>
@@ -23,18 +26,22 @@
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor=" let elementGuide of dataresevationGuide">
+    <tr *ngFor="let elementGuide of dataresevationGuide">
       <!-- <th scope="row" >1</th> -->
-      <td> {{elementGuide.Nom}}</td>
-      <td> {{elementGuide.zone}} </td>
-      <td> Du {{elementGuide.date_debut
-            }} Au {{elementGuide.date_fin
-            }} </td>
-      <td>{{elementGuide.telephone}}</td>
+      <td>{{ elementGuide.Nom }}</td>
+      <td>{{ elementGuide.zone }}</td>
+      <td>Du {{ elementGuide.date_debut }} Au {{ elementGuide.date_fin }}</td>
+      <td>{{ elementGuide.telephone }}</td>
       <div class="boutonAction d-flex">
-        <td>{{elementGuide.validation}} </td> &nbsp;&nbsp;
+        <td>{{ elementGuide.validation }}</td>
+        &nbsp;&nbsp;
       </div>
-      <td> <a (click)="accepterReservation(elementGuide.id)"> <i class="fa-solid fa-check "style="cursor: pointer;"></i></a></td> &nbsp;&nbsp;
+      <td>
+        <a (click)="accepterReservation(elementGuide.id)">
+          <i class="fa-solid fa-check" style="cursor: pointer"></i
+        ></a>
+      </td>
+      &nbsp;&nbsp;
     </tr>
   </tbody>
 </table>
@@ -48,20 +55,18 @@
       <th scope="col">Moi</th>
       <th scope="col">Telephone</th>
       <th scope="col">Etat</th>
+      <th scope="col">Guide</th>
     </tr>
   </thead>
   <tbody>
-    <tr *ngFor=" let element of dataresevationAdmin">
+    <tr *ngFor="let element of dataresevationAdmin">
       <!-- <th scope="row" >1</th> -->
-      <td> {{element.Nom}}</td>
-      <td> {{element.zone}} </td>
-      <td> Du {{element.date_debut
-            }} Au {{element.date_fin
-            }} </td>
-      <td>{{element.telephone}}</td>
-      <div class="boutonAction d-flex">
-        <td>{{element.validation}} </td> &nbsp;&nbsp;
-      </div>
+      <td>{{ element.Nom }}</td>
+      <td>{{ element.zones_touristiques.nom }}</td>
+      <td>Du {{ element.date_debut }} Au {{ element.date_fin }}</td>
+      <td>{{ element.telephone }}</td>
+      <td>{{ element.validation }}</td>
+      <td>{{ element.guider.name }}</td>
     </tr>
   </tbody>
 </table>

@@ -41,6 +41,7 @@ import { OnInit } from '@angular/core';
 
 import { Component } from '@angular/core';
 import { MessagerieService } from 'src/app/services/messagerie.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-contactez-nous',
@@ -68,6 +69,16 @@ contenu: string = "";
     }
     this.messagerieservice.postMessageri(newMessage).subscribe((respons) => {
       console.log("where is the message", respons)
+    })
+     Swal.fire({
+      title: 'Êtes-vous sûr ?',
+      text: 'Vous ne pourrez pas revenir en arrière après cette action!',
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#2ecc70',
+      cancelButtonColor: '#001F3F',
+      confirmButtonText: 'Oui, accepter!',
+  
     })
   }
 

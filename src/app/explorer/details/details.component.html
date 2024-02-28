@@ -46,10 +46,8 @@
                   </p>
                   <h4 class="card-title">{{item.name}}</h4>
                   <h4 class="card-title">{{item.email}}</h4>
-                  <h4 class="card-title">experience:{{item.duree_experience
-}}</h4>
-                  <a href="https://www.fiverr.com/share/qb8D02" class="btn btn-primary btn-sm"><i
-                      class="fa fa-plus"></i></a>
+                  <h4 class="card-title">experience:{{item.duree_experience}}</h4>
+
                 </div>
               </div>
             </div>
@@ -58,28 +56,6 @@
                 <div class="card-body text-center mt-4">
                   <h4 class="card-title">{{item.name}}</h4>
                   <p class="card-text">{{item.description}}</p>
-                  <!-- <ul class="list-inline">
-                    <li class="list-inline-item">
-                      <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                        <i class="fa fa-facebook"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                        <i class="fa fa-twitter"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                        <i class="fa fa-skype"></i>
-                      </a>
-                    </li>
-                    <li class="list-inline-item">
-                      <a class="social-icon text-xs-center" target="_blank" href="https://www.fiverr.com/share/qb8D02">
-                        <i class="fa fa-google"></i>
-                      </a>
-                    </li>
-                  </ul> -->
                 </div>
               </div>
             </div>
@@ -113,7 +89,7 @@
     </div>
     <div class="person-selector">
     <label for="guide">Choisissez votre guide:</label>
-    <select name="guide" class="form-control omar" [(ngModel)]="guide">
+    <select name="guide" class="form-control omar" [(ngModel)]="name">
       <!-- Utilisation de *ngFor pour boucler à travers le tableau tabZone et générer les options -->
       <option *ngFor="let elt of tabZoneGuide" [value]="elt.id">{{ elt.name }}</option>
     </select>
@@ -126,7 +102,7 @@
     </div>
     <div class="VotreZone">
       <label for="">Zone:</label>
-      <input type="text"  [value]="zoneDetail.nom" disabled="disabled"  name="zone" [(ngModel)]="zoneDetail.id">
+      <input type="text"  [value]="zoneDetail.nom" disabled="disabled"  name="zone" [(ngModel)]="zoneDetail.nom">
 
     </div>
   </div>

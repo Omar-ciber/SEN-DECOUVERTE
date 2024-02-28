@@ -13,7 +13,7 @@ margin-top: 70px;
   text-align: center;
 }
 .card {
-  width: 100%;
+  /* width: 100%; */
   background-color: #ec971f;
   border-radius: 20px;
   box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
@@ -26,9 +26,7 @@ margin-top: 70px;
   color: white;
   margin-top: 20px;
 }
-.cardExplo{
-  padding: 50px;
-}
+
 .card-textP{
   text-align: center;
   margin-top: 20px;
@@ -36,10 +34,10 @@ margin-top: 70px;
 }
 .single-explore-item{
   box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
-  max-width: 650px; ;
+  max-width: 700px;
   max-height: 650px;
   min-height: 650px;
-  /* border: 2px solid red; */
+
 
 
 }

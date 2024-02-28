@@ -284,4 +284,6 @@ togglePasswordVisibility() {
   retourAccueil() {
     this.router.navigate(['/accueil']);
   }
+  // deconnexion
+  
 }

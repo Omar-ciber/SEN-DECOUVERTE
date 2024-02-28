@@ -43,7 +43,7 @@ export class ReservationComponent implements OnInit {
     this.reservationservice.getReservationsByGuide().subscribe((data) => {
       this.dataresevationGuide = data;
       console.warn(this.dataresevationGuide);
-      console.log("mes reservationshuuhjkhjkhjkhk", this.dataresevationGuide)
+      console.log("mes reservations : ", this.dataresevationGuide)
     })
   }
 
@@ -57,8 +57,8 @@ allreservationForAdmin(): void {
 
 
   // /*fonction pour accepter une publicité/
-  accepterReservation(id: number) {
-    let idReserve = id;
+  accepterReservation(nom: number) {
+    let idReserve = nom;
     Swal.fire({
       title: 'Êtes-vous sûr?',
       text: 'Vous ne pourrez pas revenir en arrière après cette action!',

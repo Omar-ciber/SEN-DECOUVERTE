@@ -14,7 +14,7 @@ export class SidebarComponent implements OnInit{
   constructor(private route: Router){}
   ngOnInit(): void {
     this.userConnecte = JSON.parse(localStorage.getItem('userOnline') || "{}");
-    console.log("info locolestorage")
+   console.log("info locolestorage")
     console.log(this.userConnecte);
 
     console.log("info de l'utisateur connecter")
@@ -58,6 +58,8 @@ export class SidebarComponent implements OnInit{
     this.isGuide = true;
     this.isAdmin = false;
   }
+
+
 //  fonction pour deconnection
   logout(): void {
     localStorage.removeItem('userOnline');
