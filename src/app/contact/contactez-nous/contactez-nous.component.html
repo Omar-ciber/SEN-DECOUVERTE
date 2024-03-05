@@ -1,51 +1,121 @@
 <!-- formulaire de contact -->
 <app-header-component></app-header-component>
 <div class="bannercontact">
-  <img src="" alt="">
+  <img src="" alt="" />
 </div>
-<div class="card mb-3 container mt-5  ">
-  <form class="row g-0 formulaire">
+<div class="card mb-3 container mt-5">
+  <form class="row g-0 formulaire" (ngSubmit)="sendMessage()" #form="ngForm">
     <div class="col-md-5 image">
-      <img src="https://img.freepik.com/photos-gratuite/femme-parlant-au-telephone-gros-plan_23-2148336843.jpg?size=626&ext=jpg&ga=GA1.2.1437972313.1694467442&semt=ais" class="img-fluid" alt="...">
+      <img
+        src="https://img.freepik.com/photos-gratuite/femme-parlant-au-telephone-gros-plan_23-2148336843.jpg?size=626&ext=jpg&ga=GA1.2.1437972313.1694467442&semt=ais"
+        class="img-fluid"
+        alt="..."
+      />
     </div>
-    <div class="col-md-7 ">
+    <div class="col-md-7">
       <div class="card-body">
         <h2 class="card-titleContact">Contatez - nous</h2>
         <div class="mb-3 nomprenom">
-          <label for="exampleInputEmail1" class="form-label text-light">Nom et Prenom</label><br>
-          <input type="text" placeholder="Nom" class="mb-3 me-3" name="nom" [(ngModel)]="nom">
+          <label for="nom" class="form-label text-light">Nom et Prenom</label
+          ><br />
+          <input
+            type="text"
+            placeholder="Nom"
+            class="mb-3 me-3"
+            name="nom"
+            [(ngModel)]="nom"
+            required
+            pattern="[a-zA-ZàâçéèêëîïôûùüÿñæœÀÂÇÉÈÊËÎÏÔÛÙÜŸÑÆŒ\s\-]{3,}"
+          />
+          <div
+            *ngIf="
+              form.controls['nom'].hasError('pattern') &&
+              !form.controls['nom'].pristine
+            "
+            class="text-danger"
+          >
+            Le nom doit contenir au moins 3 lettres et ne doit pas contenir de
+            chiffres ni de caractères spéciaux.
+          </div>
         </div>
         <div class="mb-3 nomprenom">
-            <label for="exampleInputEmail1" class="form-label text-light">Email address</label>
-            <input type="email" class="form-control" placeholder="Adresse mail" id="exampleInputEmail1" aria-describedby="emailHelp" name="email" [(ngModel)]="email">
-            <label for="exampleInputTelepne" class="form-label text-light">Telephone</label><br>
-          <input type="tel" placeholder="Téléphone" class="mb-3 " id="exampleInputName" name="telephone" [(ngModel)]="telephone">
+       <label for="email" class="form-label text-light">Email address</label>
+       <input type="email" class="form-control" placeholder="Adresse mail" id="email" name="email" [(ngModel)]="email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}">
+       <div *ngIf="form.controls['email'].hasError('pattern') && !form.controls['email'].pristine" class="text-danger">
+          Veuillez entrer une adresse email valide (exemple@domaine.com).
+       </div>
+     </div>
+        <div class="mb-3 nomprenom">
+          <label for="telephone" class="form-label text-light">Telephone</label
+          ><br />
+          <input
+            type="tel"
+            placeholder="Téléphone"
+            class="mb-3"
+            id="telephone"
+            name="telephone"
+            [(ngModel)]="telephone"
+            required pattern="[0-9]{12,}"
+          />
+          <div
+            *ngIf="
+              form.controls['telephone'].hasError('pattern') &&
+              !form.controls['telephone'].pristine
+            "
+            class="text-danger"
+          >
+            Le numéro de téléphone doit contenir maximum 9 chiffres(ex:22177*******)
+          </div>
         </div>
-        <div class="gmessage ">
-          <label for="exampleInputMessage" class="form-label text-light">Message</label><br>
-          <textarea name="contenu" id="" cols="43" rows="3" placeholder="Message" class="message" [(ngModel)]="contenu"></textarea>
+        <div class="gmessage">
+          <label for="contenu" class="form-label text-light">Message</label
+          ><br />
+          <textarea
+            name="contenu"
+            id="contenu"
+            cols="43"
+            rows="3"
+            placeholder="Message"
+            class="message"
+            [(ngModel)]="contenu"
+            required
+          ></textarea>
+          <div
+            *ngIf="
+              form.controls['contenu'].hasError('required') &&
+              !form.controls['contenu'].pristine
+            "
+            class="text-danger"
+          >
+            Le champ Message est obligatoire.
+          </div>
         </div>
         <div class="bton">
-          <button type="submit" class="bg-danger w-5 btn"   (click)="sendMessage()">Envoyer</button>
+          <button
+            type="submit"
+            class="bg-danger w-5 btn"
+            [disabled]="!form.valid"
+          >
+            Envoyer
+          </button>
         </div>
       </div>
     </div>
-            <div class="contact">
-              <div class="tel ">
-                <!-- <i class="bi bi-telephone text-light"></i> -->
-                <p class="text-light">+221 77 322 04 68</p>
-                <p class="text-light">+221 77 131 81 03</p>
-              </div>
-              <div class="email">
-                <i class="bi bi-envelope-fill"></i>
-                <p class="text-light">sendecouvert@gmail.com</p>
-              </div>
-              <div class="localisation">
-                <i class="bi bi-geo-alt-fill"></i>
-                <p class="text-light">Dakar, Sénégal</p>
-              </div>
-            </div>
-            </form>
-            </div>
-
-            <app-footer></app-footer>
+    <div class="contact">
+      <div class="tel">
+        <!-- <i class="bi bi-telephone text-light"></i> -->
+        <p class="text-light">+221 77 322 04 68</p>
+        <p class="text-light">+221 77 131 81 03</p>
+      </div>
+      <div class="email">
+        <i class="bi bi-envelope-fill"></i>
+        <p class="text-light">sendecouvert@gmail.com</p>
+      </div>
+      <div class="localisation">
+        <i class="bi bi-geo-alt-fill"></i>
+        <p class="text-light">Dakar, Sénégal</p>
+      </div>
+    </div>
+  </form>
+</div>
+<app-footer></app-footer>

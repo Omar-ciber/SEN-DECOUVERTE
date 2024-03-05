@@ -76,9 +76,9 @@ allreservationForAdmin(): void {
             'success',
             'Supprimé!',
             'Demande acceptée avec succès'
-          );
+            );
+            this.allreservation();
 
-          this.allreservation();
         })
       }
     })

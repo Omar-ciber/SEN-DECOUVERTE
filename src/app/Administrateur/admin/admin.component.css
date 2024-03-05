@@ -58,3 +58,7 @@
 .counter-box.colored .counter {
   color: #909090
 }
+/* pour mon le graphique */
+#chart{
+  margin-top: 30px;
+}

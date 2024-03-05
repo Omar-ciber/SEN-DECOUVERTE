@@ -1,73 +1,88 @@
 <!-- header -->
 <app-header-component></app-header-component>
 <div class="bannierEX">
-  <img src="assets/images/Banner-explo.png" alt="" height="50">
+  <img src="assets/images/Banner-explo.png" alt="" height="50" />
 </div>
-  <!-- explorer.component.html -->
+<!-- explorer.component.html -->
 
-             <section id="explore" class="explore">
-              <div class="container">
-                <div class="section-header">
-                  <h2>explore</h2>
-                  <p>Explorez de nouveaux lieux, de la nourriture, de la culture à travers le Sénégal et bien d'autres</p>
-                </div>
-                <div class="explore-content">
-                  <div class="row">
-                    <div class=" col-md-4 col-sm-6" *ngFor="let zone of tabZonePublie">
-                      <div class="single-explore-item">
-                        <div class="single-explore-img">
-                          <img src="http://127.0.0.1:8000/storage/{{zone.images}}"  alt="explore image">
-                          <div class="single-explore-img-info">
-                            <button onclick="window.location.href='#'">Le Mieux Noté</button>
-                            <div class="single-explore-image-icon-box">
-                              <ul>
-                                <li>
-                                  <div class="single-explore-image-icon">
-                                    <i class="fa fa-arrows-alt"></i>
-                                  </div>
-                                </li>
-                                <li>
-                                  <div class="single-explore-image-icon">
-                                    <i class="fa fa-bookmark-o"></i>
-                                  </div>
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="single-explore-txt bg-theme-1">
-                          <h2>{{zone.nom}}</h2>
-                          <p class="explore-rating-price">
-                            <span class="explore-rating">5.0</span>
-                            <a href="#"> 10 évaluations</a>
-                            <span class="explore-price-box">
-                            {{zone.cout}}
-                              <span class="explore-price">{{zone.duree}}</span>
-                            </span>
-                          </p>
-                          <p>{{zone.description}}</p>
-                          <div class="explore-open-close-part">
-                            <div class="row">
-                              <div class="col-sm-5">
-                                <button type="button" class="btn btn-warning" [routerLink] ="['/detailZone',zone.id]" (click)="getAnnonce(zone)">Détails</button>
-                              </div>
-                              <div class="col-sm-7">
-                                <div class="explore-map-icon">
-                                  <a href="#"><i data-feather="map-pin"></i></a>
-                                  <a href="#"><i data-feather="upload"></i></a>
-                                  <a href="#"><i data-feather="heart"></i></a>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
+<section id="explore" class="explore">
+  <div class="container">
+    <div class="section-header">
+      <h2>explore</h2>
+      <p>
+        Explorez de nouveaux lieux, de la nourriture, de la culture à travers le
+        Sénégal et bien d'autres
+      </p>
+    </div>
+    <div class="explore">
+      <div class="row1">
+        <div class="col-md-6" *ngFor="let zone of tabZonePublie">
+          <div class="single-explore-item">
+            <div class="single-explore-img">
+              <img
+                src="http://127.0.0.1:8000/storage/{{ zone.images }}"
+                alt="explore image"
+              />
+              <div class="single-explore-img-info">
+                <button onclick="window.location.href='#'">
+                  Le Mieux Noté
+                </button>
+                <div class="single-explore-image-icon-box">
+                  <ul>
+                    <li>
+                      <div class="single-explore-image-icon">
+                        <i class="fa fa-arrows-alt"></i>
                       </div>
-                    </div>
+                    </li>
+                    <li>
+                      <div class="single-explore-image-icon">
+                        <i class="fa fa-bookmark-o"></i>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="single-explore-txt bg-theme-1">
+              <h2>{{ zone.nom }}</h2>
+              <p class="explore-rating-price">
+                <span class="explore-rating">5.0</span>
+                <a href="#"> 10 évaluations</a>
+                <span class="explore-price-box">
+                  {{ zone.cout }}
+                  <span class="explore-price">{{ zone.duree }}</span>
+                </span>
+              </p>
+              <p>{{ zone.description }}</p>
+              <div class="explore-open-close-part">
+                <div class="row">
+                  <div class="col-sm-5">
+                    <button
+                      type="button"
+                      class="btn btn-warning"
+                      [routerLink]="['/detailZone', zone.id]"
+                      (click)="getAnnonce(zone)"
+                    >
+                      Détails
+                    </button>
+                  </div>
+                  <div class="col-sm-7">
+                    <div class="explore-map-icon">
+                      <a href="#"><i data-feather="map-pin"></i></a>
+                      <a href="#"><i data-feather="upload"></i></a>
+                      <a href="#"><i data-feather="heart"></i></a>
                     </div>
                   </div>
                 </div>
-            </section>
-            <div class="paginationExp">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- <div class="paginationExp">
               <nav aria-label="Page navigation example">
                 <ul class="pagination  ">
                   <li class="page-item ">
@@ -87,8 +102,6 @@
                   </li>
                 </ul>
               </nav>
-            </div>
+            </div> -->
 <!-- footer explorer -->
 <app-footer></app-footer>
-
-

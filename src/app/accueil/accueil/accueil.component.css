@@ -80,16 +80,16 @@ body {
   text-decoration: none;
 }
 
-.single-blog-item{
-  /* border: 1px solid red; */
-  max-width: 500px;
-  min-width: 400px;
-  max-width: 300px;
+.single-item {
+  border: 1px solid white;
+ max-height: 600px;
+ box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 
   }
+
     .single-blog-item h2,h4,p {
       text-decoration: none;
-    }
+}
 
 
 

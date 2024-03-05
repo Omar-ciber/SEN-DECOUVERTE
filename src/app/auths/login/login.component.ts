@@ -13,6 +13,7 @@ export class LoginComponent {
   state: boolean = false;
   color1: string = "#102770";
   color2: string = "black";
+form: any;
   constructor(private auth: ConnexionService, private route: Router) {}
 
   formData: any = {
@@ -285,5 +286,5 @@ togglePasswordVisibility() {
     this.router.navigate(['/accueil']);
   }
   // deconnexion
-  
+
 }

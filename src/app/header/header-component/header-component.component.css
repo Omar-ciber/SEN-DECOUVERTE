@@ -1,12 +1,15 @@
-.headerLogo img{
+/* .headerLogo img{
   height: 50px;
   margin-top: -32px;
+
+} */
+.monLog img{
+    width: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-left: 20px;
   /* border: 3px solid red; */
 
-}
-.monLog img{
-  height: 20px;
-  
 }
 
 .header-area{
